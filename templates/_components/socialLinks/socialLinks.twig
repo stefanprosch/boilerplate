@@ -1,0 +1,52 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-socialLinks',
+    variant: 'lg',
+    label: null,
+    networks: ['facebook', 'instagram', 'spotify', 'twitter', 'linkedin', 'youtube', 'vimeo'],
+  },
+  classes: {
+    root: 'flex flex-row items-center space-x-4',
+    custom: '',
+  },
+  variants: {
+    sm: 'w-4 h-4',
+    md: 'w-6 h-6',
+    lg: 'w-8 h-8',
+    xl: 'w-12 h-12',
+    '2xl': 'w-32 h-32',
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
+} %}
+
+<div class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+  {# { craft.socialurls.getSocialfollow() } #}
+  {% set socialNetworks = contact.globalsSocialMedia %}
+  {% set networks = props.data.networks %}
+
+  <span class="inline-flex btn btn--link btn--noHover">
+   #schlossmittersill
+  </span>
+
+  {% for socialNetwork in socialNetworks %}
+    {% if socialNetwork.channel|lower in networks or opt.networks == 'all' %}
+      <a class="fill-sm-grey {{ props.variants[props.data.variant] }} hover:fill-white"
+         href="{{ socialNetwork.url }}" target="_blank">
+                {{ svg('@webroot/dist/images/svg/brand/' ~ socialNetwork.channel|lower ~ '.svg')
+                | attr({
+                  class: 'w-full h-full'
+                }) }}
+        {% if props.data.label %}
+          <div class="{{ props.data.name ~ '__label' }}">{{ socialNetwork.channel|lower }}</div>
+        {% endif %}
+      </a>
+    {% endif %}
+  {% endfor %}
+</div>

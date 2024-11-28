@@ -1,0 +1,70 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-button',
+    variantStyle: 'primary',
+    variantSize: 'md',
+    icon: null,
+    iconSize: 'sm',
+    text: null,
+    url: null,
+    buttonType: 'button',
+    reverse: false,
+    target: null,
+    enlargeClickArea: false,
+  },
+  classes: {
+    root: 'a11y-keyboard-focus items-center btn',
+    custom: '',
+    display: 'inline-flex',
+    rounded: 'rounded-md',
+    enlargeClickArea: 'enlarge-click-area'
+  },
+  variants: {
+    style: {
+      primary: 'btn--primary',
+      secondary: 'btn--secondary',
+      outlined: 'btn--outlined',
+      link: 'btn--link',
+      overflowNav: 'text-gray-900 border-b-2 border-b-transparent hover:border-b-gray-900 !rounded-none',
+    },
+    size: {
+      sm: 'btn--sm',
+      md: 'btn--md',
+      lg: 'btn--lg',
+      overflowNav: 'py-1 gap-3 text-xs',
+    }
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
+} %}
+
+{% if props.data.text or props.data.icon %}
+  {% set tag = props.data.url ? 'a' : 'button' %}
+  {% set attr = props.data.url ? 'href=' ~ props.data.url : 'type=' ~ props.data.buttonType %}
+
+  <{{ tag }} {{ attr }} {{ props.data.url and props.data.target ? 'target=' ~ props.data.target : '' }}
+      class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.rounded }} {{ props.classes.display }} {{ props.variants.style[props.data.variantStyle] }}  {{ props.variants.size[props.data.variantSize] }} {{ props.classes.custom }} {{ props.data.enlargeClickArea ? props.classes.enlargeClickArea : '' }}">
+
+  {# >>> If icon exists #}
+  {% if props.data.icon or props.data.variantStyle == 'link' %}
+    {# >>> Render icon  #}
+    {{ include('_components/icon/icon.twig', {
+      data: {
+        icon: props.data.icon ??? 'link-right',
+        fill: 'solid',
+        variantSize: props.data.iconSize
+      },
+      classes: {
+        custom: (props.data.reverse ? 'order-2' : '')
+      }
+    }, withContext = false) }}
+  {% endif %}
+    {{ props.data.text ??? null }}
+  </{{ tag }}>
+{% endif %}

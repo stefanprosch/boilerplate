@@ -1,0 +1,9 @@
+[
+  {"value": "white", "label": "White", "default": "yes"},
+  {"value": "black", "label": "Black"},
+  {"value": "grey", "label": "Grey"},
+  {"value": "grey-dark", "label": "Dark Grey"},
+  {"value": "bordeaux", "label": "Bordeaux"},
+  {"value": "rosa", "label": "Altrosa"},
+  {"value": "orange", "label": "Orange"}
+]

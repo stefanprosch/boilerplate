@@ -1,0 +1,78 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-blockTextHeadlineCopy',
+    block: null,
+  },
+  classes: {
+    root: 'container grid grid-cols-12 gap-4 md:gap-8',
+    custom: '',
+  },
+  variants: {
+    lg: {
+      tag: 'h2',
+      title: 'text-h2',
+      text: 'text-xs/loose md:text-base/loose text-sm-greydark',
+    },
+    md: {
+      tag: 'h3',
+      title: 'text-2xl md:text-4xl',
+      text: 'mt-4 text-xs md:text-small text-sm-greydark',
+    },
+    sm: {
+      tag: 'h4',
+      title: 'text-lg',
+      text: 'mt-4 text-small text-sm-greydark',
+    }
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
+} %}
+
+<div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+    {# Headline #}
+    {% if props.data.block.textTitle ??? null %}
+      <{{ props.variants[props.data.block.variantSize.value].tag }}
+        class="{{ props.variants[props.data.block.variantSize.value].title }} col-span-12 col-start-1 md:col-span-8 md:col-start-3">
+        {{ props.data.block.textTitle ??? null }}
+      </{{ props.variants[props.data.block.variantSize.value].tag }}>
+    {% endif %}
+
+    {% if props.data.block.textDescription ??? null %}
+      {# Line #}
+      <div class="col-span-2 col-start-1 md:col-span-2 md:col-start-3 {{ props.classes.custom }}  leading-loose flex items-center h-6 md:h-10">
+        <hr class="w-full h-[1px] bg-sm-orange border-0"/>
+      </div>
+
+      {# Text #}
+      <div class="{{ props.variants[props.data.block.variantSize.value].text }} col-span-10 col-start-3 md:col-span-6 md:col-start-5">
+        {{ include('_components/text/richText.twig', {
+          data: {
+            html: props.data.block.textDescription ??? null
+          },
+          classes: {
+            custom: ''
+          }
+        }, withContext = false) }}
+      </div>
+    {% endif %}
+
+    {# Link #}
+    {% if props.data.block.textLink ??? null %}
+      <div class="col-span-10 col-start-3 md:col-span-6 md:col-start-5">
+      {{ include('_components/button/button.twig', {
+        data: {
+          url: props.data.block.textLink.url,
+          text: props.data.block.textLink.text ? 'translate.component.button.textMore' | t,
+          variantStyle: 'link',
+          variantSize: 'md'
+        }
+      }, withContext = false) }}
+      </div>
+    {% endif %}
+</div>

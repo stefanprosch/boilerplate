@@ -1,0 +1,123 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-cardEntry',
+    variantDirection: 'col',
+    item: null,
+    aspectRatio: 'aspect-square',
+    lazy: true,
+  },
+  classes: {
+    root: 'overflow-hidden group',
+    custom: '',
+  },
+  variants: {
+    direction: {
+      col: {
+        root: 'flex flex-col',
+        image: '',
+        body: 'inline-flex flex-col h-full mx-4 px-4 md:px-8 py-4 md:py-8 bg-white -mt-8',
+        button: 'mt-4 md:mt-8',
+      },
+      row: {
+        root: 'flex flex-col md:grid md:grid-cols-3',
+        image: 'md:h-full md:col-span-1',
+        body: 'px-4 md:px-8 py-4 md:py-8 md:col-span-2',
+        button: 'mt-4 md:mt-8',
+      }
+    }
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
+} %}
+
+{# Modul #}
+{% if props.data.item %}
+  <div class="{{ props.data.name }} {{ props.classes.root }} {{ props.variants.direction[props.data.variantDirection].root }} {{ props.classes.custom }}">
+    <div class="{{ props.variants.direction[props.data.variantDirection].image }}">
+      {{ include('_components/image/image.twig', {
+        data: {
+          image: props.data.item.assetEntryImage.one() ??? null,
+          aspectRatio: props.data.aspectRatio ??? null,
+          objectFit: 'cover',
+          renderPlainImage: true,
+          lazy: props.data.lazy,
+        },
+        classes: {
+          custom: 'hasOverlay'
+        }
+      }, withContext = false) }}
+    </div>
+    <div class="{{ props.variants.direction[props.data.variantDirection].body }}">
+
+      <div>
+        {# Headline #}
+        {% set headline = props.data.item.textCustomTitle ??? props.data.item.title ??? null %}
+        {% if headline %}
+          <div class="text-leading">{{ headline }}</div>
+          {# Line #}
+          <div class="w-1/4 leading-loose flex items-center h-10">
+            <hr class="w-full h-[1px] bg-sm-orange border-0"/>
+          </div>
+        {% endif %}
+
+        {# Text #}
+        {% set text = props.data.item.textEntryDescription ??? null %}
+        {% if text %}
+          <div class="text-small text-sm-greydark">
+            {% if props.data.item.type == "entryOffer" %}
+              {{ text | raw }}
+            {% else %}
+              {{ text | striptags | truncate(160) }}
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+
+      <div class="flex flex-col items-start space-y-4 mt-4">
+        {# Link #}
+        {% if props.data.item.url or props.data.item.linkBookingSystem %}
+          {{ include('_components/button/button.twig', {
+            data: {
+              url: props.data.item.linkBookingSystem.url ??? props.data.item.url,
+              text: 'translate.component.button.textMore' | t,
+              variantStyle: 'link',
+              variantSize: 'md'
+            }
+          }, withContext = false) }}
+        {% endif %}
+
+        {# Accommodation #}
+        {% if props.data.item.type == "entryAccommodation" or props.data.item.type == "entryOffer" %}
+          <div class="flex flex-row space-x-2">
+            {% if props.data.item.linkOffer ??? null %}
+              {{ include('_components/button/button.twig', {
+                data: {
+                  url: props.data.item.linkOffer.url ??? null,
+                  text: 'translate.component.button.request' | t,
+                  variantStyle: 'secondary',
+                  variantSize: 'md'
+                }
+              }, withContext = false) }}
+            {% endif %}
+            {% if props.data.item.linkBooking ??? null %}
+              {{ include('_components/button/button.twig', {
+                data: {
+                  url: props.data.item.linkBooking.url ??? null,
+                  text: 'translate.component.button.book' | t,
+                  variantStyle: 'primary',
+                  variantSize: 'md'
+                }
+              }, withContext = false) }}
+            {% endif %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endif %}

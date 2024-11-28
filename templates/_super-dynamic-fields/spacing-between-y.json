@@ -1,0 +1,8 @@
+[
+  {"value": "default", "label": "Default", "default": "yes"},
+  {"value": "sm", "label": "Small"},
+  {"value": "md", "label": "Medium"},
+  {"value": "lg", "label": "Large"},
+  {"value": "xl", "label": "XLarge"},
+  {"value": "2xl", "label": "XXLarge"}
+]

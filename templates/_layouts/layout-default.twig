@@ -1,0 +1,38 @@
+{% extends "_boilerplate/_layouts/layout-base.twig" %}
+
+{# >>> Render favicons #}
+{% block blockHeadFavicons %}
+  {{ include("_layouts/_partials/favicons/favicons-default.twig", {}, withContext = true) }}
+{% endblock %}
+
+{# >>> Render block head fonts #}
+{% block blockHeadFonts %}
+  {{ include("_layouts/_partials/fonts/fonts-default-preloading.twig", {}, withContext = true) }}
+{% endblock %}
+
+{# >>> Render block app body #}
+{% block blockAppBody %}
+  {# Todo: Preloader #}
+
+  <div id="appWrapper" class="">
+    {# Todo: Eager Loading #}
+
+
+    {# >>> Render app header #}
+    {{ include("_components/header/header.twig", {}, withContext = false) }}
+
+    <main id="appContent">
+      <div id="smooth-wrapper">
+        <div id="smooth-content">
+          {# >>> Render block app content #}
+          {% block blockAppContent %}
+
+          {% endblock %}
+
+          {# >>> Render app fooeter #}
+          {{ include("_components/footer/footer.twig", {}, withContext = false) }}
+        </div>
+      </div>
+    </main>
+  </div>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "_layouts/layout-default.twig" %}
+{% set templatePath = _self ??? '' %}
+
+{% block blockAppContent %}
+  {% cache %}
+    {# >>> Render page header #}
+    {{ include('_components/pageHead/pageHead.twig', {
+      data: {
+        object: entry,
+        text: entry.textCustomTitle ??? entry.title ??? null,
+        variant: 'default',
+        tag: 'h1',
+      },
+      classes : {
+        custom: 'js-section js-primary'
+      }
+    }, withContext = false) }}
+
+    {# >>> Render page intro #}
+    {{ include('_components/pageHead/pageIntroDefault.twig', {
+      data: {
+        object: entry,
+        headline: entry.textCustomSubtitle ??? null,
+        text: entry.textEntryDescription ??? null,
+      },
+      classes: {
+        custom: 'js-section py-16 md:py-32'
+      }
+    }, withContext = false) }}
+
+    {{ include('_builders/_builderContent.twig', {
+      data: {
+        builderContent: entry.builderContent.eagerly() ??? null,
+      }
+    }, withContext = false) }}
+
+  <div class="space-y-16 md:space-y-32">
+    {% set relatedEntryIds = entry is defined
+      ? entry.entryList.ids()
+      : [] %}
+    {% endcache %}
+
+    {{ sprig('_components-sprig/paginateEntries', {
+      'relatedEntryIds': relatedEntryIds,
+    }) }}
+
+    {% cache %}
+      {# >>> Render Inklusivleistungen #}
+      {{ include('_components/list/definitionList.twig', {
+        data: {
+          object: globalService.globalsService.all() ??? null,
+          headline: globalService.textCustomTitle ??? null,
+          text: globalService.textEntryDescription ??? null
+        },
+        classes: {
+          custom: ''
+        }
+      }, withContext = false) }}
+
+      {# >>> Render FAQs #}
+      {{ include('_components/accordion/faq.twig', {
+        data: {
+          object: globalFaq.globalsFaq.all() ??? null,
+          headline: globalFaq.textCustomTitle ??? null,
+          text: globalFaq.textEntryDescription ??? null,
+          firstOpen: false
+        },
+        classes: {
+          custom: ''
+        }
+      }, withContext = false) }}
+      {# ToDo: Teaser #}
+      <div>ToDo: Teaser</div>
+    {% endcache %}
+  </div>
+{% endblock %}

@@ -1,0 +1,525 @@
+dateModified: 1731920639
+elementSources:
+  craft\elements\Asset:
+    -
+      key: 'volume:6c5fc0dd-cf56-48d8-8af8-88abe763b970' # Files
+      type: native
+    -
+      disabled: false
+      key: 'volume:f1b38495-8096-48fa-9b78-0da345e3295c' # Images
+      tableAttributes:
+        - filename
+        - size
+        - dateModified
+        - uploader
+        - link
+        - imageSize
+      type: native
+    -
+      disabled: false
+      key: 'volume:77c74b5c-6bbb-41a7-b166-c6b158a3cc7f' # Template Images
+      tableAttributes:
+        - filename
+        - size
+        - dateModified
+        - uploader
+        - link
+        - imageSize
+      type: native
+    -
+      key: 'volume:8dda1580-81a2-49f5-9dd2-ed1e2eb03fc6' # Users
+      type: native
+    -
+      key: 'folder:c8e15363-b103-4fd2-b6e4-097752fa2cef'
+      type: native
+email:
+  fromEmail: $SYSTEM_MAIL
+  fromName: $SITE_NAME
+  replyToEmail: $REPLY_MAIL
+  template: null
+  transportSettings:
+    command: ''
+  transportType: craft\mail\transportadapters\Sendmail
+fs:
+  files:
+    hasUrls: true
+    name: Files
+    settings:
+      path: '@webroot/assets/files'
+    type: craft\fs\Local
+    url: '@assetsUrl/files/'
+  images:
+    hasUrls: true
+    name: Images
+    settings:
+      path: '@webroot/assets/images'
+    type: craft\fs\Local
+    url: '@assetsUrl/images/'
+  templateImages:
+    hasUrls: true
+    name: 'Template Images'
+    settings:
+      path: '@webroot/assets/templateImages'
+    type: craft\fs\Local
+    url: '@assetsUrl/templateImages/'
+  transforms:
+    hasUrls: true
+    name: Transforms
+    settings:
+      path: '@webroot/assets/transforms'
+    type: craft\fs\Local
+    url: '@assetsUrl/transforms/'
+  users:
+    hasUrls: true
+    name: Users
+    settings:
+      path: '@webroot/assets/users'
+    type: craft\fs\Local
+    url: '@assetsUrl/users/'
+meta:
+  __names__:
+    0a7dd988-f4db-40b7-8112-6f6fc7c4fb54: 'Builder: Content - Text : Floating Image - Text' # Builder: Content - Text : Floating Image - Text
+    0a686d89-8754-4f00-a79e-fed75548909d: 'Builder: Content - Image Slider - Images' # Builder: Content - Image Slider - Images
+    0a21612a-b6c9-4a2d-adfb-a6f5e03a6670: 'Text: Headline and Copy' # Text: Headline and Copy
+    0dc851b0-a289-4c50-be8d-0c055b270ee8: 'Asset: Entry Image' # Asset: Entry Image
+    1a64748f-2870-4c18-a869-f2b050ede5ba: 'Builder: Content - Image Slider - Image Transform' # Builder: Content - Image Slider - Image Transform
+    1b37c439-5a32-4e8f-8019-7f6a94593419: 'Builder: Content - Spacer - Spacer Variant' # Builder: Content - Spacer - Spacer Variant
+    1be86da8-5273-40c6-ba88-718f5c32a6c3: 'Builder: Content - Image - Image Width' # Builder: Content - Image - Image Width
+    1c94bbf7-46b0-46e4-a699-b4eef42994a0: 'Text: Rich Text Simple' # Text: Rich Text Simple
+    1d9ee487-0926-40d4-9fd3-4a0e8a474bd1: Entries # Entries
+    2a6654f0-db2a-4746-b0d2-aaf73b99828b: 'Tabs Content' # Tabs Content
+    2aae9c28-b1ff-4318-985b-ec58dbf11c8b: 'Builder: Content - Teaser - Link List' # Builder: Content - Teaser - Link List
+    2bc1feee-cfc8-48ee-bace-f101e7f41ac9: Default # Default
+    2f642060-4792-41cb-a427-083aabeba231: 'Content Builder' # Content Builder
+    3ac3bfdf-e50b-46e3-abb9-cef4bffab4a0: 'Builder: Content - Video Youtube - Autoplay' # Builder: Content - Video Youtube - Autoplay
+    3e51d964-333c-4128-bc14-fe56ffb18bf7: 'Footer: Subnavigation Right' # Footer: Subnavigation Right
+    4a25e574-679a-4d01-8e8b-d5927129ce33: 'Builder: Content - Video Youtube - Loop' # Builder: Content - Video Youtube - Loop
+    4df8fc82-775f-4b53-9b7b-92a43c4f24f2: 'Builder: Content - Teaser - Headline' # Builder: Content - Teaser - Headline
+    4e2c2892-9731-484c-8f4c-653ff0bd2fb5: 'List: Content' # List: Content
+    5a2733fd-f9c9-447a-ab50-f6cf075cdf31: 'Meta Page' # Meta Page
+    5c9f2ce6-f780-4ea6-a50c-539a252aec94: Images # Images
+    5d0f7961-203c-4008-a55a-6a7d35e7a37a: Home # Home
+    5e02a17a-8b77-4ec9-ae39-2b5f364479bb: Contact # Contact
+    5e3658eb-94e7-4c44-a674-1b1d1c917c28: 'Fragen und Antworten' # Fragen und Antworten
+    6a37cdda-0540-4c3a-b7c5-e318bfcc81ca: 'Builder: Content - Content Slider - Content' # Builder: Content - Content Slider - Content
+    6a90dae3-938c-47e6-8e36-6b1d6be92d63: 'Builder: Content - Text : Floating Image - Show Image Caption' # Builder: Content - Text : Floating Image - Show Image Caption
+    6c5fc0dd-cf56-48d8-8af8-88abe763b970: Files # Files
+    6caf79b8-4dc6-4f02-a347-3786d5c6cc38: 'Slider: Item' # Slider: Item
+    6d94dcc4-6ec1-45b4-8c86-e53cee842b11: 'Overview News' # Overview News
+    6dcb496a-cd73-4661-929e-4b9c226a1fa9: Notification # Notification
+    6f4a3e01-23de-4313-8109-00a430317d11: 'Rich Text Default' # Rich Text Default
+    7b3b13e0-e20d-4d51-b0ae-832300f45234: Text # Text
+    7b23a4a8-a6f8-43c4-b12c-326d089176ad: 'Video Youtube' # Video Youtube
+    7c8efcc0-cc6c-4b2f-beea-0415447bbbfd: 'Zimmer & Suiten' # Zimmer & Suiten
+    7eb1a718-0679-4fda-b656-9bfdf55a2025: 'Navigation Main' # Navigation Main
+    7f86db78-4123-429b-9fb8-e4a88fcbd6e1: 'Footer: Subnavigation Left' # Footer: Subnavigation Left
+    08c0e4d2-5f27-4d8d-8263-e347aa9fb4d7: 'Builder: Content - Entries' # Builder: Content - Entries
+    8ced5be5-13b2-483f-8db9-aab9757aad21: Error # Error
+    8d272b11-c1b4-4fc3-95c8-9d94fa513795: 'Text: Link' # Text: Link
+    8dda1580-81a2-49f5-9dd2-ed1e2eb03fc6: Users # Users
+    9a1fd2b9-e5f9-49ff-9508-6d852a37c957: Angebote # Angebote
+    9a8fffce-3c28-4326-8f7a-e31d2f6cc04b: 'Builder: Content - Section - Section Background Color' # Builder: Content - Section - Section Background Color
+    9b0f2718-07f3-4577-9fec-20385cba4c33: 'Image Slider' # Image Slider
+    9b73b533-898f-4f77-a500-37ea0be0afc7: 'Builder: Content - Image - Show Image Caption' # Builder: Content - Image - Show Image Caption
+    9c37a878-61ea-4ec5-b8b9-3cd5d7347865: 'Channel Slider' # Channel Slider
+    9cb7ea0d-8dd4-4298-ac6c-ab6c0efbe6ba: 'Builder: Content - Code - Snippet Name' # Builder: Content - Code - Snippet Name
+    9f7c46cf-d2fd-4aff-b605-76d2127e9368: Contact # Contact
+    22e31646-062f-4716-80a4-65d8b847f960: Form # Form
+    24d502b6-138d-4fdb-8e5e-8d4e63fe22ae: 'Builder: Content - Teaser - Alignment' # Builder: Content - Teaser - Alignment
+    27d4852b-c3b3-43a9-a66c-f7e6ed0d575e: 'Social Media Channels' # Social Media Channels
+    34c48f87-e4f0-4c33-aac4-73de400425f7: 'Contact: E-Mail' # Contact: E-Mail
+    35b67fb3-4bdb-470f-a686-3d46c5cd5f96: 'Builder: Content - Image - Image' # Builder: Content - Image - Image
+    53f0660a-f06b-4b2d-b342-1869c5c65538: 'Builder: Content - Quote - Quote' # Builder: Content - Quote - Quote
+    63a9edc5-a898-4a38-97ae-a3c99c55960b: 'Builder: Content - Images - View Mode' # Builder: Content - Images - View Mode
+    63e3914d-ee70-44c2-9dc3-91551f47c54f: 'Text: Rich Text Default' # Text: Rich Text Default
+    064e0909-6cf7-49c2-902e-2285a3e2d272: 'Schloss Mittersill Formular' # Schloss Mittersill Formular
+    70bc887b-faf2-45c7-b4bc-4299acd343da: 'Builder: Content - Image - Image Transform' # Builder: Content - Image - Image Transform
+    74b87138-1475-47c2-a9dd-63baa78dd5f5: 'Builder: Content - Section - Space Between Blocks' # Builder: Content - Section - Space Between Blocks
+    74eb36ae-7a26-4e7d-b454-990ec52617f0: 'Builder: Content' # Builder: Content
+    75b6f580-613f-42ae-aa23-2d5fb22ff3da: 'Builder: Content - Quote - Source Subline' # Builder: Content - Quote - Source Subline
+    77c74b5c-6bbb-41a7-b166-c6b158a3cc7f: 'Template Images' # Template Images
+    81d0ea50-f7e1-4eff-8138-2a06ffbfae86: Home # Home
+    086e5f88-4606-4710-ad45-e432b74a0341: 'Builder: Content - Teaser - Text' # Builder: Content - Teaser - Text
+    88b9b7ce-7801-44c4-850b-440b1be83699: 'Builder: Content - Teaser - Entry' # Builder: Content - Teaser - Entry
+    98f7a455-6764-4b7d-8d19-405bdcc42228: 'Builder: Content - Text : Floating Image - Image Transform' # Builder: Content - Text : Floating Image - Image Transform
+    210de09a-f6c8-42dd-b4d6-c1c00e7d0b82: 'Builder: Content - Text : Floating Image - Image Position' # Builder: Content - Text : Floating Image - Image Position
+    390dfb96-0657-4e32-bf05-00d843ea2db9: New # New
+    419ebfbb-8723-48db-ae89-10adf52cdf11: 'Text: Source' # Text: Source
+    474eea59-1e53-4059-a0fd-c67e9e73d327: 'Footer: Metanavigation' # Footer: Metanavigation
+    485f0e1d-ef6b-4035-8a72-8fc0c4ca553a: 'Asset: Alt Text' # Asset: Alt Text
+    624ea061-dabc-494c-98c8-58594eba15a6: Adresse # Adresse
+    666a9d6c-9efa-4b2c-afd0-7bc8bcbf8cd9: 'Accommodation: Facilities' # Accommodation: Facilities
+    785b41ed-8ac9-4f3f-8c78-b7000c2da469: Inklusivleistungen # Inklusivleistungen
+    843a913c-15cf-42e0-a196-20fc5a8d0513: 'Builder: Content - Content Tabs - Content' # Builder: Content - Content Tabs - Content
+    920b5ca4-1a02-44cf-b446-04e45e404f9b: English # English
+    1509cbec-547c-4338-bcc8-a5452ab8c801: 'Builder: Content - Image Gallery - Images' # Builder: Content - Image Gallery - Images
+    1516a801-6243-468d-b8e2-479085458faa: 'Text: Custom Title' # Text: Custom Title
+    3497ad65-5e4c-43cb-b469-c3e4b3d80343: 'Text : Floating Image' # Text : Floating Image
+    3547e7b4-f3fb-4cf4-9d29-9f12dfa94594: News # News
+    5173c2fb-22a4-490d-9483-74a188822386: 'Builder: Content - Entries - View Mode' # Builder: Content - Entries - View Mode
+    5584da3b-6337-4070-a4ac-be20f00eda76: 'Teaser: Image' # Teaser: Image
+    8153a2df-373f-4aac-9a92-d52292c9f1aa: Baukasten # Baukasten
+    8780cb03-c9ea-4482-ab85-3e541453b50f: 'Text: Source Url' # Text: Source Url
+    9005a655-4d9f-46b4-8c33-aadba34b6112: 'Social Sharing Facebook' # Social Sharing Facebook
+    11321d11-18b3-4870-b5e4-e4a66aef4481: 'Overview Offers' # Overview Offers
+    34632b45-4c7b-4e6b-bdd3-449a64b5cd05: Karriere # Karriere
+    45510f13-91d2-479f-9ff2-68dd09ab6643: 'Text: Entry Description' # Text: Entry Description
+    68109da0-245f-4b21-b040-b7f4385e618e: 'Builder: Content - Video Youtube - Video Width' # Builder: Content - Video Youtube - Video Width
+    68256f75-da63-4dab-bcc1-fc890f40c2f6: 'Text: Link Group' # Text: Link Group
+    75195ab8-b7c4-4dca-b807-ef8a042ef5a9: 'Builder: Content - Image Grid - Images' # Builder: Content - Image Grid - Images
+    89272b00-6f81-47f7-9335-4367edcac941: 'Builder: Content - Image Grid Calculated - Images' # Builder: Content - Image Grid Calculated - Images
+    92963d20-e763-4d2e-a367-9e543dfde522: Spacer # Spacer
+    295738c1-951d-4b8c-b5cd-83d71a85d7e8: Image # Image
+    446499d7-1230-4192-84e8-311f1d755aa0: Angebot # Angebot
+    0528527a-c400-4aeb-8d16-b5fea2a082f6: 'Builder: Content - Image Grid Calculated - Show Image Caption' # Builder: Content - Image Grid Calculated - Show Image Caption
+    644167c0-ab2a-4f9d-9b2b-09f5a6556ef3: 'Public Schema' # Public Schema
+    8084749f-eb17-4a45-ab26-e97ba0e1d9de: Adress # Adress
+    52047370-4e69-4c79-aa7d-73a027f9f31f: FAQs # FAQs
+    62883121-63a2-4e5c-a6f3-4855cf64df2c: 'Builder: Content - Image Grid - Image Transform' # Builder: Content - Image Grid - Image Transform
+    a95011a6-74f9-4d14-a587-572a43c642fc: 'Builder: Content - Content Slider - Channel' # Builder: Content - Content Slider - Channel
+    aa1837ad-1908-46aa-b5ae-f01150addcec: 'Landing Page' # Landing Page
+    aa7883a4-2cce-4316-85f3-ec6ea59402ec: 'Builder: Content - Section - Section Padding Vertical' # Builder: Content - Section - Section Padding Vertical
+    aac37142-e533-49aa-8665-b8cc6360e98b: 'Asset: Caption' # Asset: Caption
+    ac520e18-3bb9-4771-9e3d-2eaea8b7ca0b: 'Channel: Select' # Channel: Select
+    adc52bb0-f3d1-48c9-afd8-9fe077f17ed9: 'Accommodation: Type' # Accommodation: Type
+    b01030f4-e108-4605-b235-9d024148470d: 'Overview Accommodation' # Overview Accommodation
+    b0207f48-be48-49ab-a759-1ff51f232df3: Pages # Pages
+    b3a90095-2af8-4c53-a0dd-6e7d9f80d628: 'Image Gallery' # Image Gallery
+    b3e61970-31dd-4309-b339-80d2bdd0b786: 'Definition List' # Definition List
+    b4e2ccae-bc05-4b02-a9d9-50111985be64: Images # Images
+    b7ba1ea8-f9d4-4709-b6e2-cfd524dc27a9: 'Accordeon: Channel' # Accordeon: Channel
+    b81cb731-dd6f-4055-9c6d-2f076a727a27: 'Builder: Content - Text : Floating Image - Image' # Builder: Content - Text : Floating Image - Image
+    b3022ef5-7f1b-49d7-976d-5d5be501c1f1: Section # Section
+    b77696b8-7875-400d-a2a2-2156504864f0: 'Builder: Content - Images - View Mode' # Builder: Content - Images - View Mode
+    ba2398c6-332b-40f8-b2c9-eaf9c02c0bba: Accommodation # Accommodation
+    bab5d71c-5419-4867-b7ad-61ad6c7e0c51: 'FAQ Page' # FAQ Page
+    be2e7784-2696-4ab4-b908-f92381235f97: 'Contact: Phone' # Contact: Phone
+    be45c3e2-5e9f-491e-a000-94d95c4fa20b: 'Builder: Content - Code - Snippet' # Builder: Content - Code - Snippet
+    bee57ddb-9611-4b39-b28a-5c211ceab1d8: 'Builder: Content - Form' # Builder: Content - Form
+    bf4d9b7f-6e1a-4d10-862f-c3cbaef495c3: 'Text: Variant Size' # Text: Variant Size
+    c7be9c2c-ebd9-4cbc-90c5-8b926b8b478d: Magazin # Magazin
+    c8c460d8-5e42-4a45-ad3d-97780ace4374: 'Definition List' # Definition List
+    c9c29140-6e7b-472b-9933-84e7a6c2f7dc: 'Builder: Content - Notification - Text' # Builder: Content - Notification - Text
+    c40b8b5e-0ccb-4d0d-9eee-bd24ac9209b0: 'Builder: Content - Quote - Source' # Builder: Content - Quote - Source
+    c41b5ba1-36a0-423c-8964-eba764df614c: 'Builder: Content - Teaser - Image' # Builder: Content - Teaser - Image
+    c743f00e-d278-44ad-b2c2-ffb7e434cf3e: 'Tabs: Content' # Tabs: Content
+    ceb5ac8c-9030-412b-b860-1b59e2f346c2: 'Contact: E-Mail' # Contact: E-Mail
+    cf5b11e3-a6d6-430f-991f-9b78f9e4dd7f: 'Builder: Content - Code - Snippet collapsed' # Builder: Content - Code - Snippet collapsed
+    d4b943e4-885f-469f-b45b-38df58a66eb3: 'Builder: Content - Faq - Display' # Builder: Content - Faq - Display
+    d4cabad1-1cae-4a1e-a914-c38d9f1a813a: 'Builder: Content - Text - Text' # Builder: Content - Text - Text
+    d29e8520-ab62-4c8f-bda2-61868797c1ca: 'SEO: SEOmatic' # SEO: SEOmatic
+    da086ad5-4309-4b01-8796-d52bf2c3700c: 'Social Media Channels' # Social Media Channels
+    def127bb-603d-4215-915f-2f22196dfd8d: 'Slider: Content' # Slider: Content
+    df1d53fb-d9ed-4066-93e5-a46aac3f458e: 'Builder: Content - Image Grid - Image Columns' # Builder: Content - Image Grid - Image Columns
+    e0e9e510-46ff-45aa-aa46-700b325bb911: 'Builder: Content - Image Grid - Show Image Caption' # Builder: Content - Image Grid - Show Image Caption
+    e099410d-0476-4ebb-9c0f-9f7290d5589d: 'Builder: Content - Section - Anchor' # Builder: Content - Section - Anchor
+    e3c7bdf5-9e45-4977-ba11-1e2c4b57644e: Divider # Divider
+    e8b10d27-be46-4108-9bf5-3a8711280165: 'Rich Text Simple' # Rich Text Simple
+    e11e03f7-19c1-45c3-935e-1994a7ce7d26: 'Builder: Content - Quote - Source Url' # Builder: Content - Quote - Source Url
+    e168be79-95a7-41f5-86b7-284d282e3baf: 'Builder: Content - Image - Position Image Caption' # Builder: Content - Image - Position Image Caption
+    e5172a18-ed16-4229-89ca-fc0dc776597a: 'Error Pages' # Error Pages
+    e9486b85-fd5e-40c8-851b-a6b0133e1f88: 'Builder: Content - Video Youtube - Video Id' # Builder: Content - Video Youtube - Video Id
+    edce675c-a7e5-40e3-bff5-8ec2f77a08cd: 'Image Grid Calculated' # Image Grid Calculated
+    ee27a5c8-9991-4576-92fe-25f198a7e8e0: 'Contact: Phone' # Contact: Phone
+    f084e099-613d-4405-b600-f4be12d3509b: 'Builder: Content - Divider - Divider Variant' # Builder: Content - Divider - Divider Variant
+    f1b38495-8096-48fa-9b78-0da345e3295c: Images # Images
+    f3e1a215-a60f-4d6a-8897-e1a80a40c6cd: Code # Code
+    f33c3d82-b3a4-4daa-9c95-86907d927de5: 'Tabbed Content' # Tabbed Content
+    f41b0d6d-701f-490d-9d2c-804ce5ffc415: 'Slider: Channel' # Slider: Channel
+    f897c34e-108c-4637-ba90-9ad0a4c6ac35: 'Category: Magazin' # Category: Magazin
+    f4959e03-fec0-4b1c-887e-5301a5f66742: 'Social Sharing Twitter' # Social Sharing Twitter
+    fa02ff5a-1741-4417-8c8f-b72b954dd4fd: Quote # Quote
+    fb701216-3e80-4e6d-99d4-2e5f70561e22: 'News Detail' # News Detail
+plugins:
+  blitz:
+    edition: standard
+    enabled: true
+    licenseKey: $PLUGIN_BLITZ
+    schemaVersion: 5.9.0
+    settings:
+      integrations:
+        - putyourlightson\blitz\drivers\integrations\CommerceIntegration
+  blur-hash:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  ckeditor:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0.0
+  codefield:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  cp-clearcache:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  cp-css:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+    settings:
+      additionalCss: ''
+      cssFile: /dist/css/controlPanelCss.css
+  cp-field-inspect:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  dumper:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  elements-panel:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  empty-coalesce:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  formie:
+    edition: standard
+    enabled: true
+    licenseKey: $PLUGIN_FORMIE
+    schemaVersion: 3.4.6
+    settings:
+      ajaxTimeout: 10
+      captchas:
+        __assoc__:
+          -
+            - recaptcha
+            -
+              __assoc__:
+                -
+                  - type
+                  - verbb\formie\integrations\captchas\Recaptcha
+                -
+                  - enabled
+                  - false
+                -
+                  - settings
+                  -
+                    __assoc__:
+                      -
+                        - handle
+                        - recaptcha
+                      -
+                        - secretKey
+                        - ''
+                      -
+                        - siteKey
+                        - ''
+                      -
+                        - type
+                        - v3
+                      -
+                        - size
+                        - normal
+                      -
+                        - theme
+                        - light
+                      -
+                        - badge
+                        - bottomright
+                      -
+                        - language
+                        - en
+                      -
+                        - minScore
+                        - '0.5'
+          -
+            - duplicate
+            -
+              __assoc__:
+                -
+                  - type
+                  - verbb\formie\integrations\captchas\Duplicate
+                -
+                  - enabled
+                  - true
+                -
+                  - settings
+                  -
+                    __assoc__:
+                      -
+                        - handle
+                        - duplicate
+          -
+            - honeypot
+            -
+              __assoc__:
+                -
+                  - type
+                  - verbb\formie\integrations\captchas\Honeypot
+                -
+                  - enabled
+                  - true
+                -
+                  - settings
+                  -
+                    __assoc__:
+                      -
+                        - handle
+                        - honeypot
+          -
+            - javascript
+            -
+              __assoc__:
+                -
+                  - type
+                  - verbb\formie\integrations\captchas\Javascript
+                -
+                  - enabled
+                  - true
+                -
+                  - settings
+                  -
+                    __assoc__:
+                      -
+                        - handle
+                        - javascript
+                      -
+                        - minTime
+                        - '10'
+      defaultDateDisplayType: ''
+      defaultDateTime: ''
+      defaultDateValueOption: ''
+      defaultEmailTemplate: ''
+      defaultFileUploadVolume: ''
+      defaultFormTemplate: ''
+      defaultInstructionsPosition: below-input
+      defaultLabelPosition: above-input
+      defaultPage: forms
+      enableCsrfValidationForGuests: true
+      enableGatsbyCompatibility: false
+      enableUnloadWarning: true
+      maxIncompleteSubmissionAge: 30
+      maxSentNotificationsAge: 30
+      pluginName: Formie
+      saveSpam: true
+      sendEmailAlerts: false
+      sentNotifications: true
+      spamBehaviour: showSuccess
+      spamBehaviourMessage: ''
+      spamEmailNotifications: false
+      spamKeywords: ''
+      spamLimit: 1000
+      useQueueForIntegrations: true
+      useQueueForNotifications: true
+  hyper:
+    edition: standard
+    enabled: true
+    licenseKey: $PLUGIN_HYPER
+    schemaVersion: 1.0.0
+  image-resizer:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+  imager-x:
+    edition: pro
+    enabled: true
+    licenseKey: $PLUGIN_IMAGERX
+    schemaVersion: 4.0.0
+  matrixmate:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  minify:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+  navigation:
+    edition: standard
+    enabled: true
+    licenseKey: $PLUGIN_NAVIGATION
+    schemaVersion: 2.1.0
+  seomatic:
+    edition: standard
+    enabled: true
+    licenseKey: $PLUGIN_SEOMATIC
+    schemaVersion: 3.0.12
+    settings:
+      addHrefLang: true
+      addPaginatedHreflang: true
+      addXDefaultHrefLang: true
+      cpTitlePrefix: '⚙ '
+      cspNonce: ''
+      cspScriptSrcPolicies:
+        -
+          __assoc__:
+            -
+              - policy
+              - '''self'''
+      devModeCpTitlePrefix: '&#x1f6a7;⚙ '
+      devModeTitlePrefix: '&#x1f6a7; '
+      displayAnalysisSidebar: true
+      displayPreviewSidebar: true
+      enableJsonLdEndpoint: false
+      enableMetaContainerEndpoint: false
+      enableSeoFileLinkEndpoint: false
+      environment: local
+      generatorEnabled: true
+      headersEnabled: true
+      includeHomepageInBreadcrumbs: true
+      lowercaseCanonicalUrl: '1'
+      manuallySetEnvironment: false
+      maxDescriptionLength: 155
+      maxTitleLength: 70
+      metaCacheDuration: 'null'
+      pluginName: SEOmatic
+      regenerateSitemapsAutomatically: true
+      renderEnabled: true
+      separatorChar: '|'
+      sidebarDisplayPreviewTypes:
+        - google
+        - twitter
+        - facebook
+      siteGroupsSeparate: '1'
+      siteUrlOverride: ''
+      sitemapsEnabled: true
+      socialMediaPreviewTarget: true
+      submitSitemaps: true
+      truncateDescriptionTags: '1'
+      truncateTitleTags: '1'
+  sherlock:
+    edition: lite
+    enabled: true
+    schemaVersion: 4.5.0
+    settings:
+      maxScans: false
+      strictTransportSecurity:
+        canFail: true
+        threshold: 15552000
+  sprig:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.1
+  super-dynamic-fields:
+    edition: standard
+    enabled: true
+    licenseKey: HWHCIWN81OICEM6JJHFF7TQF
+    schemaVersion: 5.0.1
+  super-table:
+    edition: standard
+    enabled: true
+    schemaVersion: 3.0.0
+  vite:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+system:
+  edition: pro
+  live: true
+  name: Baukasten
+  retryDuration: null
+  schemaVersion: 5.5.0.0
+  timeZone: Europe/Berlin
+users:
+  allowPublicRegistration: false
+  deactivateByDefault: false
+  defaultGroup: ''
+  photoSubpath: '{username}'
+  photoVolumeUid: 8dda1580-81a2-49f5-9dd2-ed1e2eb03fc6 # Users
+  requireEmailVerification: true
+  validateOnPublicRegistration: false

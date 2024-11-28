@@ -1,0 +1,40 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-blockNotification',
+    block: null,
+  },
+  classes: {
+    root: 'container grid grid-cols-12 gap-4 md:gap-8',
+    custom: '',
+  },
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{% if props.data.block.textDescription ??? null %}
+  <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+    <div class="col-span-8 md:col-span-6 col-start-2 md:col-start-4 text-sm-bordeaux rounded-lg border-sm-bordeaux border-[1px] p-4 md:p-8">
+      {{ include('_components/text/plainText.twig', {
+        data: {
+          text: props.data.block.textTitle | striptags ??? null
+        },
+        classes: {
+          custom: 'text-sm/normal font-bold uppercase !mt-0 mb-2'
+        }
+      }, withContext = false) }}
+      {{ include('_components/text/richText.twig', {
+        data: {
+          html: props.data.block.textDescription ??? null,
+        },
+        classes: {
+          custom: 'text-xs/loose'
+        }
+      }, withContext = false) }}
+    </div>
+  </div>
+{% endif %}

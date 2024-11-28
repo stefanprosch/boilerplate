@@ -1,0 +1,16 @@
+columnSuffix: null
+handle: sectionPaddingVertical
+instructions: null
+name: 'Builder: Content - Section - Section Padding Vertical'
+searchable: false
+settings:
+  cachedOptions: true
+  customOptions: false
+  element: null
+  genError: ''
+  json: ''
+  template: _super-dynamic-fields/spacing-padding-vertical.json
+  templateData: ''
+translationKeyFormat: null
+translationMethod: none
+type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField

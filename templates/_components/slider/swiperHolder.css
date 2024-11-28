@@ -1,0 +1,71 @@
+/* Smooth on load */
+.swiper {
+  @apply pb-2 opacity-0 transition duration-500;
+}
+
+.swiper-wrapper {
+  @apply !h-auto;
+}
+
+.swiper-slide:not(:first-child) {
+  @apply hidden;
+}
+
+/* Destroyed Swiper */
+.swiper-is-destroyed {
+  @apply opacity-100;
+}
+
+.swiper-is-destroyed .swiper-wrapper {
+  @apply grid grid-cols-3 gap-6 gap-y-8;
+  transform: translate3d(0, 0, 0) !important;
+}
+
+.swiper-is-destroyed .swiper-slide {
+  @apply !block;
+}
+
+.swiper.swiper-is-ready {
+  @apply opacity-100;
+}
+
+.swiper-is-ready .swiper-slide:not(:first-child) {
+  @apply block;
+}
+
+/* Scrollbar 100% width */
+.swiper-scrollbar {
+  @apply inset-x-0 bottom-0 w-full !important;
+  @apply bg-gray-100 !important;
+}
+
+.swiper-scrollbar-drag {
+  @apply bg-primary-500 !important;
+}
+
+/* Custom prev / next */
+.swiper-button-prev,
+.swiper-button-next {
+  @apply !hidden !bg-white/20 !bg-no-repeat !p-2.5 !text-sm-orange md:!flex transition-all;
+  @apply w-24 h-24 rotate-45 origin-center -translate-y-1/2 shadow-[0_0_20px_0_rgba(0,0,0,0.1)] flex justify-center items-center;
+
+  &.swiper-button-disabled {
+    @apply !hidden;
+  }
+
+  &:hover {
+    @apply !bg-white;
+  }
+}
+
+.swiper-button-prev {
+  @apply md:!-translate-x-[200%];
+}
+.swiper-button-next {
+  @apply md:!translate-x-full;
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  @apply hidden;
+}

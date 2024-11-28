@@ -1,0 +1,20 @@
+.c-navigationSub {
+
+}
+
+.c-navigationSub__list {
+  @apply mx-auto w-auto;
+
+  &[data-level="1"] {
+    @apply flex flex-row items-center space-x-2 lg:space-x-4 flex-nowrap;
+  }
+
+  &[data-cols] {
+    @apply grid gap-x-32;
+  }
+}
+
+.c-navigationSub__listItem {
+  @apply w-auto inline-block;
+  line-height: 1 !important;
+}

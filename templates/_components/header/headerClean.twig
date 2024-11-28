@@ -1,0 +1,48 @@
+{# Set Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-header',
+    url: siteUrl,
+    logoSize: 'lg',
+    name: getenv('SITE_NAME'),
+  },
+  classes: {
+    root: 'fixed top-0 left-0 right-0 bg-transparent z-10 js-header',
+    custom: '',
+    container: 'container relative py-8 flex items-center justify-start md:justify-center z-10',
+    homeLink: 'flex items-center',
+    utilities: 'fixed top-8 right-8 flex flex-row items-center space-x-4 z-10',
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+<header class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+  <div class=" {{ props.classes.container }}">
+    {# Navigation #}
+    {# Logo #}
+    <a href="{{ props.data.url }}" class="{{ props.classes.homeLink }}">
+      {{ include('_components/logo/logo.twig', {
+        data: {
+          variantSize: props.data.logoSize ??? 'md'
+        },
+      }, withContext = false) }}
+    </a>
+  </div>
+</header>
+
+<nav class="{{ props.data.name }} {{ props.classes.utilities }}">
+  {{ include('_components/button/button.twig', {
+    data: {
+      url: entry.textLink.url ??? null,
+      text: entry.textLink.text ??? null,
+      variantStyle: 'primary',
+      variantSize: 'lg'
+    }
+  }, withContext = false) }}
+</nav>
+

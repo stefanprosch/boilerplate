@@ -1,0 +1,120 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-blockImageTeaser',
+    block: null,
+  },
+  classes: {
+    root: 'container relative flex flex-col md:grid md:grid-cols-12 md:gap-8 md:items-center md:h-screen md:max-h-[50vw]',
+    custom: '',
+  },
+  variants: {
+    image: {
+      left: 'md:-translate-x-full md:pr-4',
+      right: 'md:pl-4',
+    },
+    text: {
+      left: 'md:col-start-6',
+      right: 'md:col-start-2',
+    }
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
+} %}
+
+{% set rel = props.data.block.linkEntry.one() %}
+
+{% set image = null %}
+{% if props.data.block.image[0] ??? null %}
+  {% set image = props.data.block.image[0] ??? null %}
+{% elseif rel.title ??? null %}
+  {% set image = rel.assetEntryImage.one() ??? null %}
+{% endif %}
+
+{% set headline = null %}
+{% if props.data.block.textTitle | length %}
+  {% set headline = props.data.block.textTitle %}
+{% elseif rel.textCustomTitle ??? null %}
+  {% set headline = rel.textCustomTitle ??? null %}
+{% elseif rel.title ??? null %}
+  {% set headline = rel.title ??? null %}
+{% endif %}
+
+{% set text = null %}
+{% if props.data.block.textDescription %}
+  {% set text = props.data.block.textDescription %}
+{% elseif rel.textEntryDescription ??? null %}
+  {% set text = rel.textEntryDescription ??? null %}
+{% endif %}
+
+{% set alignment = 'left' %}
+{% if props.data.block.alignment == true %}
+  {% set alignment = 'right' %}
+{% endif %}
+
+{% if image ??? null %}
+  <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+    {# Image #}
+    <div class="inline-flex w-full aspect-square md:aspect-auto md:absolute md:top-0 md:left-1/2 md:w-[50vw] md:h-full md:z-0 {{ props.variants.image[alignment] }}">
+      {{ include('_components/image/image.twig', {
+        data: {
+          image: image ??? null,
+          aspectRatio: props.data.block.imageRatio.value ??? 'aspect-landscape',
+          caption: props.data.block.showImageCaption ??? 0,
+          lazy: true,
+        },
+        classes: {
+          custom: 'hasOverlay md:w-full md:h-full'
+        }
+      }, withContext = false) }}
+    </div>
+
+    {# Content Layer #}
+    <div class="relative bg-white py-8 md:py-16 -top-32 w-10/12 mx-auto md:top-0 md:w-auto
+                md:col-span-6 grid grid-cols-10 md:grid-cols-6 gap-4 md:gap-8 md:z-10 {{ props.variants.text[alignment] }}"
+         data-speed="1.2">
+      <div class="col-span-8 col-start-2 md:col-span-4 md:col-start-2 gap-4 md:gap-8 space-y-4">
+        {# Headline #}
+        <div class="text-leading">{{ headline }}</div>
+        {# Line #}
+        <div class="w-1/4 leading-loose flex items-center h-10">
+          <hr class="w-full h-[1px] bg-sm-orange border-0"/>
+        </div>
+        {# Text #}
+        <div class="text-small text-sm-greydark">{{ text }}</div>
+        <div class="flex flex-col items-start space-y-4 md:flex-row md:space-x-4 md:space-y-0">
+          {# Link #}
+          {% if rel %}
+            {{ include('_components/button/button.twig', {
+              data: {
+                url: rel.url,
+                text: 'translate.component.button.textMore' | t,
+                variantStyle: 'link',
+                variantSize: 'md'
+              }
+            }, withContext = false) }}
+          {% endif %}
+          {# Link List #}
+          {% if props.data.block.linkList ??? null %}
+            {% set linkList = props.data.block.linkList %}
+            {% for item in linkList %}
+              {{ include('_components/button/button.twig', {
+                data: {
+                  url: item.url,
+                  text: item.text,
+                  variantStyle: 'secondary',
+                  variantSize: 'md'
+                }
+              }, withContext = false) }}
+            {% endfor %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}

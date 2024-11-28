@@ -1,0 +1,110 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-listEntries',
+    slides: null,
+    destroyBreakpoint: null
+  },
+  classes: {
+    root: '',
+    custom: '',
+    contentWrapper: 'group grid grid-cols-1 md:grid-cols-12 gap-8 md:space-y-0 py-16 items-center',
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{% set textSize = [
+  'md:col-start-4',
+  'md:col-start-8',
+  'md:col-start-3',
+  'md:col-start-7',
+] %}
+
+{% set imageSize = [
+  'md:col-span-3 md:col-start-8',
+  'md:col-span-4 md:col-start-3',
+  'md:col-span-4 md:col-start-7',
+  'md:col-span-3 md:col-start-3',
+] %}
+{% set counter = 0 %}
+
+{# Component #}
+<div class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+  {% for item in props.data.slides %}
+    <div class="{{ props.classes.contentWrapper }}">
+      <div class="{{ textSize[counter] }} order-2 bg-white md:order-1 md:group-even:order-2 col-span-1 md:col-span-3 md:text-right md:group-even:text-left"
+           data-speed="1.2">
+        {{ include('_components/text/textBlockHeadline.twig', {
+          data: {
+            headline: item.textCustomTitle ??? null,
+            text: item.textEntryDescription | striptags | truncate(160) ??? null,
+            variantSize: 'md',
+          },
+          classes: {
+            custom: 'md:ml-auto md:group-even:ml-0'
+          }
+        }, withContext = false) }}
+
+        {# Buttons #}
+        <div class="flex flex-col items-start md:group-odd:items-end space-y-4 mt-4">
+          {# Link #}
+          {% if item.url %}
+            {{ include('_components/button/button.twig', {
+              data: {
+                url: item.url,
+                text: 'translate.component.button.textMore' | t,
+                variantStyle: 'link',
+                variantSize: 'md'
+              }
+            }, withContext = false) }}
+          {% endif %}
+
+          {# Accommodation #}
+          {% if item.type == "entryAccommodation" %}
+            <div class="flex flex-row space-x-2">
+              {{ include('_components/button/button.twig', {
+                data: {
+                  url: '#',
+                  text: 'translate.component.button.request' | t,
+                  variantStyle: 'secondary',
+                  variantSize: 'md'
+                }
+              }, withContext = false) }}
+              {{ include('_components/button/button.twig', {
+                data: {
+                  url: '#',
+                  text: 'translate.component.button.book' | t,
+                  variantStyle: 'primary',
+                  variantSize: 'md'
+                }
+              }, withContext = false) }}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="col-span-1 {{ imageSize[counter] }} order-1 md:order-2 md:group-even:order-1 ">
+        {{ include('_components/image/image.twig', {
+          data: {
+            image: item.assetEntryImage.one() ??? item.assetImage.one() ??? null,
+            aspectRatio: 'aspect-square',
+            transform: 'auto',
+            caption: 0,
+            objectFit: 'cover',
+            lazy: false
+          },
+          classes: {
+            custom: 'hasGradient'
+          }
+        }, withContext = false) }}
+      </div>
+    </div>
+
+    {% set counter = counter >= 3 ? 0 : counter+1 %}
+  {% endfor %}
+</div>

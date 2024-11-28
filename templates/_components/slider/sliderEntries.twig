@@ -1,0 +1,156 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-sliderEntries',
+    slides: null,
+    aspectRatio: 'aspect-square',
+    destroyBreakpoint: null
+  },
+  classes: {
+    root: '!overflow-visible',
+    custom: '',
+    swiperSlide: 'swiper-slide relative !grid grid-cols-12 grid-rows-1 md:grid-cols-9 gap-4 md:gap-8',
+    swiperWrapper: '',
+  },
+  variants: {
+    aspectRatio: {
+      'aspect-landscape': '!w-11/12 sm:!w-5/12 aspect-landscape',
+      'aspect-portrait': '!w-11/12 sm:!w-3/12 aspect-portrait',
+      'aspect-square': 'aspect-square',
+      'aspect-auto': '!w-11/12 sm:!w-3/12 aspect-auto',
+    }
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
+} %}
+
+  {# Component #}
+<div class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+  {# >>> Embed Swiper Holder #}
+  {% embed "_components/slider/swiperHolder.twig" with {
+    data: {
+      slides: props.data.slides ??? null,
+      aspectRatio: props.data.aspectRatio,
+      swiperConfig: {
+        init: false,
+        freeMode: {
+          sticky: true
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        },
+        scrollbar: false,
+        slidesPerView: 'auto',
+        spaceBetween: 64,
+        grabCursor: true,
+        simulateTouch: true,
+        watchSlidesProgress: true,
+        watchSlidesVisibility: true
+      }
+    },
+    classes: props.classes,
+    variants: props.variants
+  } only %}
+
+    {# >>> Render slides #}
+    {% block swiperSlides %}
+      {% for item in props.data.slides %}
+        <div class="{{ props.classes.swiperSlide }}">
+          {# Image #}
+          <div class="col-span-12 md:col-span-5 z-0">
+            {{ include('_components/image/image.twig', {
+              data: {
+                image: item.assetEntryImage.one() ??? null,
+                aspectRatio: props.data.aspectRatio,
+                lazy: false
+              },
+              classes: {
+                custom: 'hasOverlay w-full h-full'
+              }
+            }, withContext = false) }}
+          </div>
+
+          {# Content #}
+          <div class="relative -top-32 md:absolute md:top-0 md:bottom-0 md:right-0 flex items-center col-span-10 col-start-2 md:col-start-auto md:w-[calc(100%_/_9_*_5)] z-10 md:pl-4"
+               data-speed="1">
+            <div class="w-full grid grid-cols-10 md:grid-cols-5 bg-white py-8 md:py-16">
+              <div class="col-span-8 col-start-2 md:col-span-3 md:col-start-2">
+                {# Headline #}
+                {% set headline = item.textCustomTitle ??? item.title ??? null %}
+                {% if headline %}
+                  <div class="text-leading">{{ headline }}</div>
+                  {# Line #}
+                  <div class="w-1/4 leading-loose flex items-center h-10">
+                    <hr class="w-full h-[1px] bg-sm-orange border-0"/>
+                  </div>
+                {% endif %}
+
+                {# Text #}
+                {% set text = item.textEntryDescription ??? null %}
+                {% if text %}
+                  <div class="text-small text-sm-greydark">{{ text | striptags | truncate(160) }}</div>
+                {% endif %}
+
+                <div class="flex flex-col items-start space-y-4 mt-4">
+                  {# Link #}
+                  {% if item.url %}
+                    {{ include('_components/button/button.twig', {
+                      data: {
+                        url: item.url,
+                        text: 'translate.component.button.textMore' | t,
+                        variantStyle: 'link',
+                        variantSize: 'md'
+                      }
+                    }, withContext = false) }}
+                  {% endif %}
+
+                  {# Accommodation #}
+                  {% if item.type == "entryAccommodation" %}
+                    <div class="flex flex-row space-x-2">
+                      {{ include('_components/button/button.twig', {
+                        data: {
+                          url: '#',
+                          text: 'translate.component.button.request' | t,
+                          variantStyle: 'secondary',
+                          variantSize: 'md'
+                        }
+                      }, withContext = false) }}
+                      {{ include('_components/button/button.twig', {
+                        data: {
+                          url: '#',
+                          text: 'translate.component.button.book' | t,
+                          variantStyle: 'primary',
+                          variantSize: 'md'
+                        }
+                      }, withContext = false) }}
+                    </div>
+                  {% endif %}
+                  {# Link List #}
+                  {# % if props.data.block.linkList ??? null %}
+                    {% set linkList = props.data.block.linkList %}
+                    {% for item in linkList %}
+                      {{ include('_components/button/button.twig', {
+                        data: {
+                          url: item.url,
+                          text: item.text,
+                          variantStyle: 'secondary',
+                          variantSize: 'md'
+                        }
+                      }, withContext = false) }}
+                    {% endfor %}
+                  {% endif % #}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    {% endblock %}
+  {% endembed %}
+</div>

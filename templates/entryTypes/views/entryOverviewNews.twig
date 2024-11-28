@@ -1,0 +1,39 @@
+{% extends "_layouts/layout-default.twig" %}
+{% set templatePath = _self ??? '' %}
+
+{% block blockAppContent %}
+  {% cache %}
+    {# >>> Render page header #}
+    {{ include('_components/pageHead/pageHead.twig', {
+      data: {
+        object: entry,
+        text: entry.textCustomTitle ??? entry.title ??? null,
+        variant: 'default',
+        tag: 'h1',
+      },
+      classes : {
+        custom: 'js-section js-primary'
+      }
+    }, withContext = false) }}
+
+    {# >>> Render page intro #}
+    {{ include('_components/pageHead/pageIntroDefault.twig', {
+      data: {
+        object: entry,
+        headline: entry.textCustomSubtitle ??? null,
+        text: entry.textEntryDescription ??? null,
+      },
+      classes: {
+        custom: 'js-section py-16 md:py-32'
+      }
+    }, withContext = false) }}
+  {% endcache %}
+
+  <div class="space-y-16 md:space-y-32 mb-16 md:mb-32">
+
+    {{ sprig('_components-sprig/paginateNews', {
+      'section': 'blog',
+    }) }}
+
+  </div>
+{% endblock %}

@@ -1,0 +1,88 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-blockSection',
+    block: null,
+    closeCurrentSection: null
+  },
+  classes: {
+    root: 'js-section',
+    custom: '',
+  },
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{% if props.data.block ??? null %}
+  {% if props.data.closeCurrentSection ??? null %}
+    </section>
+  {% endif %}
+  {# >>> Set BG Color #}
+  {% switch props.data.block.sectionBackgroundColor %}
+  {% case "grey" %}
+    {% set sectionBGColorClass = 'bg-sm-grey' %}
+  {% case "black" %}
+    {% set sectionBGColorClass = 'bg-black js-primary' %}
+  {% case "grey-dark" %}
+    {% set sectionBGColorClass = 'bg-sm-greydark text-white js-primary' %}
+  {% case "bordeaux" %}
+    {% set sectionBGColorClass = 'bg-sm-bordeaux text-white js-primary' %}
+  {% case "rosa" %}
+    {% set sectionBGColorClass = 'bg-sm-rosa text-white js-primary' %}
+  {% case "orange" %}
+    {% set sectionBGColorClass = 'bg-sm-orange text-white js-primary' %}
+
+  {% default %}
+    {% set sectionBGColorClass = 'transparent' %}
+  {% endswitch %}
+
+  {# >>> Set Padding #}
+  {% switch props.data.block.sectionPaddingVertical %}
+  {% case "sm" %}
+    {% set spacingYAxisClass = 'py-2 md:py-4' %}
+
+  {% case "md" %}
+    {% set spacingYAxisClass = 'py-4 md:py-8' %}
+
+  {% case "lg" %}
+    {% set spacingYAxisClass = 'py-8 md:py-16' %}
+
+  {% case "xl" %}
+    {% set spacingYAxisClass = 'py-16 md:py-32' %}
+
+  {% case "2xl" %}
+    {% set spacingYAxisClass = 'py-32 md:py-64' %}
+
+  {% default %}
+    {% set spacingYAxisClass = 'py-16 md:py-32' %}
+  {% endswitch %}
+
+  {# >>> Set Space Between #}
+  {% switch props.data.block.spaceBetweenBlocks %}
+  {% case "sm" %}
+    {% set spaceBetweenClass = 'space-y-2 md:space-y-4' %}
+
+  {% case "md" %}
+    {% set spaceBetweenClass = 'space-y-4 md:space-y-8' %}
+
+  {% case "lg" %}
+    {% set spaceBetweenClass = 'space-y-8 md:space-y-16' %}
+
+  {% case "xl" %}
+    {% set spaceBetweenClass = 'space-y-16 md:space-y-32' %}
+
+  {% case "2xl" %}
+    {% set spaceBetweenClass = 'space-y-32 md:space-y-64' %}
+
+  {% default %}
+    {% set spaceBetweenClass = 'space-y-16 md:space-y-32' %}
+  {% endswitch %}
+
+  <section
+    {{ not props.data.block.sectionAnchor is empty ? 'id=' ~ props.data.block.sectionAnchor : '' }}
+    class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }} {{ spacingYAxisClass }} {{ sectionBGColorClass }} {{ spaceBetweenClass }}">
+{% endif %}

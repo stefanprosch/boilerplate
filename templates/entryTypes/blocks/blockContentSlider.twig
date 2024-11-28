@@ -1,0 +1,56 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-blockContentSlider',
+    block: null,
+  },
+  classes: {
+    root: 'container grid grid-cols-12 gap-4 md:gap-8',
+    custom: '',
+  },
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{% if props.data.block.matrixContent ??? null %}
+  <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+    {{ include('_components/text/textBlockHeadline.twig', {
+      data: {
+        headline: props.data.block.textTitle ??? null,
+        text: props.data.block.textDescription ??? null,
+      },
+      classes: {
+        custom: ''
+      }
+    }, withContext = false) }}
+
+    {# Image #}
+    {{ include('_components/image/image.twig', {
+      data: {
+        image: props.data.block.assetImage.one() ??? null,
+        aspectRatio: 'aspect-video',
+        transform: 'auto',
+        caption: 0,
+        objectFit: 'cover',
+        lazy: false
+      },
+      classes: {
+        custom: 'hasGradient col-span-10 col-start-2 my-16'
+      }
+    }, withContext = false) }}
+
+    {# Content Slider #}
+    {{ include('_components/slider/sliderContent.twig', {
+      data: {
+        slides: props.data.block.matrixContent ??? null,
+      },
+      classes: {
+        custom: 'col-span-10 col-start-2 md:col-span-12 md:col-start-1'
+      }
+    }, withContext = false) }}
+  </div>
+{% endif %}

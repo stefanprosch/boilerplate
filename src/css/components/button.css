@@ -1,0 +1,126 @@
+@layer components {
+  .btn {
+    @apply inline-flex justify-center border-[1px] border-sm-bordeaux font-bold tracking-widest uppercase;
+    line-height: 1;
+    transition: all 0.3s ease;
+
+    &:hover {
+      @apply shadow-lg;
+    }
+
+    &--lg {
+      font-size: 0.875rem;
+      @apply py-2 px-2.5 rounded-md;
+
+      .c-icon {
+        @apply mr-4 w-5 h-5;
+      }
+    }
+
+    &--md {
+      font-size: 0.75rem;
+      @apply py-1.5 px-2 rounded-md;
+
+      .c-icon {
+        @apply mr-3 w-4 h-4;
+      }
+    }
+
+    &--sm {
+      font-size: 0.625rem;
+      @apply py-1.5 px-1.5 rounded-md;
+
+      .c-icon {
+        @apply mr-2 w-3 h-3;
+      }
+    }
+
+    &--primary {
+      @apply bg-sm-bordeaux text-white;
+    }
+
+    &--secondary {
+      @apply bg-transparent text-sm-bordeaux;
+    }
+
+    &--outlined {
+      @apply bg-transparent border-white text-white;
+    }
+
+    &--link {
+      @apply relative text-sm-orange border-0 bg-transparent space-x-2;
+
+      &:after {
+        @apply content-[''] absolute -bottom-1 left-0 right-0 h-[2px] bg-sm-orange opacity-0;
+        transition: all 0.3s ease;
+      }
+
+      &:hover {
+        @apply !shadow-none;
+
+        &:after {
+          @apply -bottom-0.5 opacity-100;
+        }
+      }
+
+      .c-footer & {
+        @apply text-sm-grey font-normal tracking-wider;
+
+        &:after {
+          @apply bg-sm-grey;
+        }
+      }
+    }
+
+    &--noHover {
+      &:hover {
+        @apply !shadow-none;
+
+        &:after {
+          @apply !opacity-0;
+        }
+      }
+    }
+
+    &--tab {
+      @apply relative inline-flex font-serif text-sm-greydark border-0 bg-transparent space-x-2 py-4 px-8;
+
+      &:after {
+        @apply content-[''] absolute -bottom-1 left-0 right-0 h-[2px] bg-sm-orange opacity-0;
+        transition: all 0.3s ease;
+      }
+
+      &:hover {
+        @apply !shadow-none;
+      }
+
+      &:not(.active) {
+        &:hover {
+          &:after {
+            @apply -bottom-0.5 opacity-100;
+          }
+        }
+      }
+
+      &.active {
+        @apply text-sm-orange;
+
+        &:after {
+          @apply -bottom-0.5 opacity-100;
+        }
+      }
+    }
+
+    &--dropdown {
+      @apply relative py-2 px-4 flex flex-row justify-between items-center w-full;
+    }
+
+    &--filter {
+      @apply bg-transparent border-sm-greydark text-sm-greydark;
+
+      &.active {
+        @apply bg-sm-orange border-sm-orange text-white
+      }
+    }
+  }
+}

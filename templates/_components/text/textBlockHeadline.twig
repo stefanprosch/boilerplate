@@ -1,0 +1,78 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-headline',
+    headline: null,
+    text: null,
+    richText: null,
+    variantSize: 'lg',
+  },
+  classes: {
+    root: '[text-wrap:balance] font-bold',
+    custom: '',
+  },
+  variants: {
+    lg: {
+      tag: 'h2',
+      title: 'text-h2 col-span-12 col-start-1 md:col-span-8 md:col-start-3',
+      line: 'col-span-2 col-start-1 md:col-span-2 md:col-start-2',
+      text: 'col-span-10 col-start-3 md:col-span-4 md:col-start-3 text-xs/loose md:text-base/loose text-sm-greydark',
+    },
+    md: {
+      tag: 'h3',
+      title: 'text-2xl md:text-4xl',
+      line: 'w-1/3 my-4',
+      text: 'mt-4 text-xs md:text-small text-sm-greydark',
+    },
+    sm: {
+      tag: 'h4',
+      title: 'text-lg',
+      line: 'w-full my-4 mx-auto',
+      text: 'mt-4 text-small text-sm-greydark',
+    }
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
+} %}
+
+{% if props.data.headline or props.data.text %}
+  {# Headline #}
+  <{{ props.variants[props.data.variantSize].tag }} class="{{ props.variants[props.data.variantSize].title }}">
+    {{ props.data.headline }}
+  </{{ props.variants[props.data.variantSize].tag }}>
+
+  {% if props.data.text or props.data.richText %}
+    {# Line #}
+    <div class="{{ props.variants[props.data.variantSize].line }} {{ props.classes.custom }}  leading-loose flex items-center h-6 md:h-10">
+      <hr class="w-full h-[1px] bg-sm-orange border-0"/>
+    </div>
+
+    {# Text #}
+    <div class="{{ props.variants[props.data.variantSize].text }}">
+      {% if props.data.text %}
+        {{ include('_components/text/plainText.twig', {
+          data: {
+            text: props.data.text | striptags ??? null
+          },
+          classes: {
+            custom: ''
+          }
+        }, withContext = false) }}
+      {% elseif props.data.richText %}
+        {{ include('_components/text/richText.twig', {
+          data: {
+            html: props.data.richText ??? null
+          },
+          classes: {
+            custom: ''
+          }
+        }, withContext = false) }}
+      {% endif %}
+    </div>
+  {% endif %}
+{% endif %}

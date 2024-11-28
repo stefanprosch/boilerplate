@@ -1,0 +1,52 @@
+<link rel="preload"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+      href="{{ _globals.get('baseUrl') }}dist/fonts/NyghtSerif-Light.woff2">
+
+<link rel="preload"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+      href="{{ _globals.get('baseUrl') }}dist/fonts/Manrope-Light.woff2">
+
+<link rel="preload"
+      as="font"
+      type="font/woff2"
+      crossorigin="anonymous"
+      href="{{ _globals.get('baseUrl') }}dist/fonts/Manrope-Bold.woff2">
+
+
+<style>
+  @font-face {
+    font-family: 'Manrope';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 700;
+    src: local('Manrope Bold'), local('Manrope-Bold'),
+    url('{{ _globals.get('baseUrl') }}dist/fonts/Manrope-Bold.woff2') format('woff2'),
+    url('{{ _globals.get('baseUrl') }}dist/fonts/Manrope-Bold.woff') format('woff');
+  }
+
+  @font-face {
+    font-family: 'Manrope';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 300;
+    src: local('Manrope Light'), local('Manrope-Light'),
+    url('{{ _globals.get('baseUrl') }}dist/fonts/Manrope-Light.woff2') format('woff2'),
+    url('{{ _globals.get('baseUrl') }}dist/fonts/Manrope-Light.woff') format('woff');
+  }
+
+  /* -- Nyght */
+  @font-face {
+    font-family: 'Nyght Serif';
+    font-style: normal;
+    font-display: swap;
+    font-weight: 300;
+    src: local('Nyght Serif Light'), local('NyghtSerif-Light'),
+    url('{{ _globals.get('baseUrl') }}dist/fonts/NyghtSerif-Light.woff2') format('woff2'),
+    url('{{ _globals.get('baseUrl') }}dist/fonts/NyghtSerif-Light.woff') format('woff');
+  }
+
+</style>

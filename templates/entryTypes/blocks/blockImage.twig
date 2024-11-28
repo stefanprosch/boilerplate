@@ -1,0 +1,77 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-blockImage',
+    block: null,
+  },
+  classes: {
+    root: 'container relative lg:grid lg:grid-cols-12',
+    custom: '',
+  },
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{% if props.data.block.image ??? null %}
+  <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+    {% set showImageCaption = 0 %}
+    {% set positionImageCaption = props.data.block.positionImageCaption ??? 0 %}
+    {% set showOverlay = positionImageCaption != 'bottom' ? true : false %}
+    {% if positionImageCaption == 'bottom' %}
+      {% set showImageCaption = props.data.block.showImageCaption ??? 0 %}
+    {% endif %}
+
+    {{ include('_components/image/image.twig', {
+      data: {
+        image: props.data.block.image[0] ??? null,
+        aspectRatio: props.data.block.imageRatio.value ??? 'aspect-landscape',
+        caption: showImageCaption,
+        lazy: true,
+      },
+      classes: {
+        custom: 'hidden md:block col-span-12 hasGradient ' ~ (showOverlay ? 'hasOverlay' : '')
+      }
+    }, withContext = false) }}
+
+    {{ include('_components/image/image.twig', {
+      data: {
+        image: props.data.block.image[0] ??? null,
+        aspectRatio: 'aspect-portrait',
+        caption: showImageCaption,
+        lazy: true,
+      },
+      classes: {
+        custom: 'md:hidden col-span-12 hasGradient ' ~ (showOverlay ? 'hasOverlay' : '')
+      }
+    }, withContext = false) }}
+
+    {# Overlay Text #}
+    {% if showOverlay %}
+      <!-- Headline / Text Container -->
+      <div class="container absolute top-0 bottom-0 left-0 right-0 z-1">
+        <div class="flex flex-col mr-auto h-full justify-center items-center">
+          <div class="w-full flex flex-col md:w-3/4 md:mx-auto h-fit items-center text-white"
+               data-speed="1.2">
+            {% set headline = props.data.block.image[0].textCustomTitle ??? null %}
+            {% set headline = headline | split('. ') %}
+            {% set headline = headline | join('.\r') %}
+            {{ include('_components/text/headline.twig', {
+              data: {
+                text: headline ??? null,
+                variantSize: 'h2',
+                tag: 'h2',
+              },
+              classes: {
+                custom: 'break-words text-center'
+              }
+            }, withContext = false) }}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+{% endif %}

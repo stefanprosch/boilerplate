@@ -1,0 +1,36 @@
+.c-sliderHeroImages .swiper-pagination-bullet {
+  @apply !m-0 !w-2 !h-2 bg-transparent inline-block relative opacity-100 overflow-hidden rounded-full
+  before:w-full
+  before:h-full
+  before:bg-sm-grey/50
+  before:absolute
+  before:left-0
+  before:top-0
+
+  after:w-full
+  after:h-full
+  after:bg-sm-orange
+  after:absolute
+  after:-translate-x-full
+  after:rounded-none
+  after:left-0
+  after:transition
+  after:duration-[0ms]
+  after:ease-linear
+}
+
+.c-sliderHeroImages .swiper-has-started .swiper-pagination-bullet-active {
+  @apply after:translate-x-0 after:duration-[6000ms]
+}
+
+.c-sliderHeroImages .swiper-pagination-bullets {
+  @apply !space-x-2;
+}
+
+.c-sliderHeroImages .swiper-wrapper {
+  @apply !h-full;
+}
+
+.c-sliderHeroImages .swiper {
+  @apply !z-0;
+}

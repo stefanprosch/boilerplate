@@ -1,0 +1,28 @@
+.c-accordion {
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  &[open] > summary svg {
+    @apply rotate-180;
+  }
+}
+
+.c-accordionFaq {
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .close {
+    @apply hidden;
+  }
+
+  details[open] summary {
+    .open {
+      @apply hidden;
+    }
+    .close {
+      @apply block;
+    }
+  }
+}
