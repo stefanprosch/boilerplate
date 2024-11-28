@@ -1,4 +1,4 @@
-dateModified: 1731920639
+dateModified: 1732825342
 elementSources:
   craft\elements\Asset:
     -
@@ -123,7 +123,7 @@ meta:
     9b73b533-898f-4f77-a500-37ea0be0afc7: 'Builder: Content - Image - Show Image Caption' # Builder: Content - Image - Show Image Caption
     9c37a878-61ea-4ec5-b8b9-3cd5d7347865: 'Channel Slider' # Channel Slider
     9cb7ea0d-8dd4-4298-ac6c-ab6c0efbe6ba: 'Builder: Content - Code - Snippet Name' # Builder: Content - Code - Snippet Name
-    9f7c46cf-d2fd-4aff-b605-76d2127e9368: Contact # Contact
+    9f7c46cf-d2fd-4aff-b605-76d2127e9368: Settings # Settings
     22e31646-062f-4716-80a4-65d8b847f960: Form # Form
     24d502b6-138d-4fdb-8e5e-8d4e63fe22ae: 'Builder: Content - Teaser - Alignment' # Builder: Content - Teaser - Alignment
     27d4852b-c3b3-43a9-a66c-f7e6ed0d575e: 'Social Media Channels' # Social Media Channels

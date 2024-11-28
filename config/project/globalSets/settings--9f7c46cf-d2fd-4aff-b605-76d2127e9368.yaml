@@ -1,0 +1,143 @@
+fieldLayouts:
+  2789425f-2195-424a-860f-b63b4ba17f65:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-11-18T08:50:03+00:00'
+            elementCondition: null
+            fieldUid: 8084749f-eb17-4a45-ab26-e97ba0e1d9de # Adress
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: Adress
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fc473c16-89ba-44c8-854a-f218e7066797
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-18T08:50:03+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: f9201b3c-d011-4bde-b509-c40fdbd6628e
+            userCondition: null
+          -
+            dateAdded: '2024-11-18T08:50:03+00:00'
+            elementCondition: null
+            fieldUid: 34c48f87-e4f0-4c33-aac4-73de400425f7 # Contact: E-Mail
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: E-Mail
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: fcee4d04-cd4f-480d-9097-1260337e2134
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2024-11-18T08:50:03+00:00'
+            elementCondition: null
+            fieldUid: be2e7784-2696-4ab4-b908-f92381235f97 # Contact: Phone
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: Phone
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 19f408d4-44cd-49a3-9feb-6a80774356e5
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2024-11-28T20:04:41+00:00'
+            elementCondition: null
+            heading: 'Tax- and Registernumbers'
+            type: craft\fieldlayoutelements\Heading
+            uid: ce273718-5654-4ffc-9580-1467d8e0c832
+            userCondition: null
+          -
+            dateAdded: '2024-11-28T20:04:41+00:00'
+            elementCondition: null
+            fieldUid: 419ebfbb-8723-48db-ae89-10adf52cdf11 # Text: Source
+            handle: companyRegisterNumber
+            includeInCards: false
+            instructions: null
+            label: 'Company Register Number'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 927c1d04-e828-4b1c-b395-99a1b21206da
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2024-11-28T20:04:41+00:00'
+            elementCondition: null
+            fieldUid: 419ebfbb-8723-48db-ae89-10adf52cdf11 # Text: Source
+            handle: companyRegisterCourt
+            includeInCards: false
+            instructions: null
+            label: 'Company Register Court'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 583af19d-0186-443b-9056-63711dc77c89
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2024-11-28T20:04:41+00:00'
+            elementCondition: null
+            fieldUid: 419ebfbb-8723-48db-ae89-10adf52cdf11 # Text: Source
+            handle: vatId
+            includeInCards: false
+            instructions: null
+            label: 'VAT Identification Number'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 49eb794f-255a-4b63-a123-2e6f887817ea
+            userCondition: null
+            warning: null
+            width: 50
+        name: General
+        uid: ce88b3f0-8835-424f-99cd-e2183e99d738
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-11-18T08:50:03+00:00'
+            elementCondition: null
+            fieldUid: da086ad5-4309-4b01-8796-d52bf2c3700c # Social Media Channels
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Social Media Channels'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1a769f42-19ef-454b-9e2d-2bbdc6d5c77b
+            userCondition: null
+            warning: null
+            width: 100
+        name: 'Social Media'
+        uid: 37b71f35-68e8-4fea-bdef-ab70ee0153b7
+        userCondition: null
+handle: settings
+name: Settings
+sortOrder: 1

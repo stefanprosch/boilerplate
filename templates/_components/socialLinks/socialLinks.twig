@@ -4,7 +4,7 @@
     name: 'c-socialLinks',
     variant: 'lg',
     label: null,
-    networks: ['facebook', 'instagram', 'spotify', 'twitter', 'linkedin', 'youtube', 'vimeo'],
+    networks: ['facebook', 'instagram', 'spotify', 'xtwitter', 'linkedin', 'youtube', 'vimeo', 'tiktok'],
   },
   classes: {
     root: 'flex flex-row items-center space-x-4',
@@ -27,16 +27,11 @@
 } %}
 
 <div class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
-  {# { craft.socialurls.getSocialfollow() } #}
-  {% set socialNetworks = contact.globalsSocialMedia %}
+  {% set socialNetworks = settings.globalsSocialMedia %}
   {% set networks = props.data.networks %}
 
-  <span class="inline-flex btn btn--link btn--noHover">
-   #schlossmittersill
-  </span>
-
   {% for socialNetwork in socialNetworks %}
-    {% if socialNetwork.channel|lower in networks or opt.networks == 'all' %}
+    {% if socialNetwork.channel|lower in networks or props.data.networks == 'all' %}
       <a class="fill-sm-grey {{ props.variants[props.data.variant] }} hover:fill-white"
          href="{{ socialNetwork.url }}" target="_blank">
                 {{ svg('@webroot/dist/images/svg/brand/' ~ socialNetwork.channel|lower ~ '.svg')

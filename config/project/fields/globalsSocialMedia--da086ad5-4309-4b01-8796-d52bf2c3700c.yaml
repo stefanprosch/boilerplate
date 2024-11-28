@@ -81,6 +81,28 @@ settings:
                     -
                       - default
                       - false
+                -
+                  __assoc__:
+                    -
+                      - label
+                      - TikTok
+                    -
+                      - value
+                      - tiktok
+                    -
+                      - default
+                      - false
+                -
+                  __assoc__:
+                    -
+                      - label
+                      - 'X (Twitter)'
+                    -
+                      - value
+                      - xTwitter
+                    -
+                      - default
+                      - false
       -
         - col2
         -

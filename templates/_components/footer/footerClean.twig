@@ -25,9 +25,9 @@
     <div class="{{ props.classes.row }} items-center">
       <div class="col-span-1 md:col-span-4 flex flex-col items-center justify-center md:items-start md:justify-start">
         {# Adress #}
-        {% set addresses = contact.globalsContact.all() %}
-        {% set phone = contact.contactPhone %}
-        {% set eMail = contact.contactEmail %}
+        {% set addresses = settings.globalsContact.all() %}
+        {% set phone = settings.contactPhone %}
+        {% set eMail = settings.contactEmail %}
         {% for address in addresses %}
           <address class="!not-italic leading-tight">
             {{ (address ~ '\n' ~ address.addressLine1 ~ ' – ' ~ address.countryCode|upper ~ '–' ~ address.postalCode~ ' ' ~ address.locality) | nl2br  }}
