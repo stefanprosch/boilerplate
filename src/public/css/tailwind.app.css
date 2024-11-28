@@ -3154,8 +3154,18 @@ select:focus:valid {
 }
 
 .text-xs {
-  font-size: clamp(0.8888888888888888rem, calc(0.8888888888888888rem + ((0.8680555555555557 - 0.8888888888888888) * ((100vw - 20rem) / (96 - 20)))), 0.8680555555555557rem);
+  font-size: clamp(0.8680555555555557rem, calc(0.8680555555555557rem + ((0.8888888888888888 - 0.8680555555555557) * ((100vw - 20rem) / (96 - 20)))), 0.8888888888888888rem);
   line-height: 1.6;
+}
+
+.text-xs\/10 {
+  font-size: clamp(0.8680555555555557rem, calc(0.8680555555555557rem + ((0.8888888888888888 - 0.8680555555555557) * ((100vw - 20rem) / (96 - 20)))), 0.8888888888888888rem);
+  line-height: 2.5rem;
+}
+
+.text-xs\/loose {
+  font-size: clamp(0.8680555555555557rem, calc(0.8680555555555557rem + ((0.8888888888888888 - 0.8680555555555557) * ((100vw - 20rem) / (96 - 20)))), 0.8888888888888888rem);
+  line-height: 2;
 }
 
 .\!text-sm {
@@ -3168,9 +3178,24 @@ select:focus:valid {
   line-height: 1.6;
 }
 
+.text-sm\/normal {
+  font-size: clamp(1rem, calc(1rem + ((1.0416666666666667 - 1) * ((100vw - 20rem) / (96 - 20)))), 1.0416666666666667rem);
+  line-height: 1.5;
+}
+
+.text-sm\/loose {
+  font-size: clamp(1rem, calc(1rem + ((1.0416666666666667 - 1) * ((100vw - 20rem) / (96 - 20)))), 1.0416666666666667rem);
+  line-height: 2;
+}
+
 .text-base {
   font-size: clamp(1.125rem, calc(1.125rem + ((1.25 - 1.125) * ((100vw - 20rem) / (96 - 20)))), 1.25rem);
   line-height: 1.6;
+}
+
+.text-base\/loose {
+  font-size: clamp(1.125rem, calc(1.125rem + ((1.25 - 1.125) * ((100vw - 20rem) / (96 - 20)))), 1.25rem);
+  line-height: 2;
 }
 
 .text-lg {
@@ -3257,7 +3282,7 @@ h1,
 
 .text-small {
   font-family: Helvetica, Arial, sans-serif;
-  font-size: clamp(0.8888888888888888rem, calc(0.8888888888888888rem + ((0.8680555555555557 - 0.8888888888888888) * ((100vw - 20rem) / (96 - 20)))), 0.8680555555555557rem);
+  font-size: clamp(0.8680555555555557rem, calc(0.8680555555555557rem + ((0.8888888888888888 - 0.8680555555555557) * ((100vw - 20rem) / (96 - 20)))), 0.8888888888888888rem);
   line-height: 1.6;
 }
 
@@ -3904,6 +3929,11 @@ h1,
     text-align: right;
   }
 
+  .md\:text-base\/loose {
+    font-size: clamp(1.125rem, calc(1.125rem + ((1.25 - 1.125) * ((100vw - 20rem) / (96 - 20)))), 1.25rem);
+    line-height: 2;
+  }
+
   .md\:text-4xl {
     font-size: clamp(2.0272865295410156rem, calc(2.0272865295410156rem + ((3.1103999999999994 - 2.0272865295410156) * ((100vw - 20rem) / (96 - 20)))), 3.1103999999999994rem);
     line-height: 1.1;
@@ -3916,7 +3946,7 @@ h1,
 
   .md\:text-small {
     font-family: Helvetica, Arial, sans-serif;
-    font-size: clamp(0.8888888888888888rem, calc(0.8888888888888888rem + ((0.8680555555555557 - 0.8888888888888888) * ((100vw - 20rem) / (96 - 20)))), 0.8680555555555557rem);
+    font-size: clamp(0.8680555555555557rem, calc(0.8680555555555557rem + ((0.8888888888888888 - 0.8680555555555557) * ((100vw - 20rem) / (96 - 20)))), 0.8888888888888888rem);
     line-height: 1.6;
   }
 
