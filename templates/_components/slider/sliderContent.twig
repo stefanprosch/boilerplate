@@ -32,13 +32,13 @@
             <hr class="w-full h-[1px] bg-bp-accent border-0"/>
           </div>
           {# Description #}
-          <div class="js-sliderDescription mt-4 text-lg text-bp-texter">
+          <div class="js-sliderDescription mt-4 text-lg text-primaryer">
             {{ include('_components/text/plainText.twig', {
               data: {
                 text: item.textDescription | striptags ??? null
               },
               classes: {
-                custom: 'text-small text-bp-texter'
+                custom: 'text-small text-primaryer'
               }
             }, withContext = false) }}
           </div>

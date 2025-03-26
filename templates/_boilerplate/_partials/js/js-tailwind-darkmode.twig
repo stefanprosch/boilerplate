@@ -1,20 +1,41 @@
 <script>
-  // On page load or when changing themes, best to add inline in `head` to avoid FOUC
-  if (
-    localStorage.theme === 'dark'
-    || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    document.documentElement.classList.add('dark')
-  } else {
-    document.documentElement.classList.remove('dark')
+  function applyTheme() {
+    if (
+      localStorage.theme === 'dark' ||
+      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
+    ) {
+      document.documentElement.classList.add('dark');
+      document.documentElement.dataset.theme = 'dark';
+    } else {
+      document.documentElement.classList.remove('dark');
+      document.documentElement.dataset.theme = 'default';
+    }
   }
 
-  // This actions are useful if we have a darkmode switcher
-  // Whenever the user explicitly chooses light mode
-  // localStorage.theme = 'light'
+  // Run once initially
+  applyTheme();
 
-  // Whenever the user explicitly chooses dark mode
-  // localStorage.theme = 'dark'
+  // Listener for changes in OS-level color scheme (if no localStorage override exists)
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!('theme' in localStorage)) {
+      applyTheme();
+    }
+  });
 
-  // Whenever the user explicitly chooses to respect the OS preference
-  //localStorage.removeItem('theme')
+  // Optional: Observe changes to localStorage to react when theme is changed from other tabs or manually
+  window.addEventListener('storage', (event) => {
+    if (event.key === 'theme') {
+      applyTheme();
+    }
+  });
+
+  // You can also expose this method if you have a toggle UI
+  window.setTheme = function (mode) {
+    if (mode === 'dark' || mode === 'light') {
+      localStorage.theme = mode;
+    } else {
+      localStorage.removeItem('theme');
+    }
+    applyTheme();
+  };
 </script>

@@ -15,8 +15,8 @@ export default [
       white: colors.white,
       'keyboard-focus': '#ff98de',
       gray: colors.zinc,
-      primary: colors.green,
-      secondary: colors.emerald,
+      primary: '#FF6B2B',
+      secondary: 'var(--color-secondary)',
       'bp-primary': '#FF0000',
       'bp-secondary': '#00FF00',
       'bp-accent': '#EF7A4D',
@@ -25,6 +25,13 @@ export default [
       'bp-error': '#FF0000',
       'bp-success': '#00FF00',
       'bp-warning': '#EF7A4D',
+    },
+  },
+  {
+    name: 'dark',
+    colors: {
+      primary: '#000000',
+      secondary: colors.stone,
     },
   },
   {

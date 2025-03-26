@@ -1,6 +1,6 @@
 @layer components {
   .btn {
-    @apply inline-flex justify-center border-[1px] border-bp-primary font-bold tracking-widest uppercase;
+    @apply inline-flex justify-center border-[1px] border-primary font-bold tracking-widest uppercase;
     line-height: 1;
     transition: all 0.3s ease;
 
@@ -36,11 +36,11 @@
     }
 
     &--primary {
-      @apply bg-bp-primary text-white;
+      @apply bg-primary text-white;
     }
 
     &--secondary {
-      @apply bg-transparent text-bp-primary;
+      @apply bg-transparent text-primary;
     }
 
     &--outlined {
@@ -64,7 +64,7 @@
       }
 
       .c-footer & {
-        @apply text-bp-text font-normal tracking-wider;
+        @apply text-primary font-normal tracking-wider;
 
         &:after {
           @apply bg-bp-text;
@@ -83,7 +83,7 @@
     }
 
     &--tab {
-      @apply relative inline-flex font-serif text-bp-text border-0 bg-transparent space-x-2 py-4 px-8;
+      @apply relative inline-flex font-serif text-primary border-0 bg-transparent space-x-2 py-4 px-8;
 
       &:after {
         @apply content-[''] absolute -bottom-1 left-0 right-0 h-[2px] bg-bp-accent opacity-0;
@@ -116,7 +116,7 @@
     }
 
     &--filter {
-      @apply bg-transparent border-bp-text text-bp-text;
+      @apply bg-transparent border-bp-text text-primary;
 
       &.active {
         @apply bg-bp-accent border-bp-accent text-white

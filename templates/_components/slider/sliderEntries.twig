@@ -94,7 +94,7 @@
                 {# Text #}
                 {% set text = item.textEntryDescription ??? null %}
                 {% if text %}
-                  <div class="text-small text-bp-text">{{ text | striptags | truncate(160) }}</div>
+                  <div class="text-small text-primary">{{ text | striptags | truncate(160) }}</div>
                 {% endif %}
 
                 <div class="flex flex-col items-start space-y-4 mt-4">

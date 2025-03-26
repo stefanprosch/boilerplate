@@ -110,11 +110,11 @@
     }
 
     .link--primary {
-      @apply border-2 border-primary-800 bg-primary-800 text-white hover:border-primary-700 hover:bg-primary-700 hover:text-white;
+      @apply border-2 border-primary bg-primary text-white hover:border-primary hover:bg-primary hover:text-white;
     }
 
     .link--secondary {
-      @apply border-2 border-secondary-300 bg-secondary-300 text-secondary-800 hover:border-secondary-400 hover:bg-secondary-400 hover:text-secondary-800;
+      @apply border-2 border-secondary bg-secondary text-secondary hover:border-secondary hover:bg-secondary hover:text-secondary;
     }
   }
 }

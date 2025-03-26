@@ -52,7 +52,7 @@
 
     &.is-active,
     &:hover {
-      @apply text-bp-text;
+      @apply text-primary;
     }
 
     &[aria-expanded="true"] + .c-navigationMain__subItemsWrapper[data-level="1"] {

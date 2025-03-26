@@ -1,7 +1,7 @@
 /* Custom prev / next */
 .c-sliderOverflow .swiper-button-prev,
 .c-sliderOverflow .swiper-button-next {
-  /*@apply !hidden !h-12 !w-12 !rounded-full !bg-white !bg-no-repeat !text-primary-500 md:!flex;*/
+  /*@apply !hidden !h-12 !w-12 !rounded-full !bg-white !bg-no-repeat !text-primary md:!flex;*/
   @apply !top-0 !bottom-0 !mt-0 !flex !h-auto !w-8 !rounded-none !bg-white;
 }
 

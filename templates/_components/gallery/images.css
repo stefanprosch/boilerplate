@@ -13,7 +13,7 @@
 
 .lg-next:hover:not(.disabled),
 .lg-prev:hover:not(.disabled) {
-  @apply text-primary-500;
+  @apply text-primary;
 }
 
 .lg-toolbar .lg-icon {
@@ -21,7 +21,7 @@
 }
 
 .lg-toolbar .lg-icon:hover {
-  @apply text-primary-500;
+  @apply text-primary;
 }
 
 .lg-sub-html {
@@ -49,5 +49,5 @@
 
 .lg-outer .lg-thumb-item.active,
 .lg-outer .lg-thumb-item:hover {
-  @apply border-primary-500;
+  @apply border-primary;
 }

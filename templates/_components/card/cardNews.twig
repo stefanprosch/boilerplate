@@ -73,7 +73,7 @@
         {# Text #}
         {% set text = props.data.text ??? null %}
         {% if text %}
-          <div class="text-small text-bp-text">
+          <div class="text-small text-primary">
             {{ text | striptags | truncate(160) }}
           </div>
         {% endif %}

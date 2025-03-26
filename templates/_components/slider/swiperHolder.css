@@ -40,7 +40,7 @@
 }
 
 .swiper-scrollbar-drag {
-  @apply bg-primary-500 !important;
+  @apply bg-primary !important;
 }
 
 /* Custom prev / next */
