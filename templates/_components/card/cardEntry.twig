@@ -16,13 +16,13 @@
       col: {
         root: 'flex flex-col',
         image: '',
-        body: 'inline-flex flex-col h-full mx-4 px-4 md:px-8 py-4 md:py-8 bg-white -mt-8',
+        body: 'inline-flex flex-col h-full p-4',
         button: 'mt-4 md:mt-8',
       },
       row: {
         root: 'flex flex-col md:grid md:grid-cols-3',
         image: 'md:h-full md:col-span-1',
-        body: 'px-4 md:px-8 py-4 md:py-8 md:col-span-2',
+        body: 'px-4 py-4 md:col-span-2',
         button: 'mt-4 md:mt-8',
       }
     }
@@ -90,32 +90,6 @@
               variantSize: 'md'
             }
           }, withContext = false) }}
-        {% endif %}
-
-        {# Accommodation #}
-        {% if props.data.item.type == "entryAccommodation" or props.data.item.type == "entryOffer" %}
-          <div class="flex flex-row space-x-2">
-            {% if props.data.item.linkOffer ??? null %}
-              {{ include('_components/button/button.twig', {
-                data: {
-                  url: props.data.item.linkOffer.url ??? null,
-                  text: 'translate.component.button.request' | t,
-                  variantStyle: 'secondary',
-                  variantSize: 'md'
-                }
-              }, withContext = false) }}
-            {% endif %}
-            {% if props.data.item.linkBooking ??? null %}
-              {{ include('_components/button/button.twig', {
-                data: {
-                  url: props.data.item.linkBooking.url ??? null,
-                  text: 'translate.component.button.book' | t,
-                  variantStyle: 'primary',
-                  variantSize: 'md'
-                }
-              }, withContext = false) }}
-            {% endif %}
-          </div>
         {% endif %}
       </div>
     </div>

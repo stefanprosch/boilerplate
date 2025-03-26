@@ -48,7 +48,7 @@
     }
 
     &--link {
-      @apply relative text-accent border-0 bg-transparent space-x-2;
+      @apply relative text-accent border-0 bg-transparent px-0 space-x-2;
 
       &:after {
         @apply content-[''] absolute -bottom-1 left-0 right-0 h-[2px] bg-accent opacity-0;
