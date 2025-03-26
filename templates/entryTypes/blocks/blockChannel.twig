@@ -68,10 +68,10 @@
       {# Entry Grid #}
       {{ include('_components/grid/gridEntries.twig', {
         data: {
-          slides: props.data.block.entryList ??? null,
+          slides: entries ??? null,
         },
         classes: {
-          custom: 'col-span-10 col-start-2 md:col-span-12 md:col-start-1 mt-8'
+          custom: 'col-span-12 mt-8'
         }
       }, withContext = false) }}
 
