@@ -1,0 +1,86 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-blockHeadlineText',
+    block: null,
+  },
+  classes: {
+    root: 'container grid grid-cols-12 gap-4 md:gap-8',
+    custom: '',
+  },
+  variants: {
+    lg: {
+      tag: 'h2',
+      title: 'col-span-10 col-start-2 md:col-span-8 md:col-start-3',
+      text: 'col-span-10 col-start-2 md:col-span-8 md:col-start-3',
+      linkContainer: 'col-span-10 col-start-2 md:col-span-8 md:col-start-3',
+      link: 'lg',
+    },
+    md: {
+      tag: 'h3',
+      title: 'col-span-10 col-start-2 md:col-span-8 md:col-start-3',
+      text: 'col-span-10 col-start-2 md:col-span-8 md:col-start-3',
+      linkContainer: 'col-span-10 col-start-2 md:col-span-8 md:col-start-3',
+      link: 'md',
+    },
+    sm: {
+      tag: 'h4',
+      title: 'col-span-10 col-start-2 md:col-span-8 md:col-start-3',
+      text: 'col-span-10 col-start-2 md:col-span-8 md:col-start-3',
+      linkContainer: 'col-span-10 col-start-2 md:col-span-8 md:col-start-3',
+      link: 'sm',
+    }
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
+} %}
+
+<div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+    {# Headline #}
+    {% if props.data.block.textTitle ??? null %}
+      {{ include('_components/text/headline.twig', {
+        data: {
+          text: props.data.block.textTitle ??? null,
+          tag: props.variants[props.data.block.variantSize.value].tag ??? null,
+          variantSize: props.variants[props.data.block.variantSize.value].tag ??? null,
+        },
+        classes: {
+          custom: props.variants[props.data.block.variantSize.value].title
+        }
+      }, withContext = false) }}
+    {% endif %}
+
+    {# Text #}
+    {% if props.data.block.textDescription ??? null %}
+      {{ include('_components/text/richText.twig', {
+        data: {
+          html: props.data.block.textDescription ??? null
+        },
+        classes: {
+          custom: props.variants[props.data.block.variantSize.value].text
+        }
+      }, withContext = false) }}
+    {% endif %}
+
+    {# Links #}
+    {% if props.data.block.textLinks ??? null %}
+      <div class="{{ props.variants[props.data.block.variantSize.value].linkContainer }}">
+        {% for item in props.data.block.textLinks %}
+          {{ include('_components/button/button.twig', {
+            data: {
+              url: item.url,
+              text: item.text ?? 'translate.component.button.textMore' | t,
+              target: item.target,
+              variantStyle: 'link',
+              variantSize: props.variants[props.data.block.variantSize.value].link
+            }
+          }, withContext = false) }}
+        {% endfor %}
+      </div>
+    {% endif %}
+</div>

@@ -1,0 +1,80 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-blockChannel',
+    block: null,
+  },
+  classes: {
+    root: 'container grid grid-cols-12 gap-4 md:gap-8',
+    custom: '',
+  },
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{% if props.data.block.channelSelection ??? null %}
+  {% set entryQuery = craft.entries
+    .section(props.data.block.channelSelection)
+    .limit(props.data.block.contentEntryLimit ??? null)
+    .with(['assetEntryImage'])
+    .orderBy('postDate DESC') %}
+
+  {% set entries = entryQuery.all() %}
+
+  <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+    {# Headline #}
+    {{ include('_components/text/textBlockHeadline.twig', {
+      data: {
+        headline: props.data.block.textTitle ??? null,
+        text: props.data.block.textDescription ??? null,
+      },
+      classes: {
+        custom: ''
+      }
+    }, withContext = false) }}
+
+    {% set viewMode = props.data.block.contentViewMode %}
+
+    {% if viewMode == 'list'%}
+
+      {# List #}
+      {{ include('_components/list/listEntries.twig', {
+        data: {
+          slides: entries ??? null,
+        },
+        classes: {
+          custom: 'col-span-12 mt-8'
+        }
+      }, withContext = false) }}
+
+    {% elseif viewMode == 'slider' %}
+
+      {# Slider #}
+      {{ include('_components/slider/sliderEntries.twig', {
+        data: {
+          slides: entries ??? null,
+        },
+        classes: {
+          custom: 'col-span-12 mt-8'
+        }
+      }, withContext = false) }}
+
+    {% elseif viewMode == 'grid' %}
+
+      {# Entry Grid #}
+      {{ include('_components/grid/gridEntries.twig', {
+        data: {
+          slides: props.data.block.entryList ??? null,
+        },
+        classes: {
+          custom: 'col-span-10 col-start-2 md:col-span-12 md:col-start-1 mt-8'
+        }
+      }, withContext = false) }}
+
+    {% endif %}
+  </div>
+{% endif %}

@@ -9,10 +9,10 @@
     }
 
     a {
-      @apply font-bold text-sm-orange underline transition;
+      @apply font-bold text-bp-accent underline transition;
 
       &:hover {
-        @apply text-sm-bordeaux no-underline;
+        @apply text-bp-primary no-underline;
       }
     }
 

@@ -1,10 +1,28 @@
 color: null
 fieldLayouts:
   7b6ace88-ae82-4caf-afe4-1650ce6e7ce3:
+    cardView:
+      - 'layoutElement:51b01a52-b32f-4ffa-910d-ef9fe863f1ef'
     tabs:
       -
         elementCondition: null
         elements:
+          -
+            dateAdded: '2025-03-21T08:59:09+00:00'
+            elementCondition: null
+            fieldUid: 1516a801-6243-468d-b8e2-479085458faa # Text: Custom Title
+            handle: textTitle
+            includeInCards: false
+            instructions: null
+            label: Title
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4ccd621f-f578-4b38-a027-a5c383e9d5a6
+            userCondition: null
+            warning: null
+            width: 100
           -
             dateAdded: '2024-11-18T07:59:55+00:00'
             elementCondition: null
@@ -34,6 +52,44 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: ab6dd79a-0d9c-4799-860a-01a7c242ba68
+            userCondition: null
+            warning: null
+            width: 50
+        name: Content
+        uid: a7ac4d85-057b-421c-a16b-b382da491a30
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-03-21T08:59:09+00:00'
+            elementCondition: null
+            fieldUid: cf2f33c5-65b1-4ffe-ad64-c430610bc777 # Builder: Content - Text - Headline Size
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Headline Size'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e35f1252-ad75-4e20-b484-8a25eb4bccc7
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2024-11-18T07:59:55+00:00'
+            elementCondition: null
+            fieldUid: 210de09a-f6c8-42dd-b4d6-c1c00e7d0b82 # Builder: Content - Text : Floating Image - Image Position
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Image Position'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1ce2335a-ddf7-4a2f-a788-0c629ecec74b
             userCondition: null
             warning: null
             width: 50
@@ -69,24 +125,8 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 50
-          -
-            dateAdded: '2024-11-18T07:59:55+00:00'
-            elementCondition: null
-            fieldUid: 210de09a-f6c8-42dd-b4d6-c1c00e7d0b82 # Builder: Content - Text : Floating Image - Image Position
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: 'Image Position'
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 1ce2335a-ddf7-4a2f-a788-0c629ecec74b
-            userCondition: null
-            warning: null
-            width: 50
-        name: Content
-        uid: a7ac4d85-057b-421c-a16b-b382da491a30
+        name: Settings
+        uid: c9d154ae-8f7a-413a-afea-a4a09d6614ea
         userCondition: null
 handle: blockTextImage
 hasTitleField: false

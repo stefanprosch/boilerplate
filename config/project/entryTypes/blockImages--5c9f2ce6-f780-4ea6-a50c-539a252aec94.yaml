@@ -21,6 +21,28 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 100
+        name: Content
+        uid: 56042e3e-7a7b-4a4c-9222-63e004682c9b
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-11-18T09:03:59+00:00'
+            elementCondition: null
+            fieldUid: b77696b8-7875-400d-a2a2-2156504864f0 # Builder: Content - Images - View Mode
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'View Mode'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: a9493f70-ec9e-43c8-bbec-a0d065d13780
+            userCondition: null
+            warning: null
+            width: 50
           -
             dateAdded: '2024-11-18T07:59:55+00:00'
             elementCondition: null
@@ -53,33 +75,17 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 50
-          -
-            dateAdded: '2024-11-18T09:03:59+00:00'
-            elementCondition: null
-            fieldUid: b77696b8-7875-400d-a2a2-2156504864f0 # Builder: Content - Images - View Mode
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: 'View Mode'
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: a9493f70-ec9e-43c8-bbec-a0d065d13780
-            userCondition: null
-            warning: null
-            width: 50
-        name: Content
-        uid: 56042e3e-7a7b-4a4c-9222-63e004682c9b
+        name: Settings
+        uid: f3371511-8ac1-4bc0-8129-f45046b0c06f
         userCondition: null
 handle: blockImages
 hasTitleField: false
-icon: ''
+icon: null
 name: Images
 showSlugField: false
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
-titleFormat: ''
+titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

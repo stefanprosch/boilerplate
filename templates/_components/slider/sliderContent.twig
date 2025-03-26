@@ -29,16 +29,16 @@
           <h2 class="js-sliderTitle text-2xl">{{ item.textTitle }}</h2>
           {# Line #}
           <div class="js-sliderLine w-1/3 leading-loose flex items-center h-1">
-            <hr class="w-full h-[1px] bg-sm-orange border-0"/>
+            <hr class="w-full h-[1px] bg-bp-accent border-0"/>
           </div>
           {# Description #}
-          <div class="js-sliderDescription mt-4 text-lg text-sm-greydarker">
+          <div class="js-sliderDescription mt-4 text-lg text-bp-texter">
             {{ include('_components/text/plainText.twig', {
               data: {
                 text: item.textDescription | striptags ??? null
               },
               classes: {
-                custom: 'text-small text-sm-greydarker'
+                custom: 'text-small text-bp-texter'
               }
             }, withContext = false) }}
           </div>

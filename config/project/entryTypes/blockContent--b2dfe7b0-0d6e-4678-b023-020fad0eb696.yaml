@@ -1,83 +1,87 @@
 color: null
 fieldLayouts:
-  e22d570c-156e-4591-a91a-2af67c7ed22b:
-    cardView:
-      - 'layoutElement:bd2dc568-fec5-4384-b6d0-dc26b5dd7b34'
+  1f90a7af-9b75-4562-a8a9-a12dc2d55522:
     tabs:
       -
         elementCondition: null
         elements:
           -
-            dateAdded: '2024-11-18T07:59:55+00:00'
+            dateAdded: '2025-03-21T09:57:18+00:00'
             elementCondition: null
-            fieldUid: 53f0660a-f06b-4b2d-b342-1869c5c65538 # Builder: Content - Quote - Quote
-            handle: null
-            includeInCards: true
+            fieldUid: 1516a801-6243-468d-b8e2-479085458faa # Text: Custom Title
+            handle: textTitle
+            includeInCards: false
             instructions: null
-            label: Quote
+            label: Title
             providesThumbs: false
-            required: true
+            required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: bd2dc568-fec5-4384-b6d0-dc26b5dd7b34
+            uid: 9f3db4f5-71af-4fb2-ae0b-7080cddf91eb
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2024-11-18T07:59:55+00:00'
+            dateAdded: '2025-03-21T09:57:18+00:00'
             elementCondition: null
-            fieldUid: c40b8b5e-0ccb-4d0d-9eee-bd24ac9209b0 # Builder: Content - Quote - Source
-            handle: null
+            fieldUid: d4cabad1-1cae-4a1e-a914-c38d9f1a813a # Builder: Content - Text - Text
+            handle: textDescription
             includeInCards: false
             instructions: null
-            label: Source
+            label: Description
             providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 9fcea238-ad3d-4958-9762-4a3f7c2cb1e9
+            uid: c590a9f0-f893-4f22-bb7a-2ad656664b28
             userCondition: null
             warning: null
-            width: 50
+            width: 100
           -
-            dateAdded: '2024-11-18T07:59:55+00:00'
+            dateAdded: '2025-03-21T09:57:18+00:00'
             elementCondition: null
-            fieldUid: 75b6f580-613f-42ae-aa23-2d5fb22ff3da # Builder: Content - Quote - Source Subline
+            fieldUid: c41504c5-f329-4495-9893-6237d54835c1 # Builder: Content - Content Blocks
             handle: null
             includeInCards: false
             instructions: null
-            label: 'Source Subline'
+            label: 'Content Blocks'
             providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 81e0a6bb-2f47-4d2f-b800-a0a2651a916f
+            uid: ba45a97c-a694-4e36-88b1-87337e36e6b9
             userCondition: null
             warning: null
-            width: 50
-          -
-            dateAdded: '2024-11-18T07:59:55+00:00'
-            elementCondition: null
-            fieldUid: e11e03f7-19c1-45c3-935e-1994a7ce7d26 # Builder: Content - Quote - Source Url
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: 'Source Url'
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 25bfda37-86b0-4276-ae59-e34d406c5eba
-            userCondition: null
-            warning: null
-            width: 50
+            width: 100
         name: Content
-        uid: 8e061a5e-d78f-48e7-b026-09c9f9a49a67
+        uid: be06d9fe-ac72-4535-a0f7-63d512bbe1d5
         userCondition: null
-handle: blockQuote
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-03-21T09:57:18+00:00'
+            elementCondition: null
+            fieldUid: 25e45cda-5ba7-4493-bd27-25459a06863b # Builder: Content - View Mode
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'View Mode'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f9030684-54af-49bb-9b60-862e12c1cfaa
+            userCondition: null
+            warning: null
+            width: 100
+        name: Settings
+        uid: f9c8700c-5517-4567-99b7-8758bd999f73
+        userCondition: null
+handle: blockContent
 hasTitleField: false
 icon: null
-name: Quote
+name: Content
 showSlugField: false
 showStatusField: true
 slugTranslationKeyFormat: null

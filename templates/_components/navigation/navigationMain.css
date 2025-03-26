@@ -1,6 +1,6 @@
 .c-navigationMain {
   @apply overflow-scroll lg:overflow-auto
-  w-screen h-screen flex justify-center items-start pt-64 bg-sm-rosa text-sm-bordeaux z-0;
+  w-screen h-screen flex justify-center items-start pt-64 bg-bp-background text-bp-primary z-0;
 }
 
 .c-navigationMain__list {
@@ -52,7 +52,7 @@
 
     &.is-active,
     &:hover {
-      @apply text-sm-grey;
+      @apply text-bp-text;
     }
 
     &[aria-expanded="true"] + .c-navigationMain__subItemsWrapper[data-level="1"] {

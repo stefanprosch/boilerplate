@@ -7,7 +7,7 @@
 
 // plugins
 import containerQuerries from '@tailwindcss/container-queries';
-import themeIt from 'tailwindcss-theme-it';
+// import themeIt from 'tailwindcss-theme-it';
 import fluidType from 'tailwindcss-fluid-type';
 import debugScreens from 'tailwindcss-debug-screens';
 import forms from '@tailwindcss/forms';
@@ -69,7 +69,7 @@ export default {
   plugins: [
     containerQuerries,
     // eslint-disable-next-line @typescript-eslint/no-var-requires
-    themeIt(settingsThemeIt),
+    // themeIt(settingsThemeIt),
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     fluidType({
       ...settingsfluidType,

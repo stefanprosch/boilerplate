@@ -1,0 +1,16 @@
+columnSuffix: null
+handle: contentViewMode
+instructions: null
+name: 'Builder: Content - View Mode'
+searchable: false
+settings:
+  cachedOptions: true
+  customOptions: false
+  element: null
+  genError: ''
+  json: ''
+  template: _super-dynamic-fields/entries-view-mode.json
+  templateData: ''
+translationKeyFormat: null
+translationMethod: none
+type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField

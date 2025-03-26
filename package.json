@@ -83,7 +83,7 @@
     "dev": "vite",
     "dev:update": "npm i && composer install && npm run build",
     "build": "npm run twc && npm run lint && vite build",
-    "twc": "npx tailwindcss -i ./src/css/app.css -o ./src/public/css/tailwind.app.css -c tailwind.config.js",
+    "twc": "npx tailwindcss -i ./src/css/app.css -o ./src/public/css/tailwind.app.css -c tailwind.config.cjs",
     "lint": "npm run lint:ts && npm run lint:js && npm run lint:css",
     "lint:ts": "tsc --noEmit",
     "lint:js": "eslint './src/**/*.{js,ts,vue}' './templates/**/*.{js,ts,vue}' --fix",

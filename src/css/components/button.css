@@ -1,6 +1,6 @@
 @layer components {
   .btn {
-    @apply inline-flex justify-center border-[1px] border-sm-bordeaux font-bold tracking-widest uppercase;
+    @apply inline-flex justify-center border-[1px] border-bp-primary font-bold tracking-widest uppercase;
     line-height: 1;
     transition: all 0.3s ease;
 
@@ -36,11 +36,11 @@
     }
 
     &--primary {
-      @apply bg-sm-bordeaux text-white;
+      @apply bg-bp-primary text-white;
     }
 
     &--secondary {
-      @apply bg-transparent text-sm-bordeaux;
+      @apply bg-transparent text-bp-primary;
     }
 
     &--outlined {
@@ -48,10 +48,10 @@
     }
 
     &--link {
-      @apply relative text-sm-orange border-0 bg-transparent space-x-2;
+      @apply relative text-bp-accent border-0 bg-transparent space-x-2;
 
       &:after {
-        @apply content-[''] absolute -bottom-1 left-0 right-0 h-[2px] bg-sm-orange opacity-0;
+        @apply content-[''] absolute -bottom-1 left-0 right-0 h-[2px] bg-bp-accent opacity-0;
         transition: all 0.3s ease;
       }
 
@@ -64,10 +64,10 @@
       }
 
       .c-footer & {
-        @apply text-sm-grey font-normal tracking-wider;
+        @apply text-bp-text font-normal tracking-wider;
 
         &:after {
-          @apply bg-sm-grey;
+          @apply bg-bp-text;
         }
       }
     }
@@ -83,10 +83,10 @@
     }
 
     &--tab {
-      @apply relative inline-flex font-serif text-sm-greydark border-0 bg-transparent space-x-2 py-4 px-8;
+      @apply relative inline-flex font-serif text-bp-text border-0 bg-transparent space-x-2 py-4 px-8;
 
       &:after {
-        @apply content-[''] absolute -bottom-1 left-0 right-0 h-[2px] bg-sm-orange opacity-0;
+        @apply content-[''] absolute -bottom-1 left-0 right-0 h-[2px] bg-bp-accent opacity-0;
         transition: all 0.3s ease;
       }
 
@@ -103,7 +103,7 @@
       }
 
       &.active {
-        @apply text-sm-orange;
+        @apply text-bp-accent;
 
         &:after {
           @apply -bottom-0.5 opacity-100;
@@ -116,10 +116,10 @@
     }
 
     &--filter {
-      @apply bg-transparent border-sm-greydark text-sm-greydark;
+      @apply bg-transparent border-bp-text text-bp-text;
 
       &.active {
-        @apply bg-sm-orange border-sm-orange text-white
+        @apply bg-bp-accent border-bp-accent text-white
       }
     }
   }

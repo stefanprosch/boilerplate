@@ -1,0 +1,91 @@
+color: null
+fieldLayouts:
+  43bb7bc1-f434-4230-9d1c-e71b887a8d12:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-03-21T09:55:31+00:00'
+            elementCondition: null
+            fieldUid: 1516a801-6243-468d-b8e2-479085458faa # Text: Custom Title
+            handle: textTitle
+            includeInCards: true
+            instructions: null
+            label: Title
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ef3ee850-af26-4166-b160-04798f673f95
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-03-21T09:55:31+00:00'
+            elementCondition: null
+            fieldUid: d4cabad1-1cae-4a1e-a914-c38d9f1a813a # Builder: Content - Text - Text
+            handle: textDescription
+            includeInCards: true
+            instructions: null
+            label: Description
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 6b8774ea-4a61-4aa7-8a1e-c0c6936036e9
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-03-21T09:55:31+00:00'
+            elementCondition: null
+            fieldUid: 75195ab8-b7c4-4dca-b807-ef8a042ef5a9 # Builder: Content - Image Grid - Images
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: Images
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 080cb7fd-d653-4a71-a573-53767bb269c1
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 8e1a87cb-9707-4436-be2d-a6f6deb1a181
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-03-21T09:55:31+00:00'
+            elementCondition: null
+            fieldUid: b77696b8-7875-400d-a2a2-2156504864f0 # Builder: Content - Images - View Mode
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: 'Images View Mode'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: bfb29fc4-4344-4534-ae1c-231761f3e84b
+            userCondition: null
+            warning: null
+            width: 100
+        name: Settings
+        uid: 0aa4178d-c791-4829-a4ea-dcd4bb671c72
+        userCondition: null
+handle: contentMatrix
+hasTitleField: false
+icon: null
+name: 'Content Matrix'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: '{textTitle}'
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

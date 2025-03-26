@@ -1,83 +1,90 @@
 color: null
 fieldLayouts:
-  e22d570c-156e-4591-a91a-2af67c7ed22b:
+  aa0d77ad-1e4e-4361-b881-9987cb514684:
     cardView:
-      - 'layoutElement:bd2dc568-fec5-4384-b6d0-dc26b5dd7b34'
+      - 'layoutElement:3046b7c2-e1c4-4641-bbb9-5ec61b7d556f'
+      - 'layoutElement:bd1163ee-1802-422c-9ee6-a7920c71ff75'
     tabs:
       -
         elementCondition: null
         elements:
           -
-            dateAdded: '2024-11-18T07:59:55+00:00'
+            dateAdded: '2025-03-21T08:55:57+00:00'
             elementCondition: null
-            fieldUid: 53f0660a-f06b-4b2d-b342-1869c5c65538 # Builder: Content - Quote - Quote
-            handle: null
+            fieldUid: 1516a801-6243-468d-b8e2-479085458faa # Text: Custom Title
+            handle: textTitle
             includeInCards: true
             instructions: null
-            label: Quote
+            label: Title
             providesThumbs: false
-            required: true
+            required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: bd2dc568-fec5-4384-b6d0-dc26b5dd7b34
+            uid: 3046b7c2-e1c4-4641-bbb9-5ec61b7d556f
             userCondition: null
             warning: null
             width: 100
           -
-            dateAdded: '2024-11-18T07:59:55+00:00'
+            dateAdded: '2025-03-21T08:55:57+00:00'
             elementCondition: null
-            fieldUid: c40b8b5e-0ccb-4d0d-9eee-bd24ac9209b0 # Builder: Content - Quote - Source
-            handle: null
-            includeInCards: false
+            fieldUid: d4cabad1-1cae-4a1e-a914-c38d9f1a813a # Builder: Content - Text - Text
+            handle: textDescription
+            includeInCards: true
             instructions: null
-            label: Source
+            label: Description
             providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 9fcea238-ad3d-4958-9762-4a3f7c2cb1e9
+            uid: bd1163ee-1802-422c-9ee6-a7920c71ff75
             userCondition: null
             warning: null
-            width: 50
+            width: 100
           -
-            dateAdded: '2024-11-18T07:59:55+00:00'
+            dateAdded: '2025-03-21T08:55:57+00:00'
             elementCondition: null
-            fieldUid: 75b6f580-613f-42ae-aa23-2d5fb22ff3da # Builder: Content - Quote - Source Subline
+            fieldUid: 8d272b11-c1b4-4fc3-95c8-9d94fa513795 # Text: Link
             handle: null
             includeInCards: false
             instructions: null
-            label: 'Source Subline'
+            label: Links
             providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 81e0a6bb-2f47-4d2f-b800-a0a2651a916f
+            uid: e9676fe5-cf68-498e-a75c-eda545d80962
             userCondition: null
             warning: null
-            width: 50
-          -
-            dateAdded: '2024-11-18T07:59:55+00:00'
-            elementCondition: null
-            fieldUid: e11e03f7-19c1-45c3-935e-1994a7ce7d26 # Builder: Content - Quote - Source Url
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: 'Source Url'
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 25bfda37-86b0-4276-ae59-e34d406c5eba
-            userCondition: null
-            warning: null
-            width: 50
+            width: 100
         name: Content
-        uid: 8e061a5e-d78f-48e7-b026-09c9f9a49a67
+        uid: aba4c5d7-f09e-47a7-8a71-d0f572c4de0e
         userCondition: null
-handle: blockQuote
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-03-21T08:55:57+00:00'
+            elementCondition: null
+            fieldUid: cf2f33c5-65b1-4ffe-ad64-c430610bc777 # Builder: Content - Text - Headline Size
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Headline Size'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 307a9ec8-d2b1-4ca6-a765-d649267eccb4
+            userCondition: null
+            warning: null
+            width: 100
+        name: Settings
+        uid: 7f756878-cc11-44b8-97a5-4562eb88c1bf
+        userCondition: null
+handle: blockHeadlineText
 hasTitleField: false
 icon: null
-name: Quote
+name: 'Headline : Text'
 showSlugField: false
 showStatusField: true
 slugTranslationKeyFormat: null

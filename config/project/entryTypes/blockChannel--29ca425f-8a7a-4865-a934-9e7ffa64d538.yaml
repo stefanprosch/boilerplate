@@ -1,105 +1,107 @@
 color: null
 fieldLayouts:
-  1abefa28-ba0b-4e7e-be2b-12835562bb01:
+  8802607c-be5b-4515-9f3e-1c16b95b4f93:
     cardView:
-      - 'layoutElement:61617279-3f13-4142-9007-28c5defd3157'
+      - 'layoutElement:63c1f282-2328-45ef-b232-96d46f8c881d'
+      - section
+      - 'layoutElement:27918bbf-868d-4d1a-9c50-7fbbfbb917c1'
     tabs:
       -
         elementCondition: null
         elements:
           -
-            dateAdded: '2024-11-18T07:59:55+00:00'
+            dateAdded: '2025-03-21T09:42:47+00:00'
             elementCondition: null
-            fieldUid: 63bd200d-3882-4788-a8ba-528452521d6c
-            handle: null
+            fieldUid: 1516a801-6243-468d-b8e2-479085458faa # Text: Custom Title
+            handle: textTitle
             includeInCards: true
             instructions: null
-            label: 'Video Provider'
+            label: Title
             providesThumbs: false
-            required: true
+            required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 61617279-3f13-4142-9007-28c5defd3157
+            uid: 27918bbf-868d-4d1a-9c50-7fbbfbb917c1
             userCondition: null
             warning: null
-            width: 50
+            width: 100
           -
-            dateAdded: '2024-11-18T07:59:55+00:00'
+            dateAdded: '2025-03-21T09:42:47+00:00'
             elementCondition: null
-            fieldUid: e9486b85-fd5e-40c8-851b-a6b0133e1f88 # Builder: Content - Video Youtube - Video Id
+            fieldUid: d4cabad1-1cae-4a1e-a914-c38d9f1a813a # Builder: Content - Text - Text
+            handle: textDescription
+            includeInCards: true
+            instructions: null
+            label: Description
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 63c1f282-2328-45ef-b232-96d46f8c881d
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-03-21T09:42:47+00:00'
+            elementCondition: null
+            fieldUid: 772d842d-de0a-4d5c-a008-310a766ace70 # Builder: Content - Channel - Selection
             handle: null
             includeInCards: false
             instructions: null
-            label: 'Video Id'
+            label: Channel
             providesThumbs: false
-            required: true
+            required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 209e0b27-694f-492c-8618-f97820ac8a2a
+            uid: ba9c7a65-0052-4de5-82c2-12ff037bf85a
             userCondition: null
             warning: null
-            width: 50
+            width: 100
         name: Content
-        uid: bb2df4f8-8532-459f-ae5f-12b9013d58c0
+        uid: 0c06282f-edb4-462a-87e5-3559a7a2aa1a
         userCondition: null
       -
         elementCondition: null
         elements:
           -
-            dateAdded: '2024-11-18T07:59:55+00:00'
+            dateAdded: '2025-03-21T09:42:47+00:00'
             elementCondition: null
-            fieldUid: 3ac3bfdf-e50b-46e3-abb9-cef4bffab4a0 # Builder: Content - Video Youtube - Autoplay
+            fieldUid: 25e45cda-5ba7-4493-bd27-25459a06863b # Builder: Content - View Mode
             handle: null
             includeInCards: false
             instructions: null
-            label: Autoplay
+            label: 'View Mode'
             providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: 85e4faf3-8c53-4926-9624-5ba7b9cca49b
+            uid: ba943dc9-6a7c-44c6-a01b-61dff75cf554
             userCondition: null
             warning: null
-            width: 50
+            width: 100
           -
-            dateAdded: '2024-11-18T07:59:55+00:00'
+            dateAdded: '2025-03-21T09:42:47+00:00'
             elementCondition: null
-            fieldUid: 4a25e574-679a-4d01-8e8b-d5927129ce33 # Builder: Content - Video Youtube - Loop
+            fieldUid: f63c3988-00f8-4310-8741-5408a416230e # Builder: Content - Entry Limit
             handle: null
             includeInCards: false
             instructions: null
-            label: Loop
+            label: Limit
             providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
-            uid: ca8a500e-d6df-4d29-b957-9e9f7172facc
+            uid: 12a4d26b-3ebe-45c0-834e-ad00ee5a2f7a
             userCondition: null
             warning: null
-            width: 50
-          -
-            dateAdded: '2024-11-18T07:59:55+00:00'
-            elementCondition: null
-            fieldUid: 68109da0-245f-4b21-b040-b7f4385e618e # Builder: Content - Video Youtube - Video Width
-            handle: null
-            includeInCards: false
-            instructions: null
-            label: 'Video Width'
-            providesThumbs: false
-            required: false
-            tip: null
-            type: craft\fieldlayoutelements\CustomField
-            uid: 6b9c294a-c00e-4b45-b0e5-c0ff793155ac
-            userCondition: null
-            warning: null
-            width: 50
+            width: 100
         name: Settings
-        uid: 988f3954-88d4-44fa-8298-432f5ea9d429
+        uid: c75f50bf-1f99-45c5-a0b4-62d0bfbbb595
         userCondition: null
-handle: blockVideo
+handle: blockChannel
 hasTitleField: false
 icon: null
-name: Video
+name: Channel
 showSlugField: false
 showStatusField: true
 slugTranslationKeyFormat: null

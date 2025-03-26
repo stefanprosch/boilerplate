@@ -18,7 +18,7 @@
 
 {% if props.data.block.textDescription ??? null %}
   <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
-    <div class="col-span-8 md:col-span-6 col-start-2 md:col-start-4 text-sm-bordeaux rounded-lg border-sm-bordeaux border-[1px] p-4 md:p-8">
+    <div class="col-span-8 md:col-span-6 col-start-2 md:col-start-4 text-bp-primary rounded-lg border-bp-primary border-[1px] p-4 md:p-8">
       {{ include('_components/text/plainText.twig', {
         data: {
           text: props.data.block.textTitle | striptags ??? null

@@ -2,14 +2,14 @@
   @apply !m-0 !w-2 !h-2 bg-transparent inline-block relative opacity-100 overflow-hidden rounded-full
   before:w-full
   before:h-full
-  before:bg-sm-grey/50
+  before:bg-bp-text/50
   before:absolute
   before:left-0
   before:top-0
 
   after:w-full
   after:h-full
-  after:bg-sm-orange
+  after:bg-bp-accent
   after:absolute
   after:-translate-x-full
   after:rounded-none

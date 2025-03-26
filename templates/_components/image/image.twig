@@ -58,7 +58,7 @@ Art Direction
     decorativeImage: false
   },
   classes: {
-    root: 'block',
+    root: 'block pointer-none',
     custom: ''
   }
 } %}
@@ -134,10 +134,10 @@ Art Direction
   {% set caption = null %}
   {% if props.data.caption %}
     {% set caption = {
-      'title': props.data.image.customTitle ??? null,
-      'text': props.data.image.caption ??? null,
-      'source': props.data.image.source ??? null,
-      'sourceUrl': props.data.image.hyperLink.url ??? null,
+      'title': props.data.image.textCustomTitle ??? props.data.image.title,
+      'text': props.data.image.textCaption ??? null,
+      'source': props.data.image.textSource ??? null,
+      'sourceUrl': props.data.image.textSourceUrl.url ??? null,
     } %}
   {% endif %}
 

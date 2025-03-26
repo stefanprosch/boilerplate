@@ -1,6 +1,8 @@
 color: null
 fieldLayouts:
   58ddc97d-9694-4104-a136-b6344987e1b6:
+    cardView:
+      - 'layoutElement:089ab2ac-9335-40c2-9827-f4dd1baca5dc'
     tabs:
       -
         elementCondition: null
@@ -20,7 +22,13 @@ fieldLayouts:
             uid: 0cd02812-349c-46d5-a4b7-57700a221566
             userCondition: null
             warning: null
-            width: 50
+            width: 100
+        name: Content
+        uid: 5e8a312e-45d0-491c-924d-84d96af3b270
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
           -
             dateAdded: '2024-11-18T07:59:55+00:00'
             elementCondition: null
@@ -69,8 +77,8 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 50
-        name: Content
-        uid: 5e8a312e-45d0-491c-924d-84d96af3b270
+        name: Settings
+        uid: 75c160e7-8471-441b-ba57-883694ddafba
         userCondition: null
 handle: blockImage
 hasTitleField: false

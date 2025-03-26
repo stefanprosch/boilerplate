@@ -1,4 +1,4 @@
-dateModified: 1732825342
+dateModified: 1742552948
 elementSources:
   craft\elements\Asset:
     -
@@ -92,10 +92,12 @@ meta:
     2bc1feee-cfc8-48ee-bace-f101e7f41ac9: Default # Default
     2f642060-4792-41cb-a427-083aabeba231: 'Content Builder' # Content Builder
     3ac3bfdf-e50b-46e3-abb9-cef4bffab4a0: 'Builder: Content - Video Youtube - Autoplay' # Builder: Content - Video Youtube - Autoplay
+    3cc5cb1b-b446-4459-b458-bab6c01226a5: 'Builder: Content - Section - Section Anchor' # Builder: Content - Section - Section Anchor
     3e51d964-333c-4128-bc14-fe56ffb18bf7: 'Footer: Subnavigation Right' # Footer: Subnavigation Right
     4a25e574-679a-4d01-8e8b-d5927129ce33: 'Builder: Content - Video Youtube - Loop' # Builder: Content - Video Youtube - Loop
     4df8fc82-775f-4b53-9b7b-92a43c4f24f2: 'Builder: Content - Teaser - Headline' # Builder: Content - Teaser - Headline
     4e2c2892-9731-484c-8f4c-653ff0bd2fb5: 'List: Content' # List: Content
+    4f69dba7-71a6-416e-a773-1d8230568aff: 'Content Matrix' # Content Matrix
     5a2733fd-f9c9-447a-ab50-f6cf075cdf31: 'Meta Page' # Meta Page
     5c9f2ce6-f780-4ea6-a50c-539a252aec94: Images # Images
     5d0f7961-203c-4008-a55a-6a7d35e7a37a: Home # Home
@@ -109,10 +111,11 @@ meta:
     6dcb496a-cd73-4661-929e-4b9c226a1fa9: Notification # Notification
     6f4a3e01-23de-4313-8109-00a430317d11: 'Rich Text Default' # Rich Text Default
     7b3b13e0-e20d-4d51-b0ae-832300f45234: Text # Text
-    7b23a4a8-a6f8-43c4-b12c-326d089176ad: 'Video Youtube' # Video Youtube
+    7b23a4a8-a6f8-43c4-b12c-326d089176ad: Video # Video
     7c8efcc0-cc6c-4b2f-beea-0415447bbbfd: 'Zimmer & Suiten' # Zimmer & Suiten
     7eb1a718-0679-4fda-b656-9bfdf55a2025: 'Navigation Main' # Navigation Main
     7f86db78-4123-429b-9fb8-e4a88fcbd6e1: 'Footer: Subnavigation Left' # Footer: Subnavigation Left
+    7fc64a2a-b955-454f-a41f-e61c5048ccb1: 'Builder: Content - Entries' # Builder: Content - Entries
     08c0e4d2-5f27-4d8d-8263-e347aa9fb4d7: 'Builder: Content - Entries' # Builder: Content - Entries
     8ced5be5-13b2-483f-8db9-aab9757aad21: Error # Error
     8d272b11-c1b4-4fc3-95c8-9d94fa513795: 'Text: Link' # Text: Link
@@ -126,7 +129,9 @@ meta:
     9f7c46cf-d2fd-4aff-b605-76d2127e9368: Settings # Settings
     22e31646-062f-4716-80a4-65d8b847f960: Form # Form
     24d502b6-138d-4fdb-8e5e-8d4e63fe22ae: 'Builder: Content - Teaser - Alignment' # Builder: Content - Teaser - Alignment
+    25e45cda-5ba7-4493-bd27-25459a06863b: 'Builder: Content - View Mode' # Builder: Content - View Mode
     27d4852b-c3b3-43a9-a66c-f7e6ed0d575e: 'Social Media Channels' # Social Media Channels
+    29ca425f-8a7a-4865-a934-9e7ffa64d538: Channel # Channel
     34c48f87-e4f0-4c33-aac4-73de400425f7: 'Contact: E-Mail' # Contact: E-Mail
     35b67fb3-4bdb-470f-a686-3d46c5cd5f96: 'Builder: Content - Image - Image' # Builder: Content - Image - Image
     53f0660a-f06b-4b2d-b342-1869c5c65538: 'Builder: Content - Quote - Quote' # Builder: Content - Quote - Quote
@@ -149,12 +154,14 @@ meta:
     485f0e1d-ef6b-4035-8a72-8fc0c4ca553a: 'Asset: Alt Text' # Asset: Alt Text
     624ea061-dabc-494c-98c8-58594eba15a6: Adresse # Adresse
     666a9d6c-9efa-4b2c-afd0-7bc8bcbf8cd9: 'Accommodation: Facilities' # Accommodation: Facilities
+    772d842d-de0a-4d5c-a008-310a766ace70: 'Builder: Content - Channel - Selection' # Builder: Content - Channel - Selection
     785b41ed-8ac9-4f3f-8c78-b7000c2da469: Inklusivleistungen # Inklusivleistungen
     843a913c-15cf-42e0-a196-20fc5a8d0513: 'Builder: Content - Content Tabs - Content' # Builder: Content - Content Tabs - Content
+    0895deae-97b1-455c-b5c9-5910bd9cd114: 'Headline : Text' # Headline : Text
     920b5ca4-1a02-44cf-b446-04e45e404f9b: English # English
     1509cbec-547c-4338-bcc8-a5452ab8c801: 'Builder: Content - Image Gallery - Images' # Builder: Content - Image Gallery - Images
     1516a801-6243-468d-b8e2-479085458faa: 'Text: Custom Title' # Text: Custom Title
-    3497ad65-5e4c-43cb-b469-c3e4b3d80343: 'Text : Floating Image' # Text : Floating Image
+    3497ad65-5e4c-43cb-b469-c3e4b3d80343: 'Text : Image' # Text : Image
     3547e7b4-f3fb-4cf4-9d29-9f12dfa94594: News # News
     5173c2fb-22a4-490d-9483-74a188822386: 'Builder: Content - Entries - View Mode' # Builder: Content - Entries - View Mode
     5584da3b-6337-4070-a4ac-be20f00eda76: 'Teaser: Image' # Teaser: Image
@@ -184,11 +191,13 @@ meta:
     adc52bb0-f3d1-48c9-afd8-9fe077f17ed9: 'Accommodation: Type' # Accommodation: Type
     b01030f4-e108-4605-b235-9d024148470d: 'Overview Accommodation' # Overview Accommodation
     b0207f48-be48-49ab-a759-1ff51f232df3: Pages # Pages
+    b2dfe7b0-0d6e-4678-b023-020fad0eb696: Content # Content
     b3a90095-2af8-4c53-a0dd-6e7d9f80d628: 'Image Gallery' # Image Gallery
     b3e61970-31dd-4309-b339-80d2bdd0b786: 'Definition List' # Definition List
     b4e2ccae-bc05-4b02-a9d9-50111985be64: Images # Images
     b7ba1ea8-f9d4-4709-b6e2-cfd524dc27a9: 'Accordeon: Channel' # Accordeon: Channel
     b81cb731-dd6f-4055-9c6d-2f076a727a27: 'Builder: Content - Text : Floating Image - Image' # Builder: Content - Text : Floating Image - Image
+    b502cc32-1a21-49f2-9fe6-f24265e51a45: Entries # Entries
     b3022ef5-7f1b-49d7-976d-5d5be501c1f1: Section # Section
     b77696b8-7875-400d-a2a2-2156504864f0: 'Builder: Content - Images - View Mode' # Builder: Content - Images - View Mode
     ba2398c6-332b-40f8-b2c9-eaf9c02c0bba: Accommodation # Accommodation
@@ -203,7 +212,9 @@ meta:
     c40b8b5e-0ccb-4d0d-9eee-bd24ac9209b0: 'Builder: Content - Quote - Source' # Builder: Content - Quote - Source
     c41b5ba1-36a0-423c-8964-eba764df614c: 'Builder: Content - Teaser - Image' # Builder: Content - Teaser - Image
     c743f00e-d278-44ad-b2c2-ffb7e434cf3e: 'Tabs: Content' # Tabs: Content
+    c41504c5-f329-4495-9893-6237d54835c1: 'Builder: Content - Content Blocks' # Builder: Content - Content Blocks
     ceb5ac8c-9030-412b-b860-1b59e2f346c2: 'Contact: E-Mail' # Contact: E-Mail
+    cf2f33c5-65b1-4ffe-ad64-c430610bc777: 'Builder: Content - Text - Headline Size' # Builder: Content - Text - Headline Size
     cf5b11e3-a6d6-430f-991f-9b78f9e4dd7f: 'Builder: Content - Code - Snippet collapsed' # Builder: Content - Code - Snippet collapsed
     d4b943e4-885f-469f-b45b-38df58a66eb3: 'Builder: Content - Faq - Display' # Builder: Content - Faq - Display
     d4cabad1-1cae-4a1e-a914-c38d9f1a813a: 'Builder: Content - Text - Text' # Builder: Content - Text - Text
@@ -226,6 +237,7 @@ meta:
     f3e1a215-a60f-4d6a-8897-e1a80a40c6cd: Code # Code
     f33c3d82-b3a4-4daa-9c95-86907d927de5: 'Tabbed Content' # Tabbed Content
     f41b0d6d-701f-490d-9d2c-804ce5ffc415: 'Slider: Channel' # Slider: Channel
+    f63c3988-00f8-4310-8741-5408a416230e: 'Builder: Content - Entry Limit' # Builder: Content - Entry Limit
     f897c34e-108c-4637-ba90-9ad0a4c6ac35: 'Category: Magazin' # Category: Magazin
     f4959e03-fec0-4b1c-887e-5301a5f66742: 'Social Sharing Twitter' # Social Sharing Twitter
     fa02ff5a-1741-4417-8c8f-b72b954dd4fd: Quote # Quote
@@ -282,7 +294,7 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: $PLUGIN_FORMIE
-    schemaVersion: 3.4.6
+    schemaVersion: 3.4.8
     settings:
       ajaxTimeout: 10
       captchas:
@@ -513,7 +525,7 @@ system:
   live: true
   name: Baukasten
   retryDuration: null
-  schemaVersion: 5.5.0.0
+  schemaVersion: 5.6.0.2
   timeZone: Europe/Berlin
 users:
   allowPublicRegistration: false

@@ -1,0 +1,21 @@
+columnSuffix: null
+handle: contentEntries
+instructions: null
+name: 'Builder: Content - Entries'
+searchable: false
+settings:
+  allowSelfRelations: false
+  branchLimit: null
+  maintainHierarchy: false
+  maxRelations: null
+  minRelations: null
+  selectionLabel: null
+  showCardsInGrid: false
+  showSiteMenu: false
+  sources: '*'
+  targetSiteId: null
+  validateRelatedElements: false
+  viewMode: list
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Entries

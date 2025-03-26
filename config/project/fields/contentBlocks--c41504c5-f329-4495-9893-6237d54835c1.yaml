@@ -1,0 +1,25 @@
+columnSuffix: null
+handle: contentBlocks
+instructions: null
+name: 'Builder: Content - Content Blocks'
+searchable: false
+settings:
+  createButtonLabel: null
+  defaultIndexViewMode: cards
+  entryTypes:
+    -
+      __assoc__:
+        -
+          - uid
+          - 4f69dba7-71a6-416e-a773-1d8230568aff # Content Matrix
+  includeTableView: false
+  maxEntries: null
+  minEntries: null
+  pageSize: 50
+  propagationKeyFormat: null
+  propagationMethod: all
+  showCardsInGrid: false
+  viewMode: cards
+translationKeyFormat: null
+translationMethod: site
+type: craft\fields\Matrix
