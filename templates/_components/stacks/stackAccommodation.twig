@@ -31,16 +31,16 @@
           </h4>
 
           {# Größe / Personen #}
-          <div class="flex flex-row space-x-2 text-xs/10 text-bp-accent">
+          <div class="flex flex-row space-x-2 text-xs/10 text-accent">
             <div class="w-auto">32 m<sup>2</sup></div>
             <div class="w-auto flex-grow leading-loose flex items-center h-10">
-              <hr class="w-full h-[1px] bg-bp-accent border-0"/>
+              <hr class="w-full h-[1px] bg-accent border-0"/>
             </div>
             <div class="w-auto">2-3 Personen</div>
           </div>
 
           {# Description #}
-          <div class="mt-4 text-small text-primary space-y-4">
+          <div class="mt-4 text-small text-text space-y-4">
             {{ include('_components/text/plainText.twig', {
               data: {
                 text: item.textEntryDescription | striptags | truncate(160) ??? null

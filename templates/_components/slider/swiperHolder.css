@@ -46,7 +46,7 @@
 /* Custom prev / next */
 .swiper-button-prev,
 .swiper-button-next {
-  @apply !hidden !bg-white/20 !bg-no-repeat !p-2.5 !text-bp-accent md:!flex transition-all;
+  @apply !hidden !bg-white/20 !bg-no-repeat !p-2.5 !text-accent md:!flex transition-all;
   @apply w-24 h-24 rotate-45 origin-center -translate-y-1/2 shadow-[0_0_20px_0_rgba(0,0,0,0.1)] flex justify-center items-center;
 
   &.swiper-button-disabled {

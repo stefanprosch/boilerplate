@@ -577,11 +577,11 @@ video {
   --c-gray-950: 9 9 11;
   --c-primary: 255 107 43;
   --c-secondary: var(--color-secondary);
-  --c-bp-primary: 255 0 0;
+  --c-primary: 255 0 0;
   --c-bp-secondary: 0 255 0;
-  --c-bp-accent: 239 122 77;
-  --c-bp-background: 237 184 180;
-  --c-bp-text: 0 0 0;
+  --c-accent: 239 122 77;
+  --c-background: 237 184 180;
+  --c-text: 0 0 0;
   --c-bp-error: 255 0 0;
   --c-bp-success: 0 255 0;
   --c-bp-warning: 239 122 77;
@@ -607,11 +607,11 @@ video {
   --c-gray-950: 9 9 11;
   --c-primary: 255 107 43;
   --c-secondary: var(--color-secondary);
-  --c-bp-primary: 255 0 0;
+  --c-primary: 255 0 0;
   --c-bp-secondary: 0 255 0;
-  --c-bp-accent: 239 122 77;
-  --c-bp-background: 237 184 180;
-  --c-bp-text: 0 0 0;
+  --c-accent: 239 122 77;
+  --c-background: 237 184 180;
+  --c-text: 0 0 0;
   --c-bp-error: 255 0 0;
   --c-bp-success: 0 255 0;
   --c-bp-warning: 239 122 77;
@@ -1032,7 +1032,7 @@ picture .lazyloaded {
   }
   &--link {
     --tw-text-opacity: 1;
-    color: rgb(var(--c-bp-accent) / var(--tw-text-opacity, 1));
+    color: rgb(var(--c-accent) / var(--tw-text-opacity, 1));
   }
   &--link {
     &:after {
@@ -1052,7 +1052,7 @@ picture .lazyloaded {
     }
     &:after {
       --tw-bg-opacity: 1;
-      background-color: rgb(var(--c-bp-accent) / var(--tw-bg-opacity, 1));
+      background-color: rgb(var(--c-accent) / var(--tw-bg-opacity, 1));
     }
     &:after {
       opacity: 0;
@@ -1090,7 +1090,7 @@ picture .lazyloaded {
     .c-footer & {
       &:after {
         --tw-bg-opacity: 1;
-        background-color: rgb(var(--c-bp-text) / var(--tw-bg-opacity, 1));
+        background-color: rgb(var(--c-text) / var(--tw-bg-opacity, 1));
       }
     }
   }
@@ -1156,7 +1156,7 @@ picture .lazyloaded {
     }
     &:after {
       --tw-bg-opacity: 1;
-      background-color: rgb(var(--c-bp-accent) / var(--tw-bg-opacity, 1));
+      background-color: rgb(var(--c-accent) / var(--tw-bg-opacity, 1));
     }
     &:after {
       opacity: 0;
@@ -1185,7 +1185,7 @@ picture .lazyloaded {
     }
     &.active {
       --tw-text-opacity: 1;
-      color: rgb(var(--c-bp-accent) / var(--tw-text-opacity, 1));
+      color: rgb(var(--c-accent) / var(--tw-text-opacity, 1));
     }
     &.active {
       &:after {
@@ -1224,7 +1224,7 @@ picture .lazyloaded {
   }
   &--filter {
     --tw-border-opacity: 1;
-    border-color: rgb(var(--c-bp-text) / var(--tw-border-opacity, 1));
+    border-color: rgb(var(--c-text) / var(--tw-border-opacity, 1));
   }
   &--filter {
     background-color: var(--c-transparent);
@@ -1236,11 +1236,11 @@ picture .lazyloaded {
   &--filter {
     &.active {
       --tw-border-opacity: 1;
-      border-color: rgb(var(--c-bp-accent) / var(--tw-border-opacity, 1));
+      border-color: rgb(var(--c-accent) / var(--tw-border-opacity, 1));
     }
     &.active {
       --tw-bg-opacity: 1;
-      background-color: rgb(var(--c-bp-accent) / var(--tw-bg-opacity, 1));
+      background-color: rgb(var(--c-accent) / var(--tw-bg-opacity, 1));
     }
     &.active {
       --tw-text-opacity: 1;
@@ -1322,14 +1322,14 @@ picture .lazyloaded {
   &.is-navOpen {
     .btn--secondary {
       --tw-border-opacity: 1;
-      border-color: rgb(var(--c-bp-primary) / var(--tw-border-opacity, 1));
+      border-color: rgb(var(--c-primary) / var(--tw-border-opacity, 1));
     }
     .btn--secondary {
       background-color: var(--c-transparent);
     }
     .btn--secondary {
       --tw-text-opacity: 1;
-      color: rgb(var(--c-bp-primary) / var(--tw-text-opacity, 1));
+      color: rgb(var(--c-primary) / var(--tw-text-opacity, 1));
     }
     .btn--secondary {
       transition-property: all;
@@ -1388,7 +1388,7 @@ picture .lazyloaded {
     }
     &:before {
       --tw-bg-opacity: 1;
-      background-color: rgb(var(--c-bp-text) / var(--tw-bg-opacity, 1));
+      background-color: rgb(var(--c-text) / var(--tw-bg-opacity, 1));
     }
     &:before {
       opacity: 0.5;
@@ -1409,7 +1409,7 @@ picture .lazyloaded {
   align-items: center;
   justify-content: center;
   --tw-text-opacity: 1;
-  color: rgb(var(--c-bp-primary) / var(--tw-text-opacity, 1));
+  color: rgb(var(--c-primary) / var(--tw-text-opacity, 1));
   position: absolute;
   top: 0px;
   left: 0px;
@@ -1462,14 +1462,14 @@ select {
   border-radius: 0px;
   border-bottom-width: 1px;
   --tw-border-opacity: 1;
-  border-color: rgb(var(--c-bp-text) / var(--tw-border-opacity, 1));
+  border-color: rgb(var(--c-text) / var(--tw-border-opacity, 1));
   background-color: var(--c-transparent);
   color: var(--c-current);
 }
 
 select:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(var(--c-bp-text) / var(--tw-bg-opacity, 1));
+  background-color: rgb(var(--c-text) / var(--tw-bg-opacity, 1));
   --tw-text-opacity: 1;
   color: rgb(var(--c-white) / var(--tw-text-opacity, 1));
 }
@@ -1516,7 +1516,7 @@ select:focus:valid {
   }
   a {
     --tw-text-opacity: 1;
-    color: rgb(var(--c-bp-accent) / var(--tw-text-opacity, 1));
+    color: rgb(var(--c-accent) / var(--tw-text-opacity, 1));
   }
   a {
     text-decoration-line: underline;
@@ -1531,7 +1531,7 @@ select:focus:valid {
   a {
     &:hover {
       --tw-text-opacity: 1;
-      color: rgb(var(--c-bp-primary) / var(--tw-text-opacity, 1));
+      color: rgb(var(--c-primary) / var(--tw-text-opacity, 1));
     }
     &:hover {
       text-decoration-line: none;
@@ -2714,14 +2714,14 @@ select:focus:valid {
   border-color: rgb(var(--c-black) / var(--tw-border-opacity, 1));
 }
 
-.border-bp-accent {
+.border-accent {
   --tw-border-opacity: 1;
-  border-color: rgb(var(--c-bp-accent) / var(--tw-border-opacity, 1));
+  border-color: rgb(var(--c-accent) / var(--tw-border-opacity, 1));
 }
 
-.border-bp-primary {
+.border-primary {
   --tw-border-opacity: 1;
-  border-color: rgb(var(--c-bp-primary) / var(--tw-border-opacity, 1));
+  border-color: rgb(var(--c-primary) / var(--tw-border-opacity, 1));
 }
 
 .border-gray-300 {
@@ -2757,24 +2757,24 @@ select:focus:valid {
   background-color: rgb(var(--c-black) / var(--tw-bg-opacity, 1));
 }
 
-.bg-bp-accent {
+.bg-accent {
   --tw-bg-opacity: 1;
-  background-color: rgb(var(--c-bp-accent) / var(--tw-bg-opacity, 1));
+  background-color: rgb(var(--c-accent) / var(--tw-bg-opacity, 1));
 }
 
-.bg-bp-background {
+.bg-background {
   --tw-bg-opacity: 1;
-  background-color: rgb(var(--c-bp-background) / var(--tw-bg-opacity, 1));
+  background-color: rgb(var(--c-background) / var(--tw-bg-opacity, 1));
 }
 
-.bg-bp-primary {
+.bg-primary {
   --tw-bg-opacity: 1;
-  background-color: rgb(var(--c-bp-primary) / var(--tw-bg-opacity, 1));
+  background-color: rgb(var(--c-primary) / var(--tw-bg-opacity, 1));
 }
 
-.bg-bp-text {
+.bg-text {
   --tw-bg-opacity: 1;
-  background-color: rgb(var(--c-bp-text) / var(--tw-bg-opacity, 1));
+  background-color: rgb(var(--c-text) / var(--tw-bg-opacity, 1));
 }
 
 .bg-gray-100 {
@@ -2805,8 +2805,8 @@ select:focus:valid {
   background-color: rgb(var(--c-white) / var(--tw-bg-opacity, 1));
 }
 
-.fill-bp-text {
-  fill: rgb(var(--c-bp-text) / 1);
+.fill-text {
+  fill: rgb(var(--c-text) / 1);
 }
 
 .stroke-current {
@@ -2978,14 +2978,14 @@ select:focus:valid {
   color: rgb(var(--c-black) / var(--tw-text-opacity, 1));
 }
 
-.text-bp-accent {
+.text-accent {
   --tw-text-opacity: 1;
-  color: rgb(var(--c-bp-accent) / var(--tw-text-opacity, 1));
+  color: rgb(var(--c-accent) / var(--tw-text-opacity, 1));
 }
 
-.text-bp-primary {
+.text-primary {
   --tw-text-opacity: 1;
-  color: rgb(var(--c-bp-primary) / var(--tw-text-opacity, 1));
+  color: rgb(var(--c-primary) / var(--tw-text-opacity, 1));
 }
 
 .text-current {
@@ -3377,18 +3377,18 @@ h1,
   fill: rgb(var(--c-white) / 1);
 }
 
-.hover\:text-bp-primary:hover {
+.hover\:text-primary:hover {
   --tw-text-opacity: 1;
-  color: rgb(var(--c-bp-primary) / var(--tw-text-opacity, 1));
+  color: rgb(var(--c-primary) / var(--tw-text-opacity, 1));
 }
 
 .hover\:no-underline:hover {
   text-decoration-line: none;
 }
 
-.focus\:text-bp-primary:focus {
+.focus\:text-primary:focus {
   --tw-text-opacity: 1;
-  color: rgb(var(--c-bp-primary) / var(--tw-text-opacity, 1));
+  color: rgb(var(--c-primary) / var(--tw-text-opacity, 1));
 }
 
 .focus\:outline-none:focus {

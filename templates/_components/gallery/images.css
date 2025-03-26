@@ -13,7 +13,7 @@
 
 .lg-next:hover:not(.disabled),
 .lg-prev:hover:not(.disabled) {
-  @apply text-primary;
+  @apply text-text;
 }
 
 .lg-toolbar .lg-icon {
@@ -21,7 +21,7 @@
 }
 
 .lg-toolbar .lg-icon:hover {
-  @apply text-primary;
+  @apply text-text;
 }
 
 .lg-sub-html {

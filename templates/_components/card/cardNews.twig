@@ -66,14 +66,14 @@
           <div class="text-leading">{{ props.data.title ??? null }}</div>
           {# Line #}
           <div class="w-1/4 leading-loose flex items-center h-10">
-            <hr class="w-full h-[1px] bg-bp-accent border-0"/>
+            <hr class="w-full h-[1px] bg-accent border-0"/>
           </div>
         {% endif %}
 
         {# Text #}
         {% set text = props.data.text ??? null %}
         {% if text %}
-          <div class="text-small text-primary">
+          <div class="text-small text-text">
             {{ text | striptags | truncate(160) }}
           </div>
         {% endif %}

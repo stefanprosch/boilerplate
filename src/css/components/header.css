@@ -23,7 +23,7 @@
       @apply text-black;
 
       .btn--secondary {
-        @apply transition-all duration-200 border-bp-primary text-bp-primary bg-transparent;
+        @apply transition-all duration-200 border-primary text-primary bg-transparent;
       }
     }
   }

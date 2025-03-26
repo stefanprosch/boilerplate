@@ -47,12 +47,12 @@
           {% if pageInfo.totalPages <= 6 %}
             {% for i in 1..pageInfo.totalPages %}
               {% if i == page %}
-                <span class="inline-block bg-white border-2 border-primary w-9 h-9 text-primary font-sans-medium text-center rounded-full">
+                <span class="inline-block bg-white border-2 border-primary w-9 h-9 text-text font-sans-medium text-center rounded-full">
                   {{ i }}
                 </span>
               {% else %}
                 {# Refreshes the component and pushes the new value into the URL #}
-                <a class="cursor-pointer inline-block bg-white border-2 border-transparent w-9 h-9 text-primary text-center rounded-full"
+                <a class="cursor-pointer inline-block bg-white border-2 border-transparent w-9 h-9 text-text text-center rounded-full"
                   sprig
                   s-val:page="{{ i }}"
                   s-push-url="/{{ entryUri }}/{{ craft.app.config.general.pageTrigger }}{{ i }}">
@@ -63,7 +63,7 @@
           {% else %}
             {% set range = pageInfo.getRange(pageInfo.currentPage - 2, pageInfo.currentPage + 2) %}
             {% if (range|first) != 1 %}
-              <a class="cursor-pointer inline-block bg-white border-2 border-transparent w-9 h-9 text-primary text-center rounded-full"
+              <a class="cursor-pointer inline-block bg-white border-2 border-transparent w-9 h-9 text-text text-center rounded-full"
                 sprig
                 s-val:page="1"
                 s-push-url="/{{ entryUri }}/{{ craft.app.config.general.pageTrigger }}1">
@@ -75,12 +75,12 @@
             {% endif %}
             {% for i in (range|first)..(range|last) %}
               {% if i == page %}
-                <span class="inline-block bg-white border-2 border-primary w-9 h-9 text-primary font-sans-medium text-center rounded-full">
+                <span class="inline-block bg-white border-2 border-primary w-9 h-9 text-text font-sans-medium text-center rounded-full">
                   {{ i }}
                 </span>
               {% else %}
                 {# Refreshes the component and pushes the new value into the URL #}
-                <a class="cursor-pointer inline-block bg-white border-2 border-transparent w-9 h-9 text-primary text-center rounded-full"
+                <a class="cursor-pointer inline-block bg-white border-2 border-transparent w-9 h-9 text-text text-center rounded-full"
                   sprig
                   s-val:page="{{ i }}"
                   s-push-url="/{{ entryUri }}/{{ craft.app.config.general.pageTrigger }}{{ i }}">
@@ -90,7 +90,7 @@
             {% endfor %}
             {% if (range|last) < pageInfo.totalPages - 2 %}
               ...
-              <a class="cursor-pointer inline-block bg-white border-2 border-transparent w-9 h-9 text-primary text-center rounded-full"
+              <a class="cursor-pointer inline-block bg-white border-2 border-transparent w-9 h-9 text-text text-center rounded-full"
                 sprig
                 s-val:page="{{ pageInfo.totalPages }}"
                 s-push-url="/{{ entryUri }}/{{ craft.app.config.general.pageTrigger }}{{ pageInfo.totalPages }}">

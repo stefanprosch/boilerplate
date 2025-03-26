@@ -13,7 +13,7 @@
 
     &.hasOverlay {
       &:before {
-        @apply content-[''] absolute top-0 bottom-0 left-0 right-0 bg-bp-text opacity-50;
+        @apply content-[''] absolute top-0 bottom-0 left-0 right-0 bg-text opacity-50;
         mix-blend-mode: hue;
         z-index: 1;
       }

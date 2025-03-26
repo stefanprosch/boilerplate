@@ -32,7 +32,7 @@
 
   {% for socialNetwork in socialNetworks %}
     {% if socialNetwork.channel|lower in networks or props.data.networks == 'all' %}
-      <a class="fill-bp-text {{ props.variants[props.data.variant] }} hover:fill-white"
+      <a class="fill-text {{ props.variants[props.data.variant] }} hover:fill-white"
          href="{{ socialNetwork.url }}" target="_blank">
                 {{ svg('@webroot/dist/images/svg/brand/' ~ socialNetwork.channel|lower ~ '.svg')
                 | attr({
