@@ -9,7 +9,7 @@
   classes: {
     root: '!overflow-visible',
     custom: '',
-    swiperSlide: 'swiper-slide relative !grid grid-cols-12 grid-rows-1 md:grid-cols-9 gap-4 md:gap-8',
+    swiperSlide: 'swiper-slide relative !grid grid-cols-12 grid-rows-1 gap-4 md:gap-8',
     swiperWrapper: '',
   },
   variants: {
@@ -77,10 +77,8 @@
           </div>
 
           {# Content #}
-          <div class="relative -top-32 md:absolute md:top-0 md:bottom-0 md:right-0 flex items-center col-span-10 col-start-2 md:col-start-auto md:w-[calc(100%_/_9_*_5)] z-10 md:pl-4"
-               data-speed="1">
-            <div class="w-full grid grid-cols-10 md:grid-cols-5 bg-white py-8 md:py-16">
-              <div class="col-span-8 col-start-2 md:col-span-3 md:col-start-2">
+          <div class="relative flex items-center col-span-5 col-start-7">
+            <div class="w-full py-8 md:py-16">
                 {# Headline #}
                 {% set headline = item.textCustomTitle ??? item.title ??? null %}
                 {% if headline %}
@@ -131,21 +129,6 @@
                       }, withContext = false) }}
                     </div>
                   {% endif %}
-                  {# Link List #}
-                  {# % if props.data.block.linkList ??? null %}
-                    {% set linkList = props.data.block.linkList %}
-                    {% for item in linkList %}
-                      {{ include('_components/button/button.twig', {
-                        data: {
-                          url: item.url,
-                          text: item.text,
-                          variantStyle: 'secondary',
-                          variantSize: 'md'
-                        }
-                      }, withContext = false) }}
-                    {% endfor %}
-                  {% endif % #}
-                </div>
               </div>
             </div>
           </div>

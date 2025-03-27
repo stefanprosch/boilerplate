@@ -16,7 +16,7 @@
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
-{% if props.data.block.entryList ??? null %}
+{% if props.data.block.contentEntries ??? null %}
   <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
     {# Headline #}
     {{ include('_components/text/textBlockHeadline.twig', {
@@ -29,14 +29,14 @@
       }
     }, withContext = false) }}
 
-    {% set viewMode = props.data.block.entriesViewMode %}
+    {% set viewMode = props.data.block.contentViewMode %}
 
     {% if viewMode == 'list'%}
 
       {# Entry List #}
       {{ include('_components/list/listEntries.twig', {
         data: {
-          slides: props.data.block.entryList ??? null,
+          slides: props.data.block.contentEntries ??? null,
         },
         classes: {
           custom: 'col-span-12 mt-8'
@@ -48,10 +48,10 @@
       {# Entry Slider #}
       {{ include('_components/slider/sliderEntries.twig', {
         data: {
-          slides: props.data.block.entryList ??? null,
+          slides: props.data.block.contentEntries ??? null,
         },
         classes: {
-          custom: 'col-span-12 md:col-span-9 md:col-start-3 mt-8'
+          custom: 'col-span-12 mt-8'
         }
       }, withContext = false) }}
 
@@ -60,10 +60,35 @@
       {# Entry Grid #}
       {{ include('_components/grid/gridEntries.twig', {
         data: {
-          slides: props.data.block.entryList ??? null,
+          slides: props.data.block.contentEntries ??? null,
         },
         classes: {
-          custom: 'col-span-10 col-start-2 md:col-span-12 md:col-start-1 mt-8'
+          custom: 'col-span-12 mt-8'
+        }
+      }, withContext = false) }}
+
+    {% elseif viewMode == 'accordion' %}
+
+      {# Entry Accordion #}
+      {{ include('_components/accordion/accordionEntries.twig', {
+        data: {
+          items: props.data.block.contentEntries ??? null,
+          firstOpen: true,
+        },
+        classes: {
+          custom: 'col-span-12 mt-8'
+        }
+      }, withContext = false) }}
+
+    {% elseif viewMode == 'tabs' %}
+
+      {# Entry Tabs #}
+      {{ include('_components/tabs/tabsDynamic.twig', {
+        data: {
+          items: props.data.block.contentEntries ??? null,
+        },
+        classes: {
+          custom: 'col-span-12 mt-8'
         }
       }, withContext = false) }}
 
