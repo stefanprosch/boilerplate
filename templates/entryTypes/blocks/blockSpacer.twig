@@ -5,7 +5,7 @@
     block: null,
   },
   classes: {
-    root: 'container ',
+    root: 'container',
     custom: '',
   },
 } %}
@@ -16,10 +16,13 @@
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
-{% if props.data.block.height ??? null %}
+{% if props.data.block.spacerVariant ??? null %}
   {{ include('_components/spacer/spacer.twig', {
     data: {
-      height: props.data.block.height.value ??? 'sm',
+      height: props.data.block.spacerVariant.value ??? 'sm',
     },
+    classes: {
+      custom: ''
+    }
   }, withContext = false) }}
 {% endif %}

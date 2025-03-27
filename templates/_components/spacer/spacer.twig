@@ -1,22 +1,29 @@
 {# >>> Comp Defaults #}
 {% set compDefaults = {
   data: {
-    name: "c-spacer",
-    height: "sm",
+    name: 'c-spacer',
+    height: 'sm',
     visible: false
   },
   classes: {
-    root: "border-0",
-    custom: "",
-    visible: "bg-primary"
+    root: 'border-0',
+    custom: '',
+    visible: 'bg-primary'
   },
   variants: {
     size: {
-      sm: "h-2 md:h-4",
-      md: "h-4 md:h-8",
-      lg: "h-8 md:h-16",
-      xl: "h-16 md:h-32",
-      "2xl": "h-32 md:h-64"
+      sm: 'h-2 md:h-4',
+      md: 'h-4 md:h-8',
+      lg: 'h-8 md:h-16',
+      xl: 'h-16 md:h-32',
+      '2xl': 'h-32 md:h-64'
+    },
+    line: {
+      sm: 'h-[1px]',
+      md: 'h-1',
+      lg: 'h-2',
+      xl: 'h-3',
+      '2xl': 'h-4'
     }
   }
 } %}
@@ -28,7 +35,7 @@
   variants: compDefaults.variants
 } %}
 
-<hr class="{{ props.data.name }} {{ props.classes.root }}  {{ props.variants.size[props.data.height] }}  {{
+<hr class="{{ props.data.name }} {{ props.classes.root }}  {{ props.data.visible ? props.variants.line[props.data.height] : props.variants.size[props.data.height] }}  {{
   props.data.visible
     ? props.classes.visible
     : ""
