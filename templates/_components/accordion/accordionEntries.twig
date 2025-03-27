@@ -1,16 +1,16 @@
 {# >>> Comp Defaults #}
 {% set compDefaults = {
   data: {
-    name: 'c-accordionFaq',
+    name: 'c-accordionEntries',
     firstOpen: true,
     numberOfAccordions: 1,
-    channel: null,
+    items: null,
   },
   classes: {
-    root: 'container grid grid-cols-1 gap-4 md:gap-8 md:grid-cols-12',
+    root: 'container grid grid-cols-1 gap-4 md:gap-8',
     custom: '',
-    detailsWrapper: 'md:col-span-10 md:col-start-2 grid grid-cols-1 gap-4 md:gap-8 !gap-y-0 md:grid-cols-10',
-    details: 'md:col-span-10 text-base/loose text-text border-b border-accent first:border-t py-4',
+    detailsWrapper: 'grid grid-cols-1 gap-4 md:gap-8 !gap-y-0',
+    details: 'text-base/loose text-text border-b border-accent first:border-t py-4',
     summary: 'a11y-keyboard-focus list-none cursor-pointer font-bold text-black flex outline-none justify-between items-center rounded px-4',
     contentHolder: 'mt-4 mb-8 px-4',
   }
@@ -25,16 +25,9 @@
 
 {# Component #}
 <div class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
-  {# FAQs #}
-  {% set entryQuery = craft.entries
-    .section(props.data.channel)
-    .orderBy('postDate DESC') %}
-
-  {% set entries = entryQuery.all() %}
-
-  {% if entries | length %}
+  {% if props.data.items | length %}
     <div class="{{ props.classes.detailsWrapper }}">
-      {% for item in entries %}
+      {% for item in props.data.items %}
         <details class="{{ props.classes.details }}"
            {% if props.data.firstOpen and loop.first %}open{% endif %}>
           <summary class="{{ props.classes.summary }}">
@@ -67,18 +60,6 @@
             }, withContext = false) }}
           </summary>
           <div class="{{ props.classes.contentHolder }}">
-            {# >>> Render page intro #}
-            {{ include('_components/pageHead/pageIntroDefault.twig', {
-              data: {
-                object: item,
-                headline: item.textCustomSubtitle ??? null,
-                text: item.textEntryDescription ??? null,
-              },
-              classes: {
-                custom: 'js-section py-16 md:py-32'
-              }
-            }, withContext = false) }}
-
             {# >>> Render Conent Builder #}
             {{ include('_builders/_builderContent.twig', {
               data: {
@@ -91,32 +72,3 @@
     </div>
   {% endif %}
 </div>
-
-{#
-{% for i in 1..props.data.numberOfAccordions %}
-  <details class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}"
-           {% if props.data.firstOpen and loop.first %}open{% endif %}>
-    {% if block('summary' ~ i) is defined %}
-      <summary class="{{ props.classes.summary }}">
-        {{ block('summary' ~ i) }}
-
-        {{ include('_components/icon/icon.twig', {
-          data: {
-            icon: 'icons/filled/caret-down',
-            variantSize: 'sm',
-          },
-          classes: {
-            color: 'text-black'
-          }
-        }, withContext = false) }}
-      </summary>
-
-      {% if block('content' ~ i) is defined %}
-        <div class="{{ props.classes.contentHolder }}">
-          {{ block('content' ~ i) }}
-        </div>
-      {% endif %}
-    {% endif %}
-  </details>
-{% endfor %}
-#}

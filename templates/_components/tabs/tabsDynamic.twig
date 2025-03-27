@@ -5,7 +5,7 @@
     variantPosition: 'top',
     activeTab: 1,
     numberOfTabs: null,
-    object: null,
+    items: null,
   },
   classes: {
     root: 'grid grid-cols-2 md:grid-cols-10 gap-4 md:gap-8 js-observer',
@@ -50,7 +50,7 @@
     </button>
     <div x-show="open" class="absolute left-0 right-0 mt-2 bg-white shadow-lg z-10">
       <ul>
-        {% for item in props.data.object %}
+        {% for item in props.data.items %}
           <li>
             <button
               @click="activeTab = {{ loop.index }}; open = false;"
@@ -67,7 +67,7 @@
   </div>
 
   <nav class="{{ props.classes.tabs }}">
-    {% for item in props.data.object %}
+    {% for item in props.data.items %}
       <button
         @click="activeTab = {{ loop.index }};"
         :class="[activeTab === {{ loop.index }} ? 'active' : '']"
@@ -79,16 +79,17 @@
   </nav>
 
   <div class="{{ props.classes.content }}">
-    {% for item in props.data.object %}
+    {% for item in props.data.items %}
       <div :class="[activeTab === {{ loop.index }} ? 'block is-active' : 'hidden']"
-           class="grid grid-cols-1 md:grid-cols-10 gap-4 md:gap-8">
+           class="grid grid-cols-1 gap-4 md:gap-8">
+
         {# Description #}
         {{ include('_components/text/richText.twig', {
           data: {
-            html: item.textDescription ??? null,
+            html: item.textEntryDescription ??? null,
           },
           classes: {
-            custom: 'text-sm/loose col-span-1 md:col-span-5'
+            custom: ''
           }
         }, withContext = false) }}
 

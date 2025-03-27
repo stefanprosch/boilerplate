@@ -77,7 +77,28 @@
 
     {% elseif viewMode == 'accordion' %}
 
+      {# Entry Accordion #}
+      {{ include('_components/accordion/accordionEntries.twig', {
+        data: {
+          items: entries ??? null,
+          firstOpen: true,
+        },
+        classes: {
+          custom: 'col-span-12 mt-8'
+        }
+      }, withContext = false) }}
+
     {% elseif viewMode == 'tabs' %}
+
+      {# Entry Tabs #}
+      {{ include('_components/tabs/tabsDynamic.twig', {
+        data: {
+          items: entries ??? null,
+        },
+        classes: {
+          custom: 'col-span-12 mt-8'
+        }
+      }, withContext = false) }}
 
     {% endif %}
   </div>

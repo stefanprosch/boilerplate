@@ -8,7 +8,7 @@
   }
 }
 
-.c-accordionFaq {
+.c-accordionEntries {
   summary::-webkit-details-marker {
     display: none;
   }
@@ -24,5 +24,9 @@
     .close {
       @apply block;
     }
+  }
+
+  .container {
+    @apply !px-0;
   }
 }
