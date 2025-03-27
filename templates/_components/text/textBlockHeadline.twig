@@ -61,14 +61,26 @@
 
   {# Text #}
   {% if props.data.text ??? null %}
-    {{ include('_components/text/richText.twig', {
+    {{ include('_components/text/plainText.twig', {
       data: {
-        html: props.data.text ??? null
+        text: props.data.text | striptags | nl2br | raw ??? null
       },
       classes: {
         custom: props.variants[props.data.variantSize].text
       }
     }, withContext = false) }}
+
+  {% elseif props.data.richText ??? null %}
+
+    {{ include('_components/text/richText.twig', {
+      data: {
+        html: props.data.richText ??? null
+      },
+      classes: {
+        custom: props.variants[props.data.variantSize].text
+      }
+    }, withContext = false) }}
+
   {% endif %}
 
   {# Links #}

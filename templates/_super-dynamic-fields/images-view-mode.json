@@ -1,5 +1,6 @@
 [
-  {"value": "grid2Cols", "label": "Grid: 2 Columns", "default": "yes"},
+  {"value": "single", "label": "Single", "default": "yes"},
+  {"value": "grid2Cols", "label": "Grid: 2 Columns"},
   {"value": "grid3Cols", "label": "Grid: 3 Columns"},
   {"value": "gallery", "label": "Gallery"},
   {"value": "slider", "label": "Slider"}

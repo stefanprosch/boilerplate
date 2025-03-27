@@ -9,12 +9,12 @@
     columns: 2,
   },
   classes: {
-    root: 'js-imageGallery grid grid-cols-1 gap-4 md:gap-8 md:grid-rows-3',
+    root: 'js-imageGallery grid grid-cols-1 gap-4 md:gap-8',
     custom: '',
   },
   variants: {
     columns: {
-      2: 'grid-cols-2 md:grid-cols-2',
+      2: 'grid-cols-2 md:grid-cols-2 md:grid-rows-3',
       3: 'md:grid-cols-3'
     }
   }
@@ -45,10 +45,10 @@
   {% set counter = 0 %}
   {% set dynamicData = [] %}
   {% for image in props.data.images %}
-    {% set title = image.customTitle ??? '' %}
+    {% set title = image.textCustomTitle ??? '' %}
     {% set caption = '' %}
-    {% if image.assetCaption %}
-      {% set caption = image.assetCaption %}
+    {% if image.textCaption %}
+      {% set caption = image.textCaption %}
     {% endif %}
     {% set transforms = craft.imager.transformImage(image, 'auto', { format: 'avif' }) %}
     {% set srcset = craft.imager.srcset(transforms) | trim %}

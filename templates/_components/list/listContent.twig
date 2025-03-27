@@ -26,7 +26,7 @@
         {{ include('_components/text/textBlockHeadline.twig', {
           data: {
             headline: item.textTitle ??? null,
-            richText: item.textDescription ??? null,
+            text: item.textDescription ??? null,
             variantSize: 'md',
           },
           classes: {
@@ -36,19 +36,68 @@
       </div>
 
       <div class="col-span-1 order-1 md:order-2 md:group-even:order-1 ">
-        {{ include('_components/image/image.twig', {
-          data: {
-            image: item.assetImages.one() ?? null,
-            aspectRatio: 'aspect-square',
-            transform: 'auto',
-            caption: 0,
-            objectFit: 'cover',
-            lazy: false
-          },
-          classes: {
-            custom: ''
-          }
-        }, withContext = false) }}
+        {# Image #}
+        {% if item.assetImages ??? null %}
+          {% set viewMode = item.imagesViewMode %}
+
+          {% if viewMode == 'single' %}
+            {{ include('_components/image/image.twig', {
+              data: {
+                image: item.assetImages.one() ?? null,
+                aspectRatio: 'aspect-square',
+                transform: 'auto',
+                caption: 0,
+                objectFit: 'cover',
+                lazy: false
+              },
+              classes: {
+                custom: ''
+              }
+            }, withContext = false) }}
+          {% endif %}
+
+          {% if viewMode == 'grid2Cols' or viewMode == 'grid3Cols' %}
+            {% set cols = 2 %}
+            {% if viewMode == 'grid3Cols' %}
+              {% set cols = 3 %}
+            {% endif %}
+
+            {{ include('_components/grid/images.twig', {
+              data: {
+                images: item.assetImages ??? null,
+                columns: cols ??? 2,
+                caption: item.showImageCaption ??? null,
+                aspectRatio: item.imageRatio.value ??? 'aspect-landscape',
+                lazy: true,
+              },
+              classes: {
+                custom: 'col-span-1 auto-rows-max aspect-auto'
+              }
+            }, withContext = false) }}
+          {% endif %}
+        {% endif %}
+
+        {% if viewMode == 'gallery' %}
+          {{ include('_components/gallery/images.twig', {
+            data: {
+              images: item.assetImages ??? null,
+              lazy: true,
+            },
+            classes: {
+              custom: ''
+            }
+          }, withContext = false) }}
+        {% endif %}
+
+        {% if viewMode == 'slider' %}
+          {{ include('_components/slider/sliderImages.twig', {
+            data: {
+              slides: item.assetImages ??? null,
+              aspectRatio: item.imageRatio.value ??? 'aspect-landscape',
+              slidesPerView: 1
+            },
+          }, withContext = false) }}
+        {% endif %}
       </div>
     </div>
   {% endfor %}

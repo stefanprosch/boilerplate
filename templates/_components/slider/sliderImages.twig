@@ -4,7 +4,8 @@
     name: 'c-sliderImages',
     slides: null,
     aspectRatio: 'aspect-landscape',
-    destroyBreakpoint: null
+    destroyBreakpoint: null,
+    slidesPerView: null
   },
   classes: {
     root: 'overflow-hidden',
@@ -14,10 +15,10 @@
   },
   variants: {
     aspectRatio: {
-      'aspect-landscape': '!w-11/12 sm:!w-5/12 aspect-landscape',
-      'aspect-portrait': '!w-11/12 sm:!w-3/12 aspect-portrait',
-      'aspect-square': '!w-11/12 sm:!w-3/12 aspect-square',
-      'aspect-auto': '!w-11/12 sm:!w-3/12 aspect-auto',
+      'aspect-landscape': 'aspect-landscape',
+      'aspect-portrait': 'aspect-portrait',
+      'aspect-square': 'aspect-square',
+      'aspect-auto': 'aspect-auto',
     }
   }
 } %}
@@ -37,6 +38,35 @@
       slides: props.data.slides ??? null,
       aspectRatio: props.data.aspectRatio,
       destroyBreakpoint: props.data.destroyBreakpoint ??? null,
+      swiperConfig: {
+        init: false,
+        freeMode: {
+          sticky: true
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        },
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          draggable: true,
+          hide: true
+        },
+        slidesPerView: props.data.slidesPerView ??? 'auto',
+        spaceBetween: 16,
+        breakpoints: {
+          768: {
+            spaceBetween: 32,
+          },
+          1024: {
+            spaceBetween: 32,
+          }
+        },
+        grabCursor: true,
+        simulateTouch: true,
+        watchSlidesProgress: true,
+        watchSlidesVisibility: true
+      }
     },
     classes: props.classes,
     variants: props.variants
