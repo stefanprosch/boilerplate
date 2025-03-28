@@ -20,6 +20,19 @@
   <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
     {% set viewMode = props.data.block.imagesViewMode %}
 
+    {% if viewMode == 'single' %}
+      {{ include('_components/slider/sliderImages.twig', {
+        data: {
+          slides: props.data.block.images ??? null,
+          aspectRatio: props.data.block.imageRatio.value ??? 'aspect-landscape',
+          slidesPerView: 1
+        },
+        classes: {
+          custom: 'col-span-12'
+        }
+      }, withContext = false) }}
+    {% endif %}
+
     {% if viewMode == 'grid2Cols' or viewMode == 'grid3Cols' %}
       {% set cols = 2 %}
       {% if viewMode == 'grid3Cols' %}
@@ -35,17 +48,7 @@
           lazy: true,
         },
         classes: {
-          custom: 'col-span-12 md:col-span-8 md:col-start-3'
-        }
-      }, withContext = false) }}
-    {% endif %}
-
-    {% if viewMode == 'gridCalculated' %}
-      {{ include('_components/grid/imagesCalculated.twig', {
-        data: {
-          images: props.data.block.images ??? null,
-          caption: props.data.block.showImageCaption ??? null,
-          lazy: true,
+          custom: 'col-span-12'
         }
       }, withContext = false) }}
     {% endif %}
@@ -55,6 +58,9 @@
         data: {
           images: props.data.block.images ??? null,
           lazy: true,
+        },
+        classes: {
+          custom: 'col-span-12'
         }
       }, withContext = false) }}
     {% endif %}
@@ -63,8 +69,12 @@
       {{ include('_components/slider/sliderImages.twig', {
         data: {
           slides: props.data.block.images ??? null,
-          aspectRatio: props.data.block.imageRatio.value ??? 'aspect-landscape'
+          aspectRatio: props.data.block.imageRatio.value ??? 'aspect-landscape',
+          slidesPerView: null
         },
+        classes: {
+          custom: 'col-span-12'
+        }
       }, withContext = false) }}
     {% endif %}
 

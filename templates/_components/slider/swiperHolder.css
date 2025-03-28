@@ -40,7 +40,7 @@
 }
 
 .swiper-scrollbar-drag {
-  @apply bg-primary !important;
+  @apply bg-accent !important;
 }
 
 /* Custom prev / next */

@@ -14,7 +14,7 @@
   },
   variants: {
     columns: {
-      2: 'grid-cols-2 md:grid-cols-2 md:grid-rows-3',
+      2: 'grid-cols-2 md:grid-cols-2',
       3: 'md:grid-cols-3'
     }
   }
@@ -42,6 +42,7 @@
     'aspect-portrait',
     'aspect-landscape',
   ] %}
+  {% set rows = (props.data.columns == 2 and not props.data.caption) ? 'md:grid-rows-3' : '' %}
   {% set counter = 0 %}
   {% set dynamicData = [] %}
   {% for image in props.data.images %}
@@ -68,12 +69,12 @@
       {{ include('_components/image/image.twig', {
         data: {
           image: image ??? null,
-          aspectRatio: aspectRatio[counter],
+          aspectRatio: props.data.caption ? props.data.aspectRatio : aspectRatio[counter],
           caption: props.data.caption ??? null,
           lazy: props.data.lazy
         },
         classes: {
-          custom: 'col-span-1 hasOverlay ' ~ gridLayout[counter]
+          custom: 'col-span-1 ' ~ (props.data.caption ? '' : 'hasOverlay ' ~ gridLayout[counter])
         }
       }, withContext = false) }}
 
