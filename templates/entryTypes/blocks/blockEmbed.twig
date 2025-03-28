@@ -1,7 +1,7 @@
 {# >>> Comp Defaults #}
 {% set compDefaults = {
   data: {
-    name: 'c-blockVideo',
+    name: 'c-blockEmbed',
     block: null,
   },
   classes: {
@@ -21,17 +21,10 @@
   variants: compDefaults.variants,
 } %}
 
-{% if props.data.block.videoId ??? null %}
-  <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }} {{ props.variants[data.block.videoWidth.value] }}">
-    {{ include('_components/video/' ~ props.data.block.videoProvider ~ '.twig', {
-      data: {
-        videoId: props.data.block.videoId ??? null,
-        autoplay: props.data.block.autoplay ??? 0,
-        loop: props.data.block.loop ??? 0,
-      },
-      classes: {
-        custom: 'col-span-12'
-      }
-    }, withContext = false) }}
+{% if props.data.block.snippet ??? null %}
+  <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }} {{ props.variants[data.block.contentWidth.value] }}">
+    <div class="col-span-12">
+      {{ props.data.block.snippet|raw }}
+    </div>
   </div>
 {% endif %}

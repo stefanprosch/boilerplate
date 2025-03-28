@@ -88,6 +88,14 @@ settings:
       __assoc__:
         -
           - uid
+          - 4ad1b3a9-e348-4c05-8f2f-eb0ef86e4073 # Embed
+        -
+          - name
+          - 'Media: Embed'
+    -
+      __assoc__:
+        -
+          - uid
           - 295738c1-951d-4b8c-b5cd-83d71a85d7e8 # Image
         -
           - name
