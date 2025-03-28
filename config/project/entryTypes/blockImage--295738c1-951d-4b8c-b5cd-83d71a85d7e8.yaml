@@ -46,6 +46,22 @@ fieldLayouts:
             warning: null
             width: 50
           -
+            dateAdded: '2025-03-27T16:24:46+00:00'
+            elementCondition: null
+            fieldUid: 7059a4d1-a4a2-4648-981e-d9398d6ae878 # Builder: Content - Image - Position Image Caption
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Image Caption Position'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 519301be-7eab-4c7c-ba1f-3033706a81c9
+            userCondition: null
+            warning: null
+            width: 50
+          -
             dateAdded: '2024-11-18T07:59:55+00:00'
             elementCondition: null
             fieldUid: 70bc887b-faf2-45c7-b4bc-4299acd343da # Builder: Content - Image - Image Transform

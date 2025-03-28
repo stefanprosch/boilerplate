@@ -1,4 +1,4 @@
-dateModified: 1743090823
+dateModified: 1743092686
 elementSources:
   craft\elements\Asset:
     -
@@ -165,6 +165,7 @@ meta:
     3547e7b4-f3fb-4cf4-9d29-9f12dfa94594: News # News
     5173c2fb-22a4-490d-9483-74a188822386: 'Builder: Content - Entries - View Mode' # Builder: Content - Entries - View Mode
     5584da3b-6337-4070-a4ac-be20f00eda76: 'Teaser: Image' # Teaser: Image
+    7059a4d1-a4a2-4648-981e-d9398d6ae878: 'Builder: Content - Image - Position Image Caption' # Builder: Content - Image - Position Image Caption
     8153a2df-373f-4aac-9a92-d52292c9f1aa: Baukasten # Baukasten
     8780cb03-c9ea-4482-ab85-3e541453b50f: 'Text: Source Url' # Text: Source Url
     9005a655-4d9f-46b4-8c33-aadba34b6112: 'Social Sharing Facebook' # Social Sharing Facebook

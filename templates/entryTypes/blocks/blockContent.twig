@@ -29,6 +29,8 @@
       }
     }, withContext = false) }}
 
+    {% set items = props.data.block.contentBlocks.eagerly().all() ??? null %}
+
     {% set viewMode = props.data.block.contentViewMode %}
 
     {% if viewMode == 'list'%}
@@ -36,7 +38,7 @@
       {# List #}
       {{ include('_components/list/listContent.twig', {
         data: {
-          slides: props.data.block.contentBlocks ??? null,
+          slides: items ??? null,
         },
         classes: {
           custom: 'col-span-12 mt-8'
@@ -48,7 +50,7 @@
       {# Slider #}
       {{ include('_components/slider/sliderEntries.twig', {
         data: {
-          slides: entries ??? null,
+          slides: items ??? null,
         },
         classes: {
           custom: 'col-span-12 mt-8'
@@ -60,7 +62,7 @@
       {# Entry Grid #}
       {{ include('_components/grid/gridEntries.twig', {
         data: {
-          slides: entries ??? null,
+          slides: items ??? null,
         },
         classes: {
           custom: 'col-span-12 mt-8'
@@ -72,7 +74,7 @@
       {# Entry Accordion #}
       {{ include('_components/accordion/accordionEntries.twig', {
         data: {
-          items: entries ??? null,
+          items: items ??? null,
           firstOpen: true,
         },
         classes: {
@@ -85,7 +87,7 @@
       {# Entry Tabs #}
       {{ include('_components/tabs/tabsDynamic.twig', {
         data: {
-          items: entries ??? null,
+          items: items ??? null,
         },
         classes: {
           custom: 'col-span-12 mt-8'

@@ -23,18 +23,16 @@
   {% endif %}
   {# >>> Set BG Color #}
   {% switch props.data.block.sectionBackgroundColor %}
-  {% case "grey" %}
-    {% set sectionBGColorClass = 'bg-text' %}
+  {% case "white" %}
+    {% set sectionBGColorClass = 'bg-white' %}
   {% case "black" %}
     {% set sectionBGColorClass = 'bg-black js-primary' %}
-  {% case "grey-dark" %}
-    {% set sectionBGColorClass = 'bg-text text-white js-primary' %}
-  {% case "bordeaux" %}
+  {% case "primary" %}
     {% set sectionBGColorClass = 'bg-primary text-white js-primary' %}
-  {% case "rosa" %}
-    {% set sectionBGColorClass = 'bg-background text-white js-primary' %}
-  {% case "orange" %}
-    {% set sectionBGColorClass = 'bg-accent text-white js-primary' %}
+  {% case "secondary" %}
+    {% set sectionBGColorClass = 'bg-secondary text-white js-primary' %}
+  {% case "neutral" %}
+    {% set sectionBGColorClass = 'bg-neutral text-white js-primary' %}
 
   {% default %}
     {% set sectionBGColorClass = 'transparent' %}
