@@ -16,13 +16,13 @@
   classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
 } %}
 
-{% if props.data.block.codeSnippet ??? null %}
+{% if props.data.block.snippet ??? null %}
   <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
     {{ include('_components/text/code.twig', {
       data: {
-        codeSnippetName: props.data.block.codeSnippetName ??? null,
-        codeSnippet: props.data.block.codeSnippet.value | raw ??? null,
-        language: props.data.block.codeSnippet.language ??? 'Javascript',
+        codeSnippetName: props.data.block.snippetName ??? null,
+        codeSnippet: props.data.block.snippet.value | raw ??? null,
+        language: props.data.block.snippet.language ??? 'Javascript',
         collapsed: props.data.block.collapsed ??? true,
       },
     }, withContext = false) }}

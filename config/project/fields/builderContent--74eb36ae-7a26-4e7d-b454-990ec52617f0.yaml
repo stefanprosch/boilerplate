@@ -121,6 +121,9 @@ settings:
         -
           - uid
           - f3e1a215-a60f-4d6a-8897-e1a80a40c6cd # Code
+        -
+          - name
+          - 'Other: Code'
   includeTableView: false
   maxEntries: null
   minEntries: null
