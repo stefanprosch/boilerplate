@@ -7,10 +7,10 @@ settings:
   cachedOptions: true
   customOptions: false
   element: null
-  genError: ''
+  genError: null
   json: ''
   template: _super-dynamic-fields/entries-view-mode.json
-  templateData: ''
+  templateData: null
 translationKeyFormat: null
 translationMethod: none
 type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField

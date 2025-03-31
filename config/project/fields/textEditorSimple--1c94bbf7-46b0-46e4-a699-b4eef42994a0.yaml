@@ -1,5 +1,4 @@
 columnSuffix: qywrnmby
-contentColumnType: text
 handle: textEditorSimple
 instructions: null
 name: 'Text: Editor Simple'
@@ -8,14 +7,15 @@ settings:
   availableTransforms: ''
   availableVolumes: ''
   ckeConfig: e8b10d27-be46-4108-9bf5-3a8711280165 # Rich Text Simple
-  columnType: text
+  createButtonLabel: null
   defaultTransform: null
-  enableSourceEditingForNonAdmins: false
   purifierConfig: null
   purifyHtml: true
   showUnpermittedFiles: false
   showUnpermittedVolumes: false
   showWordCount: true
+  sourceEditingGroups:
+    - __ADMINS__
   wordLimit: null
 translationKeyFormat: null
 translationMethod: none

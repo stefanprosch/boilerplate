@@ -102,7 +102,7 @@ fieldLayouts:
         userCondition: null
 handle: home
 hasTitleField: false
-icon: ''
+icon: null
 name: Home
 showSlugField: true
 showStatusField: true

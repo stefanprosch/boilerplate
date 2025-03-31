@@ -64,7 +64,7 @@ fieldLayouts:
           -
             dateAdded: '2024-11-18T07:59:55+00:00'
             elementCondition: null
-            fieldUid: 70bc887b-faf2-45c7-b4bc-4299acd343da # Builder: Content - Image - Image Transform
+            fieldUid: 70bc887b-faf2-45c7-b4bc-4299acd343da # Builder: Content - Image - Image Ratio
             handle: imageRatio
             includeInCards: false
             instructions: null

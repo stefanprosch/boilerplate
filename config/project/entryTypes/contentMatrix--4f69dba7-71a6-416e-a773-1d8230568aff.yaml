@@ -45,7 +45,7 @@ fieldLayouts:
           -
             dateAdded: '2025-03-21T09:55:31+00:00'
             elementCondition: null
-            fieldUid: 75195ab8-b7c4-4dca-b807-ef8a042ef5a9 # Builder: Content - Image Grid - Images
+            fieldUid: 75195ab8-b7c4-4dca-b807-ef8a042ef5a9 # Builder: Content - Images - Images
             handle: assetImages
             includeInCards: true
             instructions: null

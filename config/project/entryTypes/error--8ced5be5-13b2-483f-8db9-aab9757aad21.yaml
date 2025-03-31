@@ -1,3 +1,4 @@
+color: null
 fieldLayouts:
   61f3d7e8-4728-49c4-bb2c-8e26fdff4b77:
     tabs:
@@ -9,9 +10,11 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
+            dateAdded: '2024-11-18T07:59:55+00:00'
             disabled: false
             elementCondition: null
             id: null
+            includeInCards: false
             inputType: null
             instructions: null
             label: null
@@ -20,8 +23,9 @@ fieldLayouts:
             name: null
             orientation: null
             placeholder: null
+            providesThumbs: false
             readonly: false
-            requirable: false
+            required: true
             size: null
             step: null
             tip: null
@@ -32,10 +36,14 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2024-11-18T07:59:55+00:00'
             elementCondition: null
             fieldUid: 1516a801-6243-468d-b8e2-479085458faa # Text: Custom Title
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -44,10 +52,14 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2024-11-18T07:59:55+00:00'
             elementCondition: null
             fieldUid: 45510f13-91d2-479f-9ff2-68dd09ab6643 # Text: Entry Description
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -56,10 +68,14 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2024-11-18T07:59:55+00:00'
             elementCondition: null
             fieldUid: 0dc851b0-a289-4c50-be8d-0c055b270ee8 # Asset: Entry Image
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -74,10 +90,14 @@ fieldLayouts:
         elementCondition: null
         elements:
           -
+            dateAdded: '2024-11-18T07:59:55+00:00'
             elementCondition: null
             fieldUid: d29e8520-ab62-4c8f-bda2-61868797c1ca # SEO: SEOmatic
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -90,11 +110,12 @@ fieldLayouts:
         userCondition: null
 handle: error
 hasTitleField: true
+icon: null
 name: Error
+showSlugField: true
 showStatusField: true
 slugTranslationKeyFormat: null
 slugTranslationMethod: site
-sortOrder: 1
 titleFormat: null
 titleTranslationKeyFormat: null
 titleTranslationMethod: site

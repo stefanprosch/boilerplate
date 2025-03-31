@@ -26,7 +26,7 @@ fieldLayouts:
           -
             dateAdded: '2024-11-18T07:59:55+00:00'
             elementCondition: null
-            fieldUid: 0a7dd988-f4db-40b7-8112-6f6fc7c4fb54 # Builder: Content - Text : Floating Image - Text
+            fieldUid: 0a7dd988-f4db-40b7-8112-6f6fc7c4fb54 # Builder: Content - Text : Image - Text
             handle: text
             includeInCards: true
             instructions: null
@@ -42,7 +42,7 @@ fieldLayouts:
           -
             dateAdded: '2024-11-18T07:59:55+00:00'
             elementCondition: null
-            fieldUid: b81cb731-dd6f-4055-9c6d-2f076a727a27 # Builder: Content - Text : Floating Image - Image
+            fieldUid: b81cb731-dd6f-4055-9c6d-2f076a727a27 # Builder: Content - Text : Image - Image
             handle: null
             includeInCards: false
             instructions: null
@@ -80,7 +80,7 @@ fieldLayouts:
           -
             dateAdded: '2024-11-18T07:59:55+00:00'
             elementCondition: null
-            fieldUid: 210de09a-f6c8-42dd-b4d6-c1c00e7d0b82 # Builder: Content - Text : Floating Image - Image Position
+            fieldUid: 210de09a-f6c8-42dd-b4d6-c1c00e7d0b82 # Builder: Content - Text : Image - Image Position
             handle: null
             includeInCards: false
             instructions: null
@@ -96,7 +96,7 @@ fieldLayouts:
           -
             dateAdded: '2024-11-18T07:59:55+00:00'
             elementCondition: null
-            fieldUid: 98f7a455-6764-4b7d-8d19-405bdcc42228 # Builder: Content - Text : Floating Image - Image Transform
+            fieldUid: 98f7a455-6764-4b7d-8d19-405bdcc42228 # Builder: Content - Text : Image - Image Ratio
             handle: imageRatio
             includeInCards: false
             instructions: null
@@ -112,7 +112,7 @@ fieldLayouts:
           -
             dateAdded: '2024-11-18T07:59:55+00:00'
             elementCondition: null
-            fieldUid: 6a90dae3-938c-47e6-8e36-6b1d6be92d63 # Builder: Content - Text : Floating Image - Show Image Caption
+            fieldUid: 6a90dae3-938c-47e6-8e36-6b1d6be92d63 # Builder: Content - Text : Image - Show Image Caption
             handle: showImageCaption
             includeInCards: false
             instructions: null

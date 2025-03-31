@@ -43,7 +43,7 @@ fieldLayouts:
           -
             dateAdded: '2025-03-21T08:55:57+00:00'
             elementCondition: null
-            fieldUid: 8d272b11-c1b4-4fc3-95c8-9d94fa513795 # Text: Link
+            fieldUid: 8d272b11-c1b4-4fc3-95c8-9d94fa513795 # Text: Links
             handle: null
             includeInCards: false
             instructions: null

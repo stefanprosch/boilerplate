@@ -110,7 +110,7 @@ fieldLayouts:
         userCondition: null
 handle: entryOverviewNews
 hasTitleField: true
-icon: ''
+icon: null
 name: 'Overview News'
 showSlugField: true
 showStatusField: true

@@ -132,7 +132,7 @@ fieldLayouts:
         userCondition: null
 handle: entryContentBuilder
 hasTitleField: true
-icon: ''
+icon: null
 name: 'Content Builder'
 showSlugField: true
 showStatusField: true

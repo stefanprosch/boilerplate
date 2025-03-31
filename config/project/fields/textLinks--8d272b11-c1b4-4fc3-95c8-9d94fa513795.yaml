@@ -1,11 +1,9 @@
 columnSuffix: kmnpmoky
-contentColumnType: text
 handle: textLinks
 instructions: null
 name: 'Text: Links'
 searchable: true
 settings:
-  columnType: text
   defaultLinkType: default-verbb-hyper-links-entry
   defaultNewWindow: false
   fieldLayoutId: null
@@ -360,27 +358,30 @@ settings:
         -
           - selectionLabel
           - 'Choose an Asset'
+        -
+          - showSiteMenu
+          - true
     -
       __assoc__:
-        -
+        0:
           - type
           - verbb\hyper\links\Category
-        -
+        1:
           - label
           - Category
-        -
+        2:
           - handle
           - default-verbb-hyper-links-category
-        -
+        3:
           - enabled
           - false
-        -
+        4:
           - isCustom
           - false
-        -
+        5:
           - layoutUid
           - e08b9cf3-a7ee-42b3-9993-d65601c0b15d
-        -
+        6:
           - layoutConfig
           -
             __assoc__:
@@ -614,9 +615,12 @@ settings:
                               -
                                 - uid
                                 - f9ee96bd-61a0-4393-ba42-1188f0e3f1ea
-        -
+        7:
           - sources
           - '*'
+        9:
+          - showSiteMenu
+          - true
     -
       __assoc__:
         -
@@ -1815,6 +1819,9 @@ settings:
         -
           - selectionLabel
           - 'Choose an Entry'
+        -
+          - showSiteMenu
+          - true
     -
       __assoc__:
         -
@@ -2670,25 +2677,25 @@ settings:
                                 - fed3e37b-b371-46d9-982c-c28b056a2c5d
     -
       __assoc__:
-        -
+        0:
           - type
           - verbb\hyper\links\User
-        -
+        1:
           - label
           - User
-        -
+        2:
           - handle
           - default-verbb-hyper-links-user
-        -
+        3:
           - enabled
           - false
-        -
+        4:
           - isCustom
           - false
-        -
+        5:
           - layoutUid
           - 22a4c418-ec1a-4e04-bd5f-362169c01adf
-        -
+        6:
           - layoutConfig
           -
             __assoc__:
@@ -2922,9 +2929,12 @@ settings:
                               -
                                 - uid
                                 - 0f380586-4c66-43f9-9331-9cbe798e37f8
-        -
+        7:
           - sources
           - '*'
+        9:
+          - showSiteMenu
+          - true
   maxLinks: null
   minLinks: null
   multipleLinks: true

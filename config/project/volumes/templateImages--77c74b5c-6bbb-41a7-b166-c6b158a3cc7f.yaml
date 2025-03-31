@@ -1,3 +1,5 @@
+altTranslationKeyFormat: null
+altTranslationMethod: site
 fieldLayouts:
   38d718c0-a8fd-4a1e-8136-9daf72525bd7:
     tabs:
@@ -9,9 +11,11 @@ fieldLayouts:
             autocomplete: false
             autocorrect: true
             class: null
+            dateAdded: '2024-11-18T07:59:55+00:00'
             disabled: false
             elementCondition: null
             id: null
+            includeInCards: false
             inputType: null
             instructions: null
             label: null
@@ -20,6 +24,7 @@ fieldLayouts:
             name: null
             orientation: null
             placeholder: null
+            providesThumbs: false
             readonly: false
             requirable: false
             size: null
@@ -32,10 +37,14 @@ fieldLayouts:
             warning: null
             width: 50
           -
+            dateAdded: '2024-11-18T07:59:55+00:00'
             elementCondition: null
             fieldUid: 1516a801-6243-468d-b8e2-479085458faa # Text: Custom Title
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -47,14 +56,17 @@ fieldLayouts:
             attribute: alt
             class: null
             cols: null
+            dateAdded: '2024-11-18T07:59:55+00:00'
             disabled: false
             elementCondition: null
             id: null
+            includeInCards: false
             instructions: null
             label: null
             name: null
             orientation: null
             placeholder: null
+            providesThumbs: false
             readonly: false
             requirable: true
             required: false
@@ -67,10 +79,14 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2024-11-18T07:59:55+00:00'
             elementCondition: null
-            fieldUid: aac37142-e533-49aa-8665-b8cc6360e98b # Asset: Caption
+            fieldUid: aac37142-e533-49aa-8665-b8cc6360e98b # Text: Caption
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -79,10 +95,14 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2024-11-18T07:59:55+00:00'
             elementCondition: null
             fieldUid: 419ebfbb-8723-48db-ae89-10adf52cdf11 # Text: Source
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -91,10 +111,14 @@ fieldLayouts:
             warning: null
             width: 50
           -
+            dateAdded: '2024-11-18T07:59:55+00:00'
             elementCondition: null
             fieldUid: 8780cb03-c9ea-4482-ab85-3e541453b50f # Text: Source Url
+            handle: null
+            includeInCards: false
             instructions: null
             label: null
+            providesThumbs: false
             required: false
             tip: null
             type: craft\fieldlayoutelements\CustomField
@@ -109,6 +133,7 @@ fs: templateImages
 handle: templateImages
 name: 'Template Images'
 sortOrder: 3
+subpath: ''
 titleTranslationKeyFormat: null
 titleTranslationMethod: site
 transformFs: transforms

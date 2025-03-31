@@ -8,7 +8,7 @@ fieldLayouts:
           -
             dateAdded: '2024-11-18T07:59:55+00:00'
             elementCondition: null
-            fieldUid: 75195ab8-b7c4-4dca-b807-ef8a042ef5a9 # Builder: Content - Image Grid - Images
+            fieldUid: 75195ab8-b7c4-4dca-b807-ef8a042ef5a9 # Builder: Content - Images - Images
             handle: null
             includeInCards: false
             instructions: null
@@ -46,7 +46,7 @@ fieldLayouts:
           -
             dateAdded: '2024-11-18T07:59:55+00:00'
             elementCondition: null
-            fieldUid: 62883121-63a2-4e5c-a6f3-4855cf64df2c # Builder: Content - Image Grid - Image Transform
+            fieldUid: 62883121-63a2-4e5c-a6f3-4855cf64df2c # Builder: Content - Images - Image Ratio
             handle: null
             includeInCards: false
             instructions: null
@@ -62,7 +62,7 @@ fieldLayouts:
           -
             dateAdded: '2024-11-18T07:59:55+00:00'
             elementCondition: null
-            fieldUid: e0e9e510-46ff-45aa-aa46-700b325bb911 # Builder: Content - Image Grid - Show Image Caption
+            fieldUid: e0e9e510-46ff-45aa-aa46-700b325bb911 # Builder: Content - Images - Show Image Caption
             handle: null
             includeInCards: false
             instructions: null

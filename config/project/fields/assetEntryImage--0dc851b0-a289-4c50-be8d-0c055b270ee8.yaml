@@ -1,5 +1,4 @@
 columnSuffix: null
-contentColumnType: string
 handle: assetEntryImage
 instructions: null
 name: 'Asset: Entry Image'
@@ -13,7 +12,6 @@ settings:
   branchLimit: null
   defaultUploadLocationSource: 'volume:6c5fc0dd-cf56-48d8-8af8-88abe763b970' # Files
   defaultUploadLocationSubpath: null
-  localizeRelations: false
   maintainHierarchy: false
   maxRelations: 1
   minRelations: null
@@ -24,6 +22,7 @@ settings:
   restrictedLocationSource: 'volume:f1b38495-8096-48fa-9b78-0da345e3295c' # Images
   restrictedLocationSubpath: null
   selectionLabel: null
+  showCardsInGrid: false
   showSiteMenu: true
   showUnpermittedFiles: true
   showUnpermittedVolumes: true
@@ -32,5 +31,5 @@ settings:
   validateRelatedElements: true
   viewMode: large
 translationKeyFormat: null
-translationMethod: site
+translationMethod: none
 type: craft\fields\Assets
