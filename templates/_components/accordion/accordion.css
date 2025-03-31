@@ -3,8 +3,17 @@
     display: none;
   }
 
-  &[open] > summary svg {
-    @apply rotate-180;
+  .close {
+    @apply hidden;
+  }
+
+  &[open] > summary {
+    .open {
+      @apply hidden;
+    }
+    .close {
+      @apply block;
+    }
   }
 }
 

@@ -9,11 +9,12 @@
       {% endblock %}
       {% block content %}
         {{ include(
-          "_components/divider/divider.twig",
+          "_components/spacer/spacer.twig",
           {
             data: {
-            variantSize: "sm"
-          }
+              height: "sm",
+              visible: true
+            }
           },
           withContext = false
         ) }}
@@ -27,11 +28,12 @@
       {% endblock %}
       {% block content %}
         {{ include(
-          "_components/divider/divider.twig",
+          "_components/spacer/spacer.twig",
           {
             data: {
-            variantSize: "md"
-          }
+              height: "md",
+              visible: true
+            }
           },
           withContext = false
         ) }}
@@ -45,11 +47,12 @@
       {% endblock %}
       {% block content %}
         {{ include(
-          "_components/divider/divider.twig",
+          "_components/spacer/spacer.twig",
           {
             data: {
-            variantSize: "lg"
-          }
+              height: "lg",
+              visible: true
+            }
           },
           withContext = false
         ) }}
@@ -63,11 +66,12 @@
       {% endblock %}
       {% block content %}
         {{ include(
-          "_components/divider/divider.twig",
+          "_components/spacer/spacer.twig",
           {
             data: {
-            variantSize: "xl"
-          }
+              height: "xl",
+              visible: true
+            }
           },
           withContext = false
         ) }}
@@ -81,11 +85,12 @@
       {% endblock %}
       {% block content %}
         {{ include(
-          "_components/divider/divider.twig",
+          "_components/spacer/spacer.twig",
           {
             data: {
-            variantSize: "2xl"
-          }
+              height: "2xl",
+              visible: true
+            }
           },
           withContext = false
         ) }}
@@ -99,12 +104,13 @@
       {% endblock %}
       {% block content %}
         {{ include(
-          "_components/divider/divider.twig",
+          "_components/spacer/spacer.twig",
           {
             data: {
-            label: "Label text",
-            variantSize: "md"
-          }
+              label: "Label text",
+              height: "md",
+              visible: true
+            }
           },
           withContext = false
         ) }}

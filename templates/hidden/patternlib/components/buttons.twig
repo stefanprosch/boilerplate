@@ -356,6 +356,67 @@
       {% endblock %}
     {% endembed %}
 
+    {# >>> Render variant #}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        Button as Link
+      {% endblock %}
+      {% block content %}
+        <div class="pl-compsInRowCentered">
+          {{
+          include(
+            "_components/button/button.twig",
+            {
+              data: {
+              url: "/hidden/patternlib",
+              text: "Button text",
+              variantStyle: "link",
+              variantSize: "sm",
+              icon: "icons/sharp/mail",
+              iconSize: "sm"
+            }
+            },
+            withContext = false
+          )
+          }}
+
+          {{
+          include(
+            "_components/button/button.twig",
+            {
+              data: {
+              url: "/hidden/patternlib",
+              text: "Button text",
+              variantStyle: "link",
+              variantSize: "md",
+              icon: "icons/sharp/mail",
+              iconSize: "md"
+            }
+            },
+            withContext = false
+          )
+          }}
+
+          {{
+          include(
+            "_components/button/button.twig",
+            {
+              data: {
+              url: "/hidden/patternlib",
+              text: "Button text",
+              variantStyle: "link",
+              variantSize: "lg",
+              icon: "icons/sharp/mail",
+              iconSize: "md"
+            }
+            },
+            withContext = false
+          )
+          }}
+        </div>
+      {% endblock %}
+    {% endembed %}
+
 
   {% endcache %}
 {% endblock %}

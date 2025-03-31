@@ -1,7 +1,7 @@
 {# >>> Comp Defaults #}
 {% set compDefaults = {
   data: {
-    name: 'c-accordionFaq',
+    name: 'c-accordionChannel',
     firstOpen: true,
     numberOfAccordions: 1,
     channel: null,
@@ -91,32 +91,3 @@
     </div>
   {% endif %}
 </div>
-
-{#
-{% for i in 1..props.data.numberOfAccordions %}
-  <details class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}"
-           {% if props.data.firstOpen and loop.first %}open{% endif %}>
-    {% if block('summary' ~ i) is defined %}
-      <summary class="{{ props.classes.summary }}">
-        {{ block('summary' ~ i) }}
-
-        {{ include('_components/icon/icon.twig', {
-          data: {
-            icon: 'icons/filled/caret-down',
-            variantSize: 'sm',
-          },
-          classes: {
-            color: 'text-black'
-          }
-        }, withContext = false) }}
-      </summary>
-
-      {% if block('content' ~ i) is defined %}
-        <div class="{{ props.classes.contentHolder }}">
-          {{ block('content' ~ i) }}
-        </div>
-      {% endif %}
-    {% endif %}
-  </details>
-{% endfor %}
-#}

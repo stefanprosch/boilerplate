@@ -3,10 +3,11 @@
   data: {
     name: 'c-spacer',
     height: 'sm',
-    visible: false
+    visible: false,
+    label: null
   },
   classes: {
-    root: 'border-0',
+    root: 'border-0 text-primary',
     custom: '',
     visible: 'bg-primary'
   },
@@ -35,8 +36,15 @@
   variants: compDefaults.variants
 } %}
 
-<hr class="{{ props.data.name }} {{ props.classes.root }}  {{ props.data.visible ? props.variants.line[props.data.height] : props.variants.size[props.data.height] }}  {{
-  props.data.visible
-    ? props.classes.visible
-    : ""
-  }} {{ props.classes.custom }}" />
+{% if props.data.label %}
+  <div class="{{ props.data.name ~ '__wrapper' }} {{ props.classes.root }}">
+    <label class="{{ props.data.name ~ '__label' }}"><span>{{ props.data.label }}</span></label>
+    <div class="{{ props.variants.line[props.data.height] }} {{ props.classes.visible }}"></div>
+  </div>
+{% else %}
+  <hr class="{{ props.data.name }} {{ props.classes.root }}  {{ props.data.visible ? props.variants.line[props.data.height] : props.variants.size[props.data.height] }}  {{
+    props.data.visible
+      ? props.classes.visible
+      : ""
+    }} {{ props.classes.custom }}" />
+{% endif %}

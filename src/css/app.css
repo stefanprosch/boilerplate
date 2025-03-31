@@ -32,6 +32,7 @@
 @import "./components/image.css";
 @import "./components/tabs.css";
 @import "./components/select.css";
+@import "./components/spacer.css";
 @import "../../templates/_components/text/richText.css";
 @import "../../templates/_components/text/plainText.css";
 @import "../../templates/_components/grid/imagesCalculated.css";
