@@ -22,7 +22,7 @@
   }
 
   img {
-    @apply w-full;
+    @apply w-full pointer-events-none;
   }
 
   #appWrapper {

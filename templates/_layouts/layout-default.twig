@@ -12,9 +12,14 @@
 
 {# >>> Render block app body #}
 {% block blockAppBody %}
-  {# Todo: Preloader #}
+  {# >>> Preloader #}
+  {{ include("_components/preloader/preloader.twig", {
+    classes: {
+      custom: ''
+    }
+  }, withContext = false) }}
 
-  <div id="appWrapper" class="">
+  <div id="appWrapper" class="" style="opacity: 0;">
     {# Todo: Eager Loading #}
 
 

@@ -25,6 +25,7 @@
  * override them.
  *
  */
+@import "./components/preloader.css";
 @import "./components/enlargeClickArea.css";
 @import "./components/transitions.css";
 @import "./components/button.css";

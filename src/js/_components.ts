@@ -1,4 +1,11 @@
 export default (async () => {
+  // Preloader
+  const preloaderEl = document.querySelector<HTMLElement>('.js-preloader');
+  if (preloaderEl) {
+    const { default: preloader } = await import('../../templates/_components/preloader/preloader');
+    preloader.init(preloaderEl);
+  }
+
   // Gallery
   const imageGalleryEls = document.querySelectorAll<HTMLElement>('.js-imageGallery');
   if (imageGalleryEls.length > 0) {
