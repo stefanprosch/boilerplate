@@ -25,6 +25,22 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2025-04-10T10:00:53+00:00'
+            elementCondition: null
+            fieldUid: 1516a801-6243-468d-b8e2-479085458faa # Text: Custom Title
+            handle: textSubtitle
+            includeInCards: false
+            instructions: null
+            label: Subtitle
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ce3c7ec4-85d4-483e-ab2d-6acc09a8b730
+            userCondition: null
+            warning: null
+            width: 100
+          -
             dateAdded: '2025-03-21T08:55:57+00:00'
             elementCondition: null
             fieldUid: d4cabad1-1cae-4a1e-a914-c38d9f1a813a # Builder: Content - Text - Text

@@ -103,6 +103,17 @@ settings:
                     -
                       - default
                       - false
+                -
+                  __assoc__:
+                    -
+                      - label
+                      - Behance
+                    -
+                      - value
+                      - behance
+                    -
+                      - default
+                      - false
       -
         - col2
         -

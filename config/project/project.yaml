@@ -1,4 +1,4 @@
-dateModified: 1743412945
+dateModified: 1746517579
 elementSources:
   craft\elements\Asset:
     -
@@ -132,7 +132,7 @@ meta:
     3497ad65-5e4c-43cb-b469-c3e4b3d80343: 'Text : Image' # Text : Image
     3547e7b4-f3fb-4cf4-9d29-9f12dfa94594: News # News
     7059a4d1-a4a2-4648-981e-d9398d6ae878: 'Builder: Content - Image - Position Image Caption' # Builder: Content - Image - Position Image Caption
-    8153a2df-373f-4aac-9a92-d52292c9f1aa: Baukasten # Baukasten
+    8153a2df-373f-4aac-9a92-d52292c9f1aa: $SITE_NAME # $SITE_NAME
     8780cb03-c9ea-4482-ab85-3e541453b50f: 'Text: Source Url' # Text: Source Url
     9005a655-4d9f-46b4-8c33-aadba34b6112: 'Social Sharing Facebook' # Social Sharing Facebook
     45510f13-91d2-479f-9ff2-68dd09ab6643: 'Text: Entry Description' # Text: Entry Description
@@ -171,14 +171,15 @@ meta:
     f3e1a215-a60f-4d6a-8897-e1a80a40c6cd: Code # Code
     f63c3988-00f8-4310-8741-5408a416230e: 'Builder: Content - Entry Limit' # Builder: Content - Entry Limit
     f4959e03-fec0-4b1c-887e-5301a5f66742: 'Social Sharing Twitter' # Social Sharing Twitter
+    fa0a403f-fff3-468f-a2d3-8d84c55e56be: 'Builder: Content - Grid Columns' # Builder: Content - Grid Columns
     fa02ff5a-1741-4417-8c8f-b72b954dd4fd: Quote # Quote
     fb701216-3e80-4e6d-99d4-2e5f70561e22: 'News Detail' # News Detail
 plugins:
   blitz:
     edition: standard
     enabled: true
-    licenseKey: $PLUGIN_BLITZ
-    schemaVersion: 5.9.0
+    licenseKey: TM0RJK7S34JHSMOGA7R0LXT4
+    schemaVersion: 5.10.0
     settings:
       integrations:
         - putyourlightson\blitz\drivers\integrations\CommerceIntegration
@@ -224,7 +225,7 @@ plugins:
   formie:
     edition: standard
     enabled: true
-    licenseKey: $PLUGIN_FORMIE
+    licenseKey: SAWE0FF13WSOGIQ2FYVALZ0K
     schemaVersion: 3.4.8
     settings:
       ajaxTimeout: 10
@@ -353,7 +354,7 @@ plugins:
   hyper:
     edition: standard
     enabled: true
-    licenseKey: $PLUGIN_HYPER
+    licenseKey: ABRGD1LI4Z58FYROMQFT5P01
     schemaVersion: 1.0.0
   image-resizer:
     edition: standard
@@ -362,7 +363,7 @@ plugins:
   imager-x:
     edition: pro
     enabled: true
-    licenseKey: $PLUGIN_IMAGERX
+    licenseKey: YQDT18RVTE20XK8JY2XFP3LU
     schemaVersion: 4.0.0
   matrixmate:
     edition: standard
@@ -375,13 +376,13 @@ plugins:
   navigation:
     edition: standard
     enabled: true
-    licenseKey: $PLUGIN_NAVIGATION
+    licenseKey: 15CDUPRCT5CGB19BSE7PKHAQ
     schemaVersion: 2.1.0
   seomatic:
     edition: standard
     enabled: true
-    licenseKey: $PLUGIN_SEOMATIC
-    schemaVersion: 3.0.12
+    licenseKey: 31OEAXP9Q9WDMESVXS41XY1E
+    schemaVersion: 3.0.13
     settings:
       addHrefLang: true
       addPaginatedHreflang: true
@@ -441,7 +442,7 @@ plugins:
   super-dynamic-fields:
     edition: standard
     enabled: true
-    licenseKey: HWHCIWN81OICEM6JJHFF7TQF
+    licenseKey: Y2FD3CY6RZX4O2OEBVD2C3IZ
     schemaVersion: 5.0.1
   super-table:
     edition: standard
@@ -452,9 +453,9 @@ plugins:
     enabled: true
     schemaVersion: 1.0.0
 system:
-  edition: pro
+  edition: solo
   live: true
-  name: Baukasten
+  name: $SITE_NAME
   retryDuration: null
-  schemaVersion: 5.6.0.2
+  schemaVersion: 5.7.0.3
   timeZone: Europe/Berlin

@@ -24,6 +24,22 @@ fieldLayouts:
             warning: null
             width: 100
           -
+            dateAdded: '2025-04-10T10:01:47+00:00'
+            elementCondition: null
+            fieldUid: 1516a801-6243-468d-b8e2-479085458faa # Text: Custom Title
+            handle: textSubtitle
+            includeInCards: false
+            instructions: null
+            label: Subtitle
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9772912c-3732-4086-8c24-c655bc21c3a5
+            userCondition: null
+            warning: null
+            width: 100
+          -
             dateAdded: '2024-11-18T07:59:55+00:00'
             elementCondition: null
             fieldUid: 0a7dd988-f4db-40b7-8112-6f6fc7c4fb54 # Builder: Content - Text : Image - Text
@@ -55,6 +71,28 @@ fieldLayouts:
             userCondition: null
             warning: null
             width: 50
+          -
+            dateAdded: '2025-04-25T12:16:43+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: e94008ba-1371-4683-b286-a28885da75bc
+            userCondition: null
+          -
+            dateAdded: '2025-04-25T12:16:43+00:00'
+            elementCondition: null
+            fieldUid: c41504c5-f329-4495-9893-6237d54835c1 # Builder: Content - Content Blocks
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Content Blocks'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0ba8bb22-ec92-475d-9090-ddd7ce082ea0
+            userCondition: null
+            warning: null
+            width: 100
         name: Content
         uid: a7ac4d85-057b-421c-a16b-b382da491a30
         userCondition: null
@@ -122,6 +160,22 @@ fieldLayouts:
             tip: null
             type: craft\fieldlayoutelements\CustomField
             uid: 50f248bd-1435-4f9e-8225-ce71ceadbd90
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-04-25T12:16:43+00:00'
+            elementCondition: null
+            fieldUid: 25e45cda-5ba7-4493-bd27-25459a06863b # Builder: Content - View Mode
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Content Blocks: View Mode'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 25644e44-1c8a-4419-92b3-5bceefbae8c1
             userCondition: null
             warning: null
             width: 50
