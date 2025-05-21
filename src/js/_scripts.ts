@@ -21,38 +21,55 @@ export default (async () => {
     modernImageFormatFallback.init('avif');
   };
 
-  // globalScrollListener
   const { default: globalScrollListener } = await import('./scripts/globalScrollListener');
   globalScrollListener.init();
 
-  // globalScrollListener
   const { default: globalResizeListener } = await import('./scripts/globalResizeListener');
   globalResizeListener.init();
 
-  // globalAnimationBehavior
-  const { default: globalAnimationBehavior } = await import('./scripts/globalAnimationBehavior');
-  globalAnimationBehavior.init();
-
-  // waypointObserver
-  const waypointEls = document.querySelectorAll<HTMLElement>('[waypoint]');
-  if (waypointEls.length > 0) {
-    const { default: waypointObserver } = await import('./scripts/waypointObserver');
-    waypointObserver.init(waypointEls);
-  }
-
-  // Lazy Images
   const selector = 'img[loading="lazy"], iframe[loading="lazy"], source[data-srcset]';
   const lazyImageEls = document.querySelectorAll<HTMLElement>(selector);
+
+  let lazyloadReady: Promise<void> = Promise.resolve();
+
   if (lazyImageEls.length > 0) {
     if ('loading' in HTMLImageElement.prototype) {
       const lazy = await import('./scripts/lazy');
       lazy.init(lazyImageEls, selector);
     } else {
-      // eslint-disable-next-line no-console
-      import('lazysizes')
-        .then((LazySizes) => LazySizes.init())
-        // eslint-disable-next-line no-console
-        .catch((e) => console.error(`${e.name} : ${e.message}`));
+      await import('lazysizes').then((LazySizes) => LazySizes.init());
     }
+
+    lazyloadReady = new Promise<void>((resolve) => {
+      const criticalImages = document.querySelectorAll('img[data-critical]');
+      if (criticalImages.length === 0) {
+        resolve();
+        return;
+      }
+
+      const promises = Array.from(criticalImages).map((img) => {
+        if ((img as HTMLImageElement).complete) {
+          return Promise.resolve();
+        } else {
+          return new Promise((res) => {
+            img.addEventListener('load', res, { once: true });
+            img.addEventListener('error', res, { once: true });
+          });
+        }
+      });
+
+      Promise.all(promises).then(() => resolve());
+    });
+  }
+
+  await lazyloadReady;
+
+  const { default: globalAnimationBehavior } = await import('./scripts/globalAnimationBehavior');
+  globalAnimationBehavior.init();
+
+  const waypointEls = document.querySelectorAll<HTMLElement>('[waypoint]');
+  if (waypointEls.length > 0) {
+    const { default: waypointObserver } = await import('./scripts/waypointObserver');
+    waypointObserver.init(waypointEls);
   }
 })();

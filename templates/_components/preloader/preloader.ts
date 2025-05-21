@@ -1,6 +1,6 @@
 /**
  * preloader
-+*/
+ +*/
 
 import gsap from 'gsap';
 import ScrollToPlugin from 'gsap/ScrollToPlugin';
@@ -65,21 +65,7 @@ const preloader = {
         '0',
       );
     } else {
-      tl.to(
-        '.js-svgPreloader',
-        {
-          delay: 0.25,
-          opacity: 0,
-          onComplete: () => {
-            if (document.readyState === 'complete') {
-              this.stateComplete();
-            } else {
-              tl.restart();
-            }
-          },
-        },
-        '=0.25',
-      );
+      this.stateComplete();
     }
   },
 
@@ -125,7 +111,7 @@ const preloader = {
   init(preloaderEl: HTMLElement) {
     if (preloaderEl) {
       if (this.htmlTag.classList.contains('template-index')) {
-        this.progressLoader(true);
+        this.progressLoader(false);
         // this.stateComplete();
       } else {
         this.progressLoader(false);

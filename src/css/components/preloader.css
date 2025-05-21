@@ -25,7 +25,7 @@
     }
 
     .js-svgPreloader {
-      @apply text-white w-32 h-32;
+      @apply text-black w-32 h-32;
     }
   }
 }

@@ -16,28 +16,32 @@ interface ICompGlobalAnimationBehavior extends IComponent {
   lastScrollTop: number;
   scrollTriggered: boolean;
   smoother: null | ScrollSmoother;
+  originalSpeeds: Array<string>;
+  targets: HTMLElement[];
   getSamePageAnchor(link: string): string | false;
-  scrollToHash(hash: string, e: Event): void;
+  scrollToHash(hash: string, e: Event | null): void;
   setupLinks(): void;
   setupHeader(): void;
   observeHtmlClass(): void;
   setupScrollSmoother(): void;
+  onChange(event: MediaQueryListEvent): void;
   setupGlobalScroll(): void;
   init(): void;
 }
 
-const globalAnimatioBehavior: ICompGlobalAnimationBehavior = {
-  name: 'globalAnimatioBehavior',
+const globalAnimationBehavior: ICompGlobalAnimationBehavior = {
+  name: 'globalAnimationBehavior',
   documentElement: document.documentElement,
   timer: null,
   smoother: null,
   lastScrollTop: 0,
   scrollTriggered: false,
+  originalSpeeds: [],
+  targets: [],
 
-  getSamePageAnchor(link: string): string | false {
+  getSamePageAnchor(link: string) {
     try {
       const url = new URL(link);
-
       if (
         url.protocol !== window.location.protocol ||
         url.host !== window.location.host ||
@@ -46,15 +50,14 @@ const globalAnimatioBehavior: ICompGlobalAnimationBehavior = {
       ) {
         return false;
       }
-
       return url.hash;
-    } catch (error) {
+    } catch {
       return false;
     }
   },
 
-  scrollToHash(hash: string, e: Event | null): void {
-    const elem = hash ? document.querySelector(hash) : false;
+  scrollToHash(hash: string, e: Event | null) {
+    const elem = hash ? document.querySelector(hash) : null;
     if (elem) {
       if (e) e.preventDefault();
       gsap.to(window, { scrollTo: elem });
@@ -62,24 +65,20 @@ const globalAnimatioBehavior: ICompGlobalAnimationBehavior = {
   },
 
   setupLinks() {
-    // If a link's href is within the current page, scroll to it instead
     document.querySelectorAll('a[href*="#"]').forEach((a) => {
       a.addEventListener('click', (e) => {
-        const anchor = this.getSamePageAnchor(a.toString());
+        const anchor = this.getSamePageAnchor((a as HTMLAnchorElement).href);
         if (anchor !== false) {
           this.scrollToHash(anchor, e);
         }
       });
     });
 
-    // Scroll to the element in the URL's hash on load
-    // this.scrollToHash(window.location.hash);
     if (window.location.hash) {
       window.scrollTo(0, 0);
       setTimeout(() => {
-        const fakeEvent = new Event('fake');
-        this.scrollToHash(window.location.hash, fakeEvent);
-      }, 500);
+        this.scrollToHash(window.location.hash, new Event('fake'));
+      }, 100);
     }
 
     window.addEventListener('popstate', (e) => {
@@ -91,15 +90,13 @@ const globalAnimatioBehavior: ICompGlobalAnimationBehavior = {
   },
 
   setupHeader() {
-    const navigation: HTMLElement = document.querySelector('.js-header') as HTMLElement;
+    const navigation = document.querySelector('.js-header') as HTMLElement;
     if (!navigation) {
       console.error('Navigation element not found');
       return;
     }
 
-    const sections: Array<HTMLElement> = gsap.utils.toArray(
-      '.js-section.js-primary',
-    ) as Array<HTMLElement>;
+    const sections = gsap.utils.toArray('.js-section.js-primary') as HTMLElement[];
 
     sections.forEach((section) => {
       const rect = navigation.getBoundingClientRect();
@@ -108,116 +105,111 @@ const globalAnimatioBehavior: ICompGlobalAnimationBehavior = {
         start: `top ${rect.y + rect.height * 0.25}`,
         end: `bottom ${rect.y + rect.height * 0.75}`,
         scrub: 1,
-        toggleClass: {
-          targets: [navigation],
-          className: 'is-onPrimary',
-        },
+        toggleClass: { targets: [navigation], className: 'is-onPrimary' },
         markers: false,
       });
-    });
-
-    const showAnim = gsap
-      .from(navigation, {
-        yPercent: -100,
-        paused: true,
-        duration: 0.2,
-      })
-      .progress(1);
-
-    ScrollTrigger.create({
-      start: 'top top',
-      end: 99999,
-      onUpdate: (self) => {
-        self.direction === -1 ? showAnim.play() : showAnim.reverse();
-      },
     });
   },
 
   observeHtmlClass() {
-    const htmlElement = document.documentElement; // Das <html> Element
+    const htmlElement = this.documentElement;
     let previousClassList = [...htmlElement.classList];
 
-    // Funktion, die winScroll auslöst
     const winScroll = _throttle(() => {
       requestAnimationFrame(() => {
         if (!this.scrollTriggered) {
-          this.scrollTriggered = true; // Flag setzen, um mehrfaches Auslösen zu verhindern
-          console.log('winScroll ausgelöst');
-          this.setupScrollSmoother(); // Smooth Scroller wird neu eingerichtet
-          // Nach 1 Sekunde das Flag zurücksetzen, um spätere Änderungen zuzulassen
+          this.scrollTriggered = true;
+          ScrollTrigger.refresh();
           setTimeout(() => {
             this.scrollTriggered = false;
-          }, 1000); // Kleine Verzögerung, um Flackern zu verhindern
+          }, 500);
         }
       });
     }, 250);
 
-    // Überprüft, ob es Elemente mit der Klasse "js-observer" gibt
-    function checkForObserverElements() {
-      const observerElements = document.querySelectorAll('.js-observer');
-      return observerElements.length > 0;
-    }
-
-    // MutationObserver-Callback, der auf Klassenänderungen reagiert
     const classObserver = new MutationObserver((mutationsList) => {
       mutationsList.forEach((mutation) => {
         if (mutation.attributeName === 'class') {
           const currentClassList = [...htmlElement.classList];
-          // Überprüfen, ob die Klasse "sprig-afterSwap" neu hinzugefügt wurde
           if (
             !previousClassList.includes('sprig-afterSwap') &&
-            currentClassList.includes('sprig-afterSwap') &&
-            checkForObserverElements()
+            currentClassList.includes('sprig-afterSwap')
           ) {
-            winScroll(); // winScroll-Funktion nur auslösen, wenn js-observer-Elemente vorhanden sind
+            winScroll();
           }
-          // Aktualisiere den vorherigen Zustand der Klassen
           previousClassList = currentClassList;
         }
       });
     });
 
-    // Observer-Konfiguration für das HTML-Element (Klassenänderungen überwachen)
     classObserver.observe(htmlElement, {
-      attributes: true, // Nur Attributänderungen überwachen
-      attributeFilter: ['class'], // Nur Änderungen der "class"-Attribute
+      attributes: true,
+      attributeFilter: ['class'],
     });
   },
 
   setupScrollSmoother() {
+    this.targets = gsap.utils.toArray('[data-speed]') as HTMLElement[];
+    this.originalSpeeds = this.targets.map((t) => t.getAttribute('data-speed') || '1');
+
+    this.targets.forEach((t) => {
+      t.removeAttribute('data-speed');
+    });
+
     this.smoother = ScrollSmoother.create({
-      smooth: 1,
+      smooth: 2,
       ignoreMobileResize: true,
       effects: true,
+      normalizeScroll: true,
     });
+
     ScrollTrigger.refresh();
+
+    const mediaQuery = '(max-width: 820px)';
+    const mediaQueryList = window.matchMedia(mediaQuery);
+    mediaQueryList.addEventListener('change', (e) => this.onChange(e));
+
+    this.onChange({ matches: mediaQueryList.matches } as MediaQueryListEvent);
+  },
+
+  onChange(event: MediaQueryListEvent) {
+    if (!this.smoother) return;
+
+    this.smoother.effects().forEach((effect) => {
+      this.targets.forEach((t) => {
+        if (t === effect.trigger) {
+          effect.kill();
+        }
+      });
+    });
+
+    if (!event.matches) {
+      this.targets.forEach((t, i) => {
+        this.smoother!.effects(t, { speed: this.originalSpeeds[i] });
+      });
+    }
   },
 
   setupGlobalScroll() {
-    // create the smooth scroller FIRST!
     this.setupScrollSmoother();
-    this.observeHtmlClass(); // Überwache die Klasse "sprig-afterSwap"
-
-    // Refresh
-    setTimeout(ScrollTrigger.refresh, 1000);
+    this.observeHtmlClass();
+    ScrollTrigger.refresh();
   },
 
   init() {
-    document.onreadystatechange = () => {
-      console.log('Animation Behaviour ReadyState: ' + document.readyState);
-      if (document.readyState === 'complete') {
-        this.setupGlobalScroll();
-        this.setupLinks();
-        this.setupHeader();
-      }
-    };
-
-    if (document.readyState === 'complete') {
+    const onReady = () => {
+      console.log('Animation Behaviour Init');
       this.setupGlobalScroll();
       this.setupLinks();
       this.setupHeader();
+    };
+
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      onReady();
+    } else {
+      document.addEventListener('DOMContentLoaded', onReady);
     }
   },
 };
 
-export default globalAnimatioBehavior;
+export default globalAnimationBehavior;
