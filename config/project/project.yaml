@@ -1,4 +1,4 @@
-dateModified: 1746517579
+dateModified: 1747830346
 elementSources:
   craft\elements\Asset:
     -
@@ -179,10 +179,11 @@ plugins:
     edition: standard
     enabled: true
     licenseKey: TM0RJK7S34JHSMOGA7R0LXT4
-    schemaVersion: 5.10.0
+    schemaVersion: 5.11.0
     settings:
       integrations:
         - putyourlightson\blitz\drivers\integrations\CommerceIntegration
+      maxUriLength: 2048
   blur-hash:
     edition: standard
     enabled: true
@@ -394,7 +395,7 @@ plugins:
           __assoc__:
             -
               - policy
-              - '''self'''
+              - "'self'"
       devModeCpTitlePrefix: '&#x1f6a7;⚙ '
       devModeTitlePrefix: '&#x1f6a7; '
       displayAnalysisSidebar: true
