@@ -1,0 +1,7 @@
+[
+  {"value": "transparent", "label": "Transparent", "default": "yes"},
+  {"value": "white", "label": "White"},
+  {"value": "primary", "label": "Primary"},
+  {"value": "secondary", "label": "Secondary"},
+  {"value": "neutral", "label": "Neutral"}
+]

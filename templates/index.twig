@@ -1,0 +1,39 @@
+{% extends "_layouts/layout-default.twig" %}
+{% set templatePath = _self ??? '' %}
+{% set theme = 'dark' %}
+
+{% block blockAppContent %}
+  {% cache %}
+    {# >>> Render page header #}
+    {{ include('_components/pageHead/pageHead.twig', {
+      data: {
+        object: entry,
+        text: entry.textCustomTitle ??? entry.title ??? null,
+        variant: 'full',
+        tag: 'h1',
+      },
+      classes : {
+        custom: 'js-section js-primary'
+      }
+    }, withContext = false) }}
+
+    {# >>> Render page intro #}
+    {{ include('_components/pageHead/pageIntro.twig', {
+      data: {
+        object: entry,
+        headline: entry.textCustomSubtitle ??? null,
+        text: entry.textEntryDescription ??? null,
+      },
+      classes: {
+        custom: 'js-section py-16 md:py-32'
+      }
+    }, withContext = false) }}
+
+    {# >>> Render page content #}
+    {{ include('_builders/_builderContent.twig', {
+      data: {
+        builderContent: entry.builderContent.eagerly() ??? null,
+      }
+    }, withContext = false) }}
+  {% endcache %}
+{% endblock %}

@@ -1,0 +1,42 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-blockForms',
+    block: null,
+  },
+  classes: {
+    root: 'container grid grid-cols-12 gap-4 md:gap-8',
+    custom: '',
+  },
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{% if props.data.block.form ??? null %}
+  <div class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+    {{ include('_components/text/textBlockHeadline.twig', {
+      data: {
+        headline: props.data.block.textTitle ??? null,
+        text: props.data.block.textDescription ??? null,
+      },
+      classes: {
+        custom: ''
+      }
+    }, withContext = false) }}
+
+    <div class="col-span-10 col-start-2">
+      {{ craft.formie.renderForm(props.data.block.form.one()) }}
+
+      {% js %}
+        document.addEventListener('onFormieInit', (event) => {
+          let Formie = event.detail.formie;
+          Formie.refreshForCache(event.detail.formId);
+        });
+      {% endjs %}
+    </div>
+  </div>
+{% endif %}

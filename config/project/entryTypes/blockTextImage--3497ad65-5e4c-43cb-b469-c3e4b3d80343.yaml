@@ -1,0 +1,195 @@
+color: null
+fieldLayouts:
+  7b6ace88-ae82-4caf-afe4-1650ce6e7ce3:
+    cardView:
+      - 'layoutElement:51b01a52-b32f-4ffa-910d-ef9fe863f1ef'
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-03-21T08:59:09+00:00'
+            elementCondition: null
+            fieldUid: 1516a801-6243-468d-b8e2-479085458faa # Text: Custom Title
+            handle: textTitle
+            includeInCards: false
+            instructions: null
+            label: Title
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 4ccd621f-f578-4b38-a027-a5c383e9d5a6
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-04-10T10:01:47+00:00'
+            elementCondition: null
+            fieldUid: 1516a801-6243-468d-b8e2-479085458faa # Text: Custom Title
+            handle: textSubtitle
+            includeInCards: false
+            instructions: null
+            label: Subtitle
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9772912c-3732-4086-8c24-c655bc21c3a5
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-18T07:59:55+00:00'
+            elementCondition: null
+            fieldUid: 0a7dd988-f4db-40b7-8112-6f6fc7c4fb54 # Builder: Content - Text : Image - Text
+            handle: text
+            includeInCards: true
+            instructions: null
+            label: Text
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 51b01a52-b32f-4ffa-910d-ef9fe863f1ef
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2024-11-18T07:59:55+00:00'
+            elementCondition: null
+            fieldUid: b81cb731-dd6f-4055-9c6d-2f076a727a27 # Builder: Content - Text : Image - Image
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: Image
+            providesThumbs: true
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ab6dd79a-0d9c-4799-860a-01a7c242ba68
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-04-25T12:16:43+00:00'
+            elementCondition: null
+            type: craft\fieldlayoutelements\HorizontalRule
+            uid: e94008ba-1371-4683-b286-a28885da75bc
+            userCondition: null
+          -
+            dateAdded: '2025-04-25T12:16:43+00:00'
+            elementCondition: null
+            fieldUid: c41504c5-f329-4495-9893-6237d54835c1 # Builder: Content - Content Blocks
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Content Blocks'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 0ba8bb22-ec92-475d-9090-ddd7ce082ea0
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: a7ac4d85-057b-421c-a16b-b382da491a30
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-03-21T08:59:09+00:00'
+            elementCondition: null
+            fieldUid: cf2f33c5-65b1-4ffe-ad64-c430610bc777 # Builder: Content - Text - Headline Size
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Headline Size'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: e35f1252-ad75-4e20-b484-8a25eb4bccc7
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2024-11-18T07:59:55+00:00'
+            elementCondition: null
+            fieldUid: 210de09a-f6c8-42dd-b4d6-c1c00e7d0b82 # Builder: Content - Text : Image - Image Position
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Image Position'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1ce2335a-ddf7-4a2f-a788-0c629ecec74b
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2024-11-18T07:59:55+00:00'
+            elementCondition: null
+            fieldUid: 98f7a455-6764-4b7d-8d19-405bdcc42228 # Builder: Content - Text : Image - Image Ratio
+            handle: imageRatio
+            includeInCards: false
+            instructions: null
+            label: 'Image Ratio'
+            providesThumbs: false
+            required: true
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 04337482-6861-47b4-8a21-cd4447d746ab
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2024-11-18T07:59:55+00:00'
+            elementCondition: null
+            fieldUid: 6a90dae3-938c-47e6-8e36-6b1d6be92d63 # Builder: Content - Text : Image - Show Image Caption
+            handle: showImageCaption
+            includeInCards: false
+            instructions: null
+            label: 'Show Image Caption'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 50f248bd-1435-4f9e-8225-ce71ceadbd90
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-04-25T12:16:43+00:00'
+            elementCondition: null
+            fieldUid: 25e45cda-5ba7-4493-bd27-25459a06863b # Builder: Content - View Mode
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Content Blocks: View Mode'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 25644e44-1c8a-4419-92b3-5bceefbae8c1
+            userCondition: null
+            warning: null
+            width: 50
+        name: Settings
+        uid: c9d154ae-8f7a-413a-afea-a4a09d6614ea
+        userCondition: null
+handle: blockTextImage
+hasTitleField: false
+icon: null
+name: 'Text : Image'
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

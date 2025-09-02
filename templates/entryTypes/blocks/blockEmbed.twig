@@ -1,0 +1,30 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-blockEmbed',
+    block: null,
+  },
+  classes: {
+    root: '',
+    custom: '',
+  },
+  variants: {
+    wide: 'w-full',
+    narrow: 'container grid grid-cols-12 gap-4 md:gap-8',
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
+} %}
+
+{% if props.data.block.snippet ??? null %}
+  <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }} {{ props.variants[data.block.contentWidth.value] }}">
+    <div class="col-span-12">
+      {{ props.data.block.snippet|raw }}
+    </div>
+  </div>
+{% endif %}

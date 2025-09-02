@@ -1,0 +1,16 @@
+columnSuffix: null
+handle: builderContentGridColumns
+instructions: null
+name: 'Builder: Content - Grid Columns'
+searchable: false
+settings:
+  cachedOptions: true
+  customOptions: false
+  element: null
+  genError: ''
+  json: ''
+  template: _super-dynamic-fields/grid-view-mode.json
+  templateData: ''
+translationKeyFormat: null
+translationMethod: none
+type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField

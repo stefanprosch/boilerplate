@@ -1,0 +1,26 @@
+.lazyload,
+.lazyloading {
+  @apply opacity-0 transition-opacity duration-500;
+}
+
+.lazyloaded {
+  @apply opacity-100;
+}
+
+figure .lazyload,
+figure .lazyloading,
+picture .lazyload,
+picture .lazyloading {
+  /* @apply scale-105; */
+}
+
+figure .lazyloaded,
+picture .lazyloaded {
+  /* @apply scale-100 transition-transform duration-500; */
+}
+
+img.lazyload,
+img.lazyloading,
+img.lazyloaded {
+  @apply block w-full h-auto;
+}

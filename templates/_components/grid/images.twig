@@ -1,0 +1,84 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-imageGrid',
+    images: null,
+    lazy: true,
+    caption: null,
+    aspectRatio: 'aspect-landscape',
+    columns: 2,
+  },
+  classes: {
+    root: 'js-imageGallery grid grid-cols-1 gap-4 md:gap-8',
+    custom: '',
+  },
+  variants: {
+    columns: {
+      2: 'grid-cols-2 md:grid-cols-2',
+      3: 'md:grid-cols-3'
+    }
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
+} %}
+
+
+{# Modul #}
+{% if props.data.images ??? null %}
+  {% set gridLayout = [
+    'col-span-1 row-span-2',
+    'col-span-1',
+    'col-span-1 row-span-2',
+    'col-span-1 ',
+  ] %}
+  {% set aspectRatio = [
+    'aspect-portrait',
+    'aspect-landscape',
+    'aspect-portrait',
+    'aspect-landscape',
+  ] %}
+  {% set rows = (props.data.columns == 2 and not props.data.caption) ? 'md:grid-rows-3' : '' %}
+  {% set counter = 0 %}
+  {% set dynamicData = [] %}
+  {% for image in props.data.images %}
+    {% set title = image.textCustomTitle ??? '' %}
+    {% set caption = '' %}
+    {% if image.textCaption %}
+      {% set caption = image.textCaption %}
+    {% endif %}
+    {% set transforms = craft.imager.transformImage(image, 'auto', { format: 'avif' }) %}
+    {% set srcset = craft.imager.srcset(transforms) | trim %}
+    {% set dynamicData = dynamicData|merge([{
+      "src": craft.imager.transformImage(image, 'auto', { format: 'avif' }) | last.url ??? '',
+      "srcset": srcset,
+      "thumb": craft.imager.transformImage(image, 'auto', { format: 'avif' }) | last.url ??? '',
+      "subHtml": (title ? "<strong>#{title}</strong>" : "")  ~ (caption ? "<br>#{caption}" : ""),
+    }]) %}
+  {% endfor %}
+
+  <div class="{{ props.data.name }}  {{ props.classes.root }}  {{ props.variants.columns[props.data.columns] }} {{ props.classes.custom }}"
+       data-dynamic-data="{{ dynamicData | json_encode }}">
+
+
+    {% for image in props.data.images %}
+      {{ include('_components/image/image.twig', {
+        data: {
+          image: image ??? null,
+          aspectRatio: props.data.caption ? props.data.aspectRatio : aspectRatio[counter],
+          caption: props.data.caption ??? null,
+          lazy: props.data.lazy
+        },
+        classes: {
+          custom: 'col-span-1 ' ~ (props.data.caption ? '' : 'hasOverlay ' ~ gridLayout[counter])
+        }
+      }, withContext = false) }}
+
+      {% set counter = counter >= 3 ? 0 : counter+1 %}
+    {% endfor %}
+  </div>
+{% endif %}

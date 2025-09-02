@@ -1,0 +1,76 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    url: siteUrl,
+    name: 'c-footer',
+  },
+  classes: {
+    root: 'js-section js-primary bg-primary text-text text-xs/10 mt-auto py-16',
+    custom: '',
+    container: 'container py-4 grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 space-y-8',
+    row: 'col-span-1 space-y-4 md:space-y-0 md:col-span-10 md:col-start-2 grid grid-cols-1 md:grid-cols-10 gap-4 md:gap-8',
+    footerLink: 'underline hover:no-underline font-bold'
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+<footer class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+  <div class="{{ props.classes.container }}">
+    {# Metanavigation & Logo #}
+    <div class="{{ props.classes.row }} items-center">
+      <div class="col-span-1 md:col-span-4 flex flex-col items-center justify-center md:items-start md:justify-start">
+        {# Adress #}
+        {% set addresses = settings.globalsContact.all() %}
+        {% set phone = settings.contactPhone %}
+        {% set eMail = settings.contactEmail %}
+        {% for address in addresses %}
+          <address class="!not-italic leading-tight">
+            {{ (address ~ '\n' ~ address.addressLine1 ~ ' – ' ~ address.countryCode|upper ~ '–' ~ address.postalCode~ ' ' ~ address.locality) | nl2br  }}
+          </address>
+        {% endfor %}
+        <div>
+          {{ phone.getLink({class: 'btn btn--link'}) }}
+        </div>
+        <div>
+          {{ eMail.getLink({class: 'btn btn--link'}) }}
+        </div>
+      </div>
+      <div class="col-span-1 md:col-span-2 flex items-center justify-center">
+        {# Logo #}
+        {{
+          svg("@webroot/dist/images/svg/wappen.svg")|attr({
+            class: 'w-1/2 md:w-full'
+          })
+        }}
+      </div>
+      <div class="col-span-1 md:col-span-4 flex flex-wrap space-y-8 items-center justify-center md:justify-end">
+        {# Metanavigation #}
+        {{ include('_components/navigation/navigationSub.twig', {
+          data: {
+            nodes: craft.navigation.nodes('footerMetanavigation').all(),
+            activeNode: craft.navigation.getActiveNode(),
+            languageSwitch: true
+          }
+        }, withContext = false) }}
+        {# Social Media #}
+        {{ include('_components/socialLinks/socialLinks.twig', {
+          data: {
+            variant: 'md'
+          }
+        }, withContext = false) }}
+      </div>
+    </div>
+
+    {# Adresse #}
+    <div class="{{ props.classes.row }} md:grid-cols-1 items-center">
+      <div class="col-span-1 flex items-center justify-center md:justify-center">
+        <div>&copy;{{ "now"|date("Y") }} <a class="{{ props.classes.footerLink }}" href="{{ siteUrl }}">{{ getenv('SITE_NAME') }}</a> </div>
+      </div>
+    </div>
+  </div>
+</footer>

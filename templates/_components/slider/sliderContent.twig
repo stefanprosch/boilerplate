@@ -1,0 +1,78 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-sliderContent',
+    slides: null,
+    destroyBreakpoint: null
+  },
+  classes: {
+    root: '',
+    custom: '',
+    swiperSlide: 'swiper-slide',
+    swiperWrapper: 'grid grid-cols-2 md:grid-cols-12 gap-4 md:gap-8 md:h-screen py-16',
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{# Component #}
+<div class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }} js-sliderContent">
+  {% for item in props.data.slides %}
+    <div class="{{ props.classes.swiperWrapper }} js-sliderBlock" id="block-{{ loop.index }}">
+        <!-- Left Content (Headline and Description) -->
+        <div class="js-sliderContentWrapper order-2 md:order-1 md:sticky md:top-0 col-span-2 md:col-span-3 md:col-start-3 md:h-full flex flex-col justify-center space-y-8">
+          {# Title #}
+          <h2 class="js-sliderTitle text-2xl">{{ item.textTitle }}</h2>
+          {# Line #}
+          <div class="js-sliderLine w-1/3 leading-loose flex items-center h-1">
+            <hr class="w-full h-[1px] bg-accent border-0"/>
+          </div>
+          {# Description #}
+          <div class="js-sliderDescription mt-4 text-lg text-texter">
+            {{ include('_components/text/plainText.twig', {
+              data: {
+                text: item.textDescription | striptags ??? null
+              },
+              classes: {
+                custom: 'text-small text-texter'
+              }
+            }, withContext = false) }}
+          </div>
+        </div>
+
+        <!-- Right Content (Image) -->
+        <div class="relative order-1 md:order-2 col-span-1 md:col-start-7 md:w-[50vw] md:h-full">
+          {{ include('_components/image/image.twig', {
+            data: {
+              image: item.assetImage.one() ?? null,
+              aspectRatio: 'aspect-square',
+              transform: 'auto',
+              caption: 0,
+              objectFit: 'cover',
+              lazy: false
+            },
+            classes: {
+              custom: 'md:hidden hasGradient'
+            }
+          }, withContext = false) }}
+          {{ include('_components/image/image.twig', {
+            data: {
+              image: item.assetImage.one() ?? null,
+              aspectRatio: 'aspect-square',
+              transform: 'auto',
+              caption: 0,
+              objectFit: 'cover',
+              lazy: false
+            },
+            classes: {
+              custom: 'hidden md:block hasGradient w-full h-auto'
+            }
+          }, withContext = false) }}
+        </div>
+    </div>
+  {% endfor %}
+</div>

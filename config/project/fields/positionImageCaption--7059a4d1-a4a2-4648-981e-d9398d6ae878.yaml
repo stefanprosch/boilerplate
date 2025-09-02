@@ -1,0 +1,16 @@
+columnSuffix: null
+handle: positionImageCaption
+instructions: null
+name: 'Builder: Content - Image - Position Image Caption'
+searchable: false
+settings:
+  cachedOptions: true
+  customOptions: false
+  element: null
+  genError: null
+  json: ''
+  template: _super-dynamic-fields/image-caption-position.json
+  templateData: null
+translationKeyFormat: null
+translationMethod: none
+type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField

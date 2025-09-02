@@ -1,0 +1,68 @@
+{% do _globals.set('prefetchUrls', [alias("@assetsUrl")]) %}
+{% do _globals.set('baseUrl', alias("@web") ~ "/") %}
+
+<!DOCTYPE html>
+<html data-theme="{{ theme|default('') }}" class="no-js {{
+  "template-" ~ (templatePath|default("")|replace({"/": "-"}))
+}}" lang="{{ craft.app.language|slice(0, 2) }}">
+<head>
+  {# >>> Render block head meta #}
+  {{ include("_boilerplate/_partials/head-meta.twig", {}, withContext = true) }}
+  {% block blockHeadMeta %}
+
+  {% endblock %}
+
+  {% block blockHeadFavicons %}
+
+  {% endblock %}
+
+  {# >>> Render block head js #}
+  {{ include("_boilerplate/_partials/head-js.twig", {}, withContext = true) }}
+  {% block blockHeadJs %}
+
+  {% endblock %}
+
+  {# >>> Render block head fonts #}
+  {% block blockHeadFonts %}
+
+  {% endblock %}
+
+  {# >>> Render block head css #}
+  {% block blockHeadCss %}
+
+  {% endblock %}
+  <style>
+    [v-cloak], [x-cloak] { display: none !important; }
+  </style>
+  {{
+  include(
+    "_boilerplate/_partials/head-critical-css.twig",
+    {
+      criticalPath: templatePath|default("")
+    },
+    withContext = true
+  )
+  }}
+
+  {# >>> Include RSS feeds #}
+  {{ include("_boilerplate/_partials/head-rss-feeds.twig", {}, withContext = true) }}
+
+  {# >>> Render block app head #}
+  {% block blockAppHead %}
+
+  {% endblock %}
+</head>
+  <body x-data="{ isNavOpen: false }"
+        :class="{ '!overflow-hidden lg:overflow-scroll': isNavOpen }">
+  {# >>> Render block app body #}
+  {% block blockAppBody %}
+
+  {% endblock %}
+
+  {# >>> Render block app footer #}
+  {{ include("_boilerplate/_partials/footer-global.twig", {}, withContext = true) }}
+  {% block blockAppFooter %}
+
+  {% endblock %}
+  </body>
+</html>

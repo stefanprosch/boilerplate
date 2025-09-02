@@ -1,0 +1,16 @@
+columnSuffix: null
+handle: channelSelection
+instructions: null
+name: 'Builder: Content - Channel - Selection'
+searchable: false
+settings:
+  cachedOptions: true
+  customOptions: false
+  element: null
+  genError: null
+  json: ''
+  template: _super-dynamic-fields/channel-selection.json
+  templateData: null
+translationKeyFormat: null
+translationMethod: none
+type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField

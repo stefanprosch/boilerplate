@@ -1,0 +1,35 @@
+@layer utilities {
+  strong,
+  b {
+    @apply font-bold;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif !font-normal;
+  }
+
+  .text-h2 {
+    @apply text-6xl leading-tight md:text-7xl font-serif;
+  }
+
+  .text-leading {
+    @apply text-lg md:text-2xl font-serif;
+  }
+
+  .text-subheading {
+    @apply text-2xl leading-tight font-normal;
+  }
+
+  .text-price {
+    @apply text-xl font-serif;
+  }
+
+  .text-small {
+    @apply text-xs leading-loose font-sans;
+  }
+}

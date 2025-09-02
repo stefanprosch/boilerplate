@@ -1,0 +1,107 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-stackAccommodation',
+    headline: null,
+    items:  null,
+    noLazyImageLoadingCount: null
+  },
+  classes: {
+    root: '',
+    custom: '',
+    contentWrapper: 'group grid grid-cols-2 md:grid-cols-12 gap-4 md:gap-8 py-16 items-center',
+  },
+} %}
+
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{# Modul #}
+{% if props.data.items ??? null %}
+  <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}">
+    {% for item in props.data.items %}
+      <div class="{{ props.classes.contentWrapper }}">
+        <div class="md:order-2 md:group-even:order-1 md:col-span-3 md:col-start-9 md:group-even:col-start-2 group-even:text-right"
+              data-speed="1.2">
+          {# Headline #}
+          <h4 class="text-leading">
+            {{ item.textCustomTitle ??? item.title ??? null }}
+          </h4>
+
+          {# Größe / Personen #}
+          <div class="flex flex-row space-x-2 text-xs/10 text-accent">
+            <div class="w-auto">32 m<sup>2</sup></div>
+            <div class="w-auto flex-grow leading-loose flex items-center h-10">
+              <hr class="w-full h-[1px] bg-accent border-0"/>
+            </div>
+            <div class="w-auto">2-3 Personen</div>
+          </div>
+
+          {# Description #}
+          <div class="mt-4 text-small text-text space-y-4">
+            {{ include('_components/text/plainText.twig', {
+              data: {
+                text: item.textEntryDescription | striptags | truncate(160) ??? null
+              },
+              classes: {
+                custom: ''
+              }
+            }, withContext = false) }}
+
+            {# Mehr erfahren #}
+            {{ include('_components/button/button.twig', {
+              data: {
+                url: item.url,
+                text: 'translate.component.button.textMore' | t,
+                variantStyle: 'link',
+                variantSize: 'md'
+              }
+            }, withContext = false) }}
+          </div>
+
+          {# Preis / Anfragen / Buchen #}
+          <div class="flex flex-col space-y-4 mt-8">
+            <div class="text-price">1.234 Euro</div>
+            <div class="flex flex-row items-center md:group-even:justify-end space-x-2">
+              {{ include('_components/button/button.twig', {
+                data: {
+                  url: '#',
+                  text: 'translate.component.button.request' | t,
+                  variantStyle: 'secondary',
+                  variantSize: 'md'
+                }
+              }, withContext = false) }}
+              {{ include('_components/button/button.twig', {
+                data: {
+                  url: '#',
+                  text: 'translate.component.button.book' | t,
+                  variantStyle: 'primary',
+                  variantSize: 'md'
+                }
+              }, withContext = false) }}
+            </div>
+          </div>
+
+        </div>
+
+        <div class="md:order-1 md:group-even:order-2 md:col-span-6 md:col-start-2 md:group-even:col-start-6">
+          {{ include('_components/image/image.twig', {
+            data: {
+              image: item.assetEntryImage.one() ?? null,
+              aspectRatio: 'aspect-portrait',
+              transform: 'auto',
+              caption: 0,
+              objectFit: 'cover',
+              lazy: false
+            },
+            classes: {
+              custom: 'hasGradient'
+            }
+          }, withContext = false) }}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}

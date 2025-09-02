@@ -1,0 +1,22 @@
+@layer components {
+  .c-image {
+    @apply relative;
+    z-index: 0;
+
+    &.hasGradient {
+      &:after {
+        @apply content-[''] absolute top-0 bottom-0 left-0 right-0;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.50) 100%);
+        z-index: 2;
+      }
+    }
+
+    &.hasOverlay {
+      &:before {
+        @apply content-[''] absolute top-0 bottom-0 left-0 right-0 bg-text opacity-50;
+        mix-blend-mode: hue;
+        z-index: 1;
+      }
+    }
+  }
+}

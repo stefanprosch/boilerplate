@@ -1,0 +1,120 @@
+{% extends "_layouts/layout-patternlib.twig" %}
+
+{% block blockAppContent %}
+  {% cache using key craft.app.request.pathInfo %}
+    {# >>> Render variant #}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        SM
+      {% endblock %}
+      {% block content %}
+        {{ include(
+          "_components/spacer/spacer.twig",
+          {
+            data: {
+              height: "sm",
+              visible: true
+            }
+          },
+          withContext = false
+        ) }}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        MD
+      {% endblock %}
+      {% block content %}
+        {{ include(
+          "_components/spacer/spacer.twig",
+          {
+            data: {
+              height: "md",
+              visible: true
+            }
+          },
+          withContext = false
+        ) }}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        LG
+      {% endblock %}
+      {% block content %}
+        {{ include(
+          "_components/spacer/spacer.twig",
+          {
+            data: {
+              height: "lg",
+              visible: true
+            }
+          },
+          withContext = false
+        ) }}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        XL
+      {% endblock %}
+      {% block content %}
+        {{ include(
+          "_components/spacer/spacer.twig",
+          {
+            data: {
+              height: "xl",
+              visible: true
+            }
+          },
+          withContext = false
+        ) }}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        2XL
+      {% endblock %}
+      {% block content %}
+        {{ include(
+          "_components/spacer/spacer.twig",
+          {
+            data: {
+              height: "2xl",
+              visible: true
+            }
+          },
+          withContext = false
+        ) }}
+      {% endblock %}
+    {% endembed %}
+
+    {# >>> Render variant #}
+    {% embed "hidden/patternlib/_partials/_embedComp.twig" %}
+      {% block label %}
+        MD with label
+      {% endblock %}
+      {% block content %}
+        {{ include(
+          "_components/spacer/spacer.twig",
+          {
+            data: {
+              label: "Label text",
+              height: "md",
+              visible: true
+            }
+          },
+          withContext = false
+        ) }}
+      {% endblock %}
+    {% endembed %}
+  {% endcache %}
+{% endblock %}

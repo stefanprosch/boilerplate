@@ -1,0 +1,93 @@
+color: null
+fieldLayouts:
+  b5f39594-4dfb-477b-a358-ea2dac368b7b:
+    cardView:
+      - 'layoutElement:483ce826-3abf-48ac-8c95-5114bda99f30'
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-03-21T08:25:17+00:00'
+            elementCondition: null
+            fieldUid: 3cc5cb1b-b446-4459-b458-bab6c01226a5 # Builder: Content - Section - Section Anchor
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Section Anchor'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 25a8f671-64f1-45d7-9058-447bf3895ea6
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: 5cb029e3-a009-451e-8ab8-a2a2dec9a3f5
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2024-11-18T07:59:55+00:00'
+            elementCondition: null
+            fieldUid: 9a8fffce-3c28-4326-8f7a-e31d2f6cc04b # Builder: Content - Section - Section Background Color
+            handle: null
+            includeInCards: true
+            instructions: null
+            label: 'Section Background Color'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 483ce826-3abf-48ac-8c95-5114bda99f30
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2024-11-18T07:59:55+00:00'
+            elementCondition: null
+            fieldUid: 74b87138-1475-47c2-a9dd-63baa78dd5f5 # Builder: Content - Section - Space Between Blocks
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Space Between Blocks'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 16c62a98-e675-40ee-a4d0-8ca2543ed5de
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2024-11-18T07:59:55+00:00'
+            elementCondition: null
+            fieldUid: aa7883a4-2cce-4316-85f3-ec6ea59402ec # Builder: Content - Section - Section Padding Vertical
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Section Padding Vertical'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: d2acb96f-9f12-4449-ad76-d024ad3d28ab
+            userCondition: null
+            warning: null
+            width: 50
+        name: Settings
+        uid: 67315d39-8fbf-45a2-a4f2-04ae464ff91e
+        userCondition: null
+handle: blockSection
+hasTitleField: false
+icon: null
+name: Section
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

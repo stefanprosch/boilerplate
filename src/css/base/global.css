@@ -1,0 +1,42 @@
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    width: 100vw;
+  }
+
+  body {
+    @apply bg-background text-text font-sans text-base antialiased;
+  }
+
+  body.is-loading,
+  html.lg-on body {
+    @apply !overflow-hidden;
+  }
+
+  body.is-complete {
+    @apply overflow-auto;
+  }
+
+  img {
+    @apply w-full pointer-events-none;
+  }
+
+  #appWrapper {
+    @apply flex  flex-col  min-h-screen;
+  }
+
+  /* a11y-keyboard-focus */
+  :is(a[href], button, object, embed, iframe, input, textarea, select, details .a11y-keyboard-focus):not([disabled]):not([aria-hidden="true"]),
+  [tabindex]:not([tabindex="-1"]){
+    @apply transition;
+    @apply focus:outline-none;
+    @apply focus-visible:ring-4;
+    @apply focus-visible:ring-offset-2;
+    @apply focus-visible:ring-keyboard-focus;
+    @apply focus-visible:ring-offset-white dark:focus-visible:ring-offset-black;
+  }
+}

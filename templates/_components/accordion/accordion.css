@@ -1,0 +1,41 @@
+.c-accordion {
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .close {
+    @apply hidden;
+  }
+
+  &[open] > summary {
+    .open {
+      @apply hidden;
+    }
+    .close {
+      @apply block;
+    }
+  }
+}
+
+.c-accordionEntries {
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .close {
+    @apply hidden;
+  }
+
+  details[open] summary {
+    .open {
+      @apply hidden;
+    }
+    .close {
+      @apply block;
+    }
+  }
+
+  .container {
+    @apply !px-0;
+  }
+}

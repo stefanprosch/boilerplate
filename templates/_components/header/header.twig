@@ -1,0 +1,90 @@
+{# Set Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-header',
+    url: siteUrl,
+    logoSize: 'lg',
+    name: getenv('SITE_NAME'),
+  },
+  classes: {
+    root: 'fixed top-0 left-0 right-0 bg-transparent z-10 js-header',
+    custom: '',
+    container: 'container relative py-8 flex items-center justify-center z-10',
+    homeLink: 'flex items-center',
+    navigation: 'flex absolute left-8',
+    utilities: 'hidden lg:flex flex-row absolute items-center right-8 space-x-4',
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+<header class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }}"
+        :class="{ 'is-navOpen': isNavOpen }">
+
+  <div class=" {{ props.classes.container }}">
+
+    {# Navigation Hamburger Menu #}
+    <nav class="{{ props.classes.navigation }}"
+         :class="{ 'lg:bg-transparent': isNavOpen }">
+
+      <button @click="isNavOpen = (isNavOpen) ? false : true"
+              class="block h-12 w-12 text-current hover:text-text focus:outline-none focus:text-text">
+        <svg class="h-full w-full stroke-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 60">
+          <!-- Hamburger Menu Icon -->
+          <g :class="{'hidden': isNavOpen}" class="transition-all duration-300 ease-in-out">
+            <line class="transition-transform duration-300 ease-in-out" x1="10" y1="15" x2="50" y2="15" stroke="currentColor" stroke-width="2"/>
+            <line class="transition-transform duration-300 ease-in-out" x1="10" y1="30" x2="80" y2="30" stroke="currentColor" stroke-width="2"/>
+            <line class="transition-transform duration-300 ease-in-out" x1="10" y1="45" x2="50" y2="45" stroke="currentColor" stroke-width="2"/>
+          </g>
+
+          <!-- Close (X) Icon -->
+          <g :class="{'hidden': !isNavOpen}" class="transition-all duration-300 ease-in-out">
+            <line class="transition-transform duration-300 ease-in-out" x1="15" y1="15" x2="45" y2="45" stroke="currentColor" stroke-width="2" transform="rotate(0)">
+            </line>
+            <line class="transition-transform duration-300 ease-in-out" x1="45" y1="15" x2="15" y2="45" stroke="currentColor" stroke-width="2" transform="rotate(0)">
+            </line>
+          </g>
+        </svg>
+      </button>
+    </nav>
+
+    {# Logo #}
+    <a href="{{ props.data.url }}" class="{{ props.classes.homeLink }}">
+      {{ include('_components/logo/logo.twig', {
+        data: {
+          variantSize: props.data.logoSize ??? 'md'
+        },
+      }, withContext = false) }}
+    </a>
+
+    {# Utilities if needed #}
+    <nav class="{{ props.classes.utilities }}">
+      {# Code #}
+    </nav>
+  </div>
+
+  <div class="w-full absolute top-0 left-0 z-0 transform transition-transform duration-500 ease-in-out"
+       alpinejs x-cloak
+       x-show="isNavOpen"
+       @click.away="isNavOpen = false"
+       x-transition:enter="transform transition-transform duration-500 ease-in-out"
+       x-transition:enter-start="-translate-y-full opacity-0"
+       x-transition:enter-end="translate-y-0 opacity-100"
+       x-transition:leave="transform transition-transform duration-500 ease-in-out"
+       x-transition:leave-start="translate-y-0 opacity-100"
+       x-transition:leave-end="-translate-y-full opacity-0">
+
+    {# Main Navigation #}
+    {{ include('_components/navigation/navigationMain.twig', {
+      data: {
+        nodes: craft.navigation.nodes('navigationMain').all(),
+        activeNode: craft.navigation.getActiveNode(),
+      }
+    }, withContext = false) }}
+  </div>
+</header>
+

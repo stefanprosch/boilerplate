@@ -1,0 +1,6 @@
+[
+  {"value": "grid1Cols", "label": "Grid: 1 Column"},
+  {"value": "grid2Cols", "label": "Grid: 2 Columns", "default": "yes"},
+  {"value": "grid3Cols", "label": "Grid: 3 Columns"},
+  {"value": "grid4Cols", "label": "Grid: 4 Columns"}
+]

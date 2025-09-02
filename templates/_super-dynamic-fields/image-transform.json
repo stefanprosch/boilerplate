@@ -1,0 +1,6 @@
+[
+  {"value": "aspect-auto", "label": "Auto", "default": "yes"},
+  {"value": "aspect-landscape", "label": "Landscape"},
+  {"value": "aspect-portrait", "label": "Portrait"},
+  {"value": "aspect-square", "label": "Square"}
+]

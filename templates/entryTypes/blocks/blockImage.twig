@@ -1,0 +1,76 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-blockImage',
+    block: null,
+  },
+  classes: {
+    root: 'relative',
+    custom: '',
+  },
+  variants: {
+    wide: 'w-full',
+    narrow: 'container grid grid-cols-12 gap-4 md:gap-8',
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
+} %}
+
+{% if props.data.block.image ??? null %}
+  {% set showImageCaption = 0 %}
+  {% set positionImageCaption = props.data.block.positionImageCaption.value ??? null %}
+  {% set showOverlay = positionImageCaption != 'bottom' ? true : null %}
+  {% if positionImageCaption == 'bottom' %}
+    {% set showImageCaption = props.data.block.showImageCaption ??? 0 %}
+  {% endif %}
+
+  <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }} {{ props.variants[data.block.imageWidth.value] }}">
+    {{ include('_components/image/image.twig', {
+      data: {
+        image: props.data.block.image.eagerly().one() ??? null,
+        aspectRatio: props.data.block.imageRatio.value ??? 'aspect-landscape',
+        caption: showImageCaption,
+        lazy: true,
+      },
+      classes: {
+        custom: 'col-span-12 ' ~ (showOverlay ? 'hasOverlay' : '')
+      }
+    }, withContext = false) }}
+
+    {# Overlay Text #}
+    {% if showOverlay %}
+      {% set overlayPos = 'justify-center' %}
+      {% if positionImageCaption == 'overlay-top' %}
+        {% set overlayPos = 'justify-start pt-4 md:pt-8' %}
+      {% endif %}
+      {% if positionImageCaption == 'overlay-bottom' %}
+        {% set overlayPos = 'justify-end pb-4 md:pb-8' %}
+      {% endif %}
+      <!-- Headline / Text Container -->
+      <div class="container absolute top-0 bottom-0 left-0 right-0 z-1">
+        <div class="flex flex-col mr-auto h-full {{ overlayPos}} items-center">
+          <div class="w-full flex flex-col md:w-3/4 md:mx-auto h-fit items-center text-white">
+            {% set headline = props.data.block.image.eagerly().one().textCustomTitle ??? null %}
+            {% set headline = headline | split('. ') %}
+            {% set headline = headline | join('.\r') %}
+            {{ include('_components/text/headline.twig', {
+              data: {
+                text: headline ??? null,
+                variantSize: 'h2',
+                tag: 'h2',
+              },
+              classes: {
+                custom: 'break-words text-center'
+              }
+            }, withContext = false) }}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+{% endif %}

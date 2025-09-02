@@ -1,0 +1,160 @@
+{#
+c-pageHead
+------------------------------------------------------------
+#}
+
+{# Set Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'm-pageHead',
+    object: null,
+    headline: null,
+    text: null,
+    variant: 'default',
+    size: 'h1',
+    link: null,
+    videoChannel: null
+  },
+  classes: {
+    root: 'relative -mt-[12px]',
+    custom: '',
+    headline: '',
+    text: 'font-sans font-normal text-1 text-300'
+  },
+  variants: {
+    default: {
+      container: 'container grid grid-cols-12 gap-4 md:gap-8 mt-64',
+      image: 'col-span-6',
+      content: 'col-span-6',
+    },
+    full: {
+      container: 'w-screen h-screen max-h-[-webkit-fill-available] lg:min-h-0 lg:h-screen',
+      image: 'p-0 absolute top-0 left-0 bottom-0 right-0 -z-1',
+      content: 'container relative mx-auto z-1 text-white min-h-screen min-h-[-webkit-fill-available] lg:min-h-0 lg:h-screen',
+    },
+    noimage: {
+      container: 'bg-black text-white w-screen h-screen max-h-[-webkit-fill-available] lg:min-h-0 lg:h-[75vh]',
+      image: '',
+      content: 'min-h-full min-h-[-webkit-fill-available] lg:min-h-0 lg:h-full',
+    }
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
+} %}
+
+
+{# Modul #}
+{% if props.data.object or props.data.text %}
+  {% if props.data.headline %}
+    {% set headline = props.data.headline %}
+  {% elseif props.data.object.textCustomTitle ??? null and props.data.object.textCustomTitle | length %}
+    {% set headline = props.data.object.textCustomTitle | raw %}
+  {% else %}
+    {% set headline = props.data.object.title %}
+  {% endif %}
+
+  {% set imageVariantClasses = 'w-full h-full' %}
+  {% set displayEntryImage = null %}
+
+  {% if props.data.variant == 'noimage' %}
+    {% set displayEntryImage = false %}
+  {% elseif props.data.object.assetEntryImage.eagerly() | length %}
+    {% set displayEntryImage = true %}
+  {% endif %}
+
+  <div class="{{ props.data.name }} {{ props.classes.root }} {{ props.variants[props.data.variant].container }} {{ props.classes.custom }}">
+    {% if displayEntryImage and props.data.object.assetEntryImage.one() %}
+      <!-- Image, Video or Slider -->
+      <div class="{{ props.variants[props.data.variant].image }}">
+        {% if props.data.object.videoId ?? null %}
+          {# Video #}
+          {{ include('_components/video/' ~ props.data.videoChannel ~ '.twig', {
+            data: {
+              videoId: props.data.object.videoId ??? null,
+              autoplay: 1,
+              loop: 1,
+              background: 1,
+              posterImage: props.data.object.assetEntryImage.eagerly().one() ??? null
+            },
+            classes: {
+              custom: 'w-full h-full hasGradient hasOverlay'
+            }
+          }, withContext = false) }}
+        {% elseif props.data.object.assetEntryImage | length > 1 %}
+          {# Slider #}
+          {{ include('_components/slider/sliderHeroImages.twig', {
+            data: {
+              slides: props.data.object.assetEntryImage.eagerly().all() ??? null,
+              aspectRatio: 'aspect-landscape'
+            },
+            classes: {
+              custom: 'w-full h-full hasGradient hasOverlay'
+            }
+          }, withContext = false) }}
+        {% else %}
+          {# Single Image Mobile and Desktop #}
+          {{ include('_components/image/image.twig', {
+            data: {
+              image: props.data.object.assetEntryImage.eagerly().one() ??? null,
+              aspectRatio: 'aspect-portrait',
+              lazy: false
+            },
+            classes: {
+              custom: 'w-full h-full lg:hidden hasGradient hasOverlay'
+            }
+          }, withContext = false) }}
+
+          {{ include('_components/image/image.twig', {
+            data: {
+              image: props.data.object.assetEntryImage.eagerly().one() ??? null,
+              aspectRatio: 'aspect-landscape',
+              lazy: false
+            },
+            classes: {
+              custom: 'w-full h-full hidden lg:block hasGradient hasOverlay'
+            }
+          }, withContext = false) }}
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <!-- Headline / Text Container -->
+    <div class="{{ props.variants[props.data.variant].content }}">
+      <div class="w-full h-full flex flex-col mr-auto justify-center items-center">
+        <div class="w-full flex flex-col md:w-3/4 md:mx-auto h-fit items-center text-current"
+             data-speed="1.2">
+          {{ include('_components/text/headline.twig', {
+            data: {
+              text: headline ??? null,
+              variantSize: 'mega',
+              tag: 'h1',
+            },
+            classes: {
+              custom: 'break-words text-center'
+            }
+          }, withContext = false) }}
+
+          {% if props.data.link %}
+            {{ include('_components/button/button.twig', {
+              data: {
+                url: props.data.link.url ??? null,
+                text: props.data.link.text ??? null,
+                variantStyle: 'outlined',
+                variantSize: 'lg'
+              },
+              classes: {
+                custom: 'mt-8'
+              }
+            }, withContext = false) }}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+  </div>
+{% endif %}

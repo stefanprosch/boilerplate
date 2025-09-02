@@ -1,0 +1,44 @@
+columnSuffix: null
+handle: variantSize
+instructions: null
+name: 'Builder: Content - Text - Headline Size'
+searchable: false
+settings:
+  customOptions: false
+  options:
+    -
+      __assoc__:
+        -
+          - label
+          - LG
+        -
+          - value
+          - lg
+        -
+          - default
+          - '1'
+    -
+      __assoc__:
+        -
+          - label
+          - MD
+        -
+          - value
+          - md
+        -
+          - default
+          - ''
+    -
+      __assoc__:
+        -
+          - label
+          - SM
+        -
+          - value
+          - sm
+        -
+          - default
+          - ''
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Dropdown

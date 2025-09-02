@@ -1,0 +1,7 @@
+[
+  {"value": "list", "label": "List", "default": "yes"},
+  {"value": "slider", "label": "Slider"},
+  {"value": "grid", "label": "Grid"},
+  {"value": "accordion", "label": "Accordion"},
+  {"value": "tabs", "label": "Tabs"}
+]

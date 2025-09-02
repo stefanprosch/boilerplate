@@ -1,0 +1,135 @@
+color: null
+fieldLayouts:
+  1f90a7af-9b75-4562-a8a9-a12dc2d55522:
+    tabs:
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-03-21T09:57:18+00:00'
+            elementCondition: null
+            fieldUid: 1516a801-6243-468d-b8e2-479085458faa # Text: Custom Title
+            handle: textTitle
+            includeInCards: false
+            instructions: null
+            label: Title
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 9f3db4f5-71af-4fb2-ae0b-7080cddf91eb
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-04-10T11:09:06+00:00'
+            elementCondition: null
+            fieldUid: 1516a801-6243-468d-b8e2-479085458faa # Text: Custom Title
+            handle: textSubtitle
+            includeInCards: false
+            instructions: null
+            label: Subtitle
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 1468d536-4d63-471c-bad4-cd43e9ae729f
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-03-21T09:57:18+00:00'
+            elementCondition: null
+            fieldUid: d4cabad1-1cae-4a1e-a914-c38d9f1a813a # Builder: Content - Text - Text
+            handle: textDescription
+            includeInCards: false
+            instructions: null
+            label: Description
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: c590a9f0-f893-4f22-bb7a-2ad656664b28
+            userCondition: null
+            warning: null
+            width: 100
+          -
+            dateAdded: '2025-03-21T09:57:18+00:00'
+            elementCondition: null
+            fieldUid: c41504c5-f329-4495-9893-6237d54835c1 # Builder: Content - Content Blocks
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'Content Blocks'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: ba45a97c-a694-4e36-88b1-87337e36e6b9
+            userCondition: null
+            warning: null
+            width: 100
+        name: Content
+        uid: be06d9fe-ac72-4535-a0f7-63d512bbe1d5
+        userCondition: null
+      -
+        elementCondition: null
+        elements:
+          -
+            dateAdded: '2025-03-21T09:57:18+00:00'
+            elementCondition: null
+            fieldUid: 25e45cda-5ba7-4493-bd27-25459a06863b # Builder: Content - View Mode
+            handle: null
+            includeInCards: false
+            instructions: null
+            label: 'View Mode'
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: f9030684-54af-49bb-9b60-862e12c1cfaa
+            userCondition: null
+            warning: null
+            width: 50
+          -
+            dateAdded: '2025-04-25T11:02:56+00:00'
+            elementCondition:
+              class: craft\elements\conditions\entries\EntryCondition
+              conditionRules:
+                -
+                  class: craft\fields\conditions\OptionsFieldConditionRule
+                  fieldUid: 25e45cda-5ba7-4493-bd27-25459a06863b # Builder: Content - View Mode
+                  layoutElementUid: f9030684-54af-49bb-9b60-862e12c1cfaa
+                  operator: in
+                  uid: c93623da-439e-4994-9f35-58039ad7e7c9
+                  values:
+                    - grid
+              elementType: craft\elements\Entry
+              fieldContext: global
+            fieldUid: fa0a403f-fff3-468f-a2d3-8d84c55e56be # Builder: Content - Grid Columns
+            handle: gridColumns
+            includeInCards: false
+            instructions: null
+            label: Columns
+            providesThumbs: false
+            required: false
+            tip: null
+            type: craft\fieldlayoutelements\CustomField
+            uid: 024b7140-6b88-43b4-851a-824f4b1d0e92
+            userCondition: null
+            warning: null
+            width: 50
+        name: Settings
+        uid: f9c8700c-5517-4567-99b7-8758bd999f73
+        userCondition: null
+handle: blockContent
+hasTitleField: false
+icon: null
+name: Content
+showSlugField: false
+showStatusField: true
+slugTranslationKeyFormat: null
+slugTranslationMethod: site
+titleFormat: null
+titleTranslationKeyFormat: null
+titleTranslationMethod: site

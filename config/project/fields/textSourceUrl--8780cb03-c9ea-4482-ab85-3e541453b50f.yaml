@@ -1,0 +1,14 @@
+columnSuffix: xmuynimp
+handle: textSourceUrl
+instructions: null
+name: 'Text: Source Url'
+searchable: true
+settings:
+  fullGraphqlData: false
+  maxLength: 255
+  showLabelField: false
+  types:
+    - url
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Link

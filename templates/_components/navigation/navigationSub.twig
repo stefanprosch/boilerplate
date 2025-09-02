@@ -1,0 +1,77 @@
+{% set compDefaults = {
+  data: {
+    name: 'c-navigationSub',
+    nodes: null,
+    activeNode: null,
+    languageSwitch: null
+  },
+  classes: {
+    root: '',
+    custom: '',
+    ul: 'c-navigationSub__list',
+    li: 'c-navigationSub__listItem',
+    span: 'c-navigationSub__listHeading',
+    link: 'a11y-keyboard-focus btn btn--link',
+    button: 'a11y-keyboard-focus btn btn--link',
+    subItemsHolder: 'c-navigationSub__subItemsWrapper',
+  },
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{% if props.data.nodes ??? null %}
+  <nav class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }} js-navigationSub">
+    <ul alpinejs x-cloak
+        x-data="{
+        activeId: {{ props.data.activeNode.id ??? 0 }},
+        activeParentId: {{ props.data.activeNode.parent.id ??? 0 }}
+      }"
+        class="{{ props.classes.ul }}" data-level="1">
+
+      {% if props.data.languageSwitch %}
+        <li class="{{ props.classes.li }}">
+          {{ include('_components/switcher/language.twig', {}, withContext = false) }}
+        </li>
+      {% endif %}
+
+      {% nav node in props.data.nodes %}
+        {# >>> Set vars #}
+        {% set attributes = '' %}
+        {% if node.customAttributes %}
+          {% set attributes %}
+            {% for attribute in node.customAttributes %}
+              {{ attribute.attribute }}="{{ attribute.value }}"
+            {% endfor %}
+          {% endset %}
+        {% endif %}
+
+
+        <li class="{{ props.classes.li }} {{ node.classes ??? '' }}" data-level="{{ node.level }}"
+          {% if node.hasDescendants %}
+          x-data="{ flyoutMenuOpen: false }"
+          @click.away="flyoutMenuOpen = false"
+          @keydown.escape="flyoutMenuOpen = false"
+          {% endif %}>
+
+          {# >>> Render Link / Submenu Trigger #}
+          {% if node.url %}
+            <a href="{{ node.url }}"
+               @click="isNavOpen = !isNavOpen; activeId = {{ node.id }}"
+               class="{{ props.classes.link }}"
+               :class="{'is-active': activeId === {{ node.id }} || activeParentId === {{ node.id }}}"
+               data-level="{{ node.level }}"
+              {% if node.newWindow %}
+                target="_blank"
+                rel="noopener"
+              {% endif %} {{ attributes }}>{{- node.title -}}</a>
+          {% endif %}
+        </li>
+      {% endnav %}
+    </ul>
+  </nav>
+{% endif %}
+

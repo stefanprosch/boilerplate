@@ -1,0 +1,139 @@
+columnSuffix: null
+handle: globalsSocialMedia
+instructions: null
+name: 'Social Media Channels'
+searchable: true
+settings:
+  addRowLabel: 'Add a row'
+  columns:
+    __assoc__:
+      -
+        - col1
+        -
+          __assoc__:
+            -
+              - heading
+              - Channel
+            -
+              - handle
+              - channel
+            -
+              - width
+              - ''
+            -
+              - type
+              - select
+            -
+              - options
+              -
+                -
+                  __assoc__:
+                    -
+                      - label
+                      - Instagram
+                    -
+                      - value
+                      - instagram
+                    -
+                      - default
+                      - false
+                -
+                  __assoc__:
+                    -
+                      - label
+                      - Facebook
+                    -
+                      - value
+                      - facebook
+                    -
+                      - default
+                      - false
+                -
+                  __assoc__:
+                    -
+                      - label
+                      - LinkedIn
+                    -
+                      - value
+                      - linkedin
+                    -
+                      - default
+                      - false
+                -
+                  __assoc__:
+                    -
+                      - label
+                      - YouTube
+                    -
+                      - value
+                      - youtube
+                    -
+                      - default
+                      - false
+                -
+                  __assoc__:
+                    -
+                      - label
+                      - Vimeo
+                    -
+                      - value
+                      - vimeo
+                    -
+                      - default
+                      - false
+                -
+                  __assoc__:
+                    -
+                      - label
+                      - TikTok
+                    -
+                      - value
+                      - tiktok
+                    -
+                      - default
+                      - false
+                -
+                  __assoc__:
+                    -
+                      - label
+                      - 'X (Twitter)'
+                    -
+                      - value
+                      - xTwitter
+                    -
+                      - default
+                      - false
+                -
+                  __assoc__:
+                    -
+                      - label
+                      - Behance
+                    -
+                      - value
+                      - behance
+                    -
+                      - default
+                      - false
+      -
+        - col2
+        -
+          __assoc__:
+            -
+              - heading
+              - URL
+            -
+              - handle
+              - url
+            -
+              - width
+              - ''
+            -
+              - type
+              - url
+  defaults: null
+  maxRows: null
+  minRows: null
+  staticRows: false
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Table

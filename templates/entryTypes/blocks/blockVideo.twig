@@ -1,0 +1,37 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-blockVideo',
+    block: null,
+  },
+  classes: {
+    root: '',
+    custom: '',
+  },
+  variants: {
+    wide: 'w-full',
+    narrow: 'container grid grid-cols-12 gap-4 md:gap-8',
+  }
+} %}
+
+{# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+  variants: compDefaults.variants,
+} %}
+
+{% if props.data.block.videoId ??? null %}
+  <div class="{{ props.data.name }} {{ props.classes.root }}  {{ props.classes.custom }} {{ props.variants[data.block.videoWidth.value] }}">
+    {{ include('_components/video/' ~ props.data.block.videoProvider ~ '.twig', {
+      data: {
+        videoId: props.data.block.videoId ??? null,
+        autoplay: props.data.block.autoplay ??? 0,
+        loop: props.data.block.loop ??? 0,
+      },
+      classes: {
+        custom: 'col-span-12'
+      }
+    }, withContext = false) }}
+  </div>
+{% endif %}

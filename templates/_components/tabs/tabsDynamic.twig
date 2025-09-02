@@ -1,0 +1,124 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-tabsDynamic',
+    variantPosition: 'top',
+    activeTab: 1,
+    numberOfTabs: null,
+    items: null,
+  },
+  classes: {
+    root: 'grid grid-cols-2 md:grid-cols-10 gap-4 md:gap-8 js-observer',
+    custom: '',
+    tabs: 'col-span-2 md:col-span-10 hidden md:flex items-center justify-center',
+    dropdown: 'col-span-2 md:col-span-10 relative md:hidden w-full items-center justify-center',
+    content: 'col-span-2 md:col-span-10 mt-8',
+  },
+} %}
+
+
+  {# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{# Component #}
+<div alpinejs x-cloak
+     x-data="{
+        activeTab: {{ props.data.activeTab ??? 1 }},
+        open: false,
+        getTabs() {
+            return document.querySelectorAll('[data-tab]');
+        },
+        activeTabTitle() {
+            const tabs = this.getTabs();
+            return this.activeTab > 0 ? tabs[this.activeTab - 1].getAttribute('data-title') : 'Select Tab';
+        }
+      }"
+     class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+
+  <!-- Mobile Dropdown -->
+  <div class="{{ props.classes.dropdown }}">
+    <button @click="open = !open" class="btn btn--dropdown w-full">
+      <span x-text="activeTabTitle()"></span>
+      {{
+        svg("@webroot/dist/images/svg/icons/outline/chevron-down.svg")|attr({
+          class: 'w-4 h-4'
+        })
+      }}
+    </button>
+    <div x-show="open" class="absolute left-0 right-0 mt-2 bg-white shadow-lg z-10">
+      <ul>
+        {% for item in props.data.items %}
+          <li>
+            <button
+              @click="activeTab = {{ loop.index }}; open = false;"
+              :class="[activeTab === {{ loop.index }} ? 'active' : '']"
+              class="block px-4 py-2 w-full text-left"
+              data-tab data-title="{{ item.title }}"
+            >
+              {{ item.title }}
+            </button>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <nav class="{{ props.classes.tabs }}">
+    {% for item in props.data.items %}
+      <button
+        @click="activeTab = {{ loop.index }};"
+        :class="[activeTab === {{ loop.index }} ? 'active' : '']"
+        class="btn btn--tab"
+      >
+        {{ item.title }}
+      </button>
+    {% endfor %}
+  </nav>
+
+  <div class="{{ props.classes.content }}">
+    {% for item in props.data.items %}
+      <div :class="[activeTab === {{ loop.index }} ? 'block is-active' : 'hidden']"
+           class="grid grid-cols-1 gap-4 md:gap-8">
+
+        {# Description #}
+        {{ include('_components/text/richText.twig', {
+          data: {
+            html: item.textEntryDescription ??? null,
+          },
+          classes: {
+            custom: ''
+          }
+        }, withContext = false) }}
+
+        {# Image #}
+        {% if item.images ??? null %}
+          {% set viewMode = item.imagesViewMode %}
+
+          {% if viewMode == 'grid2Cols' or viewMode == 'grid3Cols' %}
+            {% set cols = 2 %}
+            {% if viewMode == 'grid3Cols' %}
+              {% set cols = 3 %}
+            {% endif %}
+
+            {{ include('_components/grid/images.twig', {
+              data: {
+                images: item.images ??? null,
+                columns: cols ??? 2,
+                caption: item.showImageCaption ??? null,
+                aspectRatio: item.imageRatio.value ??? 'aspect-landscape',
+                lazy: true,
+              },
+              classes: {
+                custom: 'col-span-1 md:col-span-4 md:col-start-7 auto-rows-max aspect-square'
+              }
+            }, withContext = false) }}
+          {% endif %}
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</div>
+

@@ -1,0 +1,74 @@
+{# >>> Comp Defaults #}
+{% set compDefaults = {
+  data: {
+    name: 'c-accordionEntries',
+    firstOpen: true,
+    numberOfAccordions: 1,
+    items: null,
+  },
+  classes: {
+    root: 'container grid grid-cols-1 gap-4 md:gap-8',
+    custom: '',
+    detailsWrapper: 'grid grid-cols-1 gap-4 md:gap-8 !gap-y-0',
+    details: 'text-base/loose text-text border-b border-accent first:border-t py-4',
+    summary: 'a11y-keyboard-focus list-none cursor-pointer font-bold text-black flex outline-none justify-between items-center rounded px-4',
+    contentHolder: 'mt-4 mb-8 px-4',
+  }
+} %}
+
+
+  {# >>> Merge data / classes / variants (optional) #}
+{% set props = {
+  data: data is defined and data is iterable ? compDefaults.data | merge(data) : compDefaults.data,
+  classes: classes is defined and classes is iterable ? compDefaults.classes | merge(classes) : compDefaults.classes,
+} %}
+
+{# Component #}
+<div class="{{ props.data.name }} {{ props.classes.root }} {{ props.classes.custom }}">
+  {% if props.data.items | length %}
+    <div class="{{ props.classes.detailsWrapper }}">
+      {% for item in props.data.items %}
+        <details class="{{ props.classes.details }}"
+           {% if props.data.firstOpen and loop.first %}open{% endif %}>
+          <summary class="{{ props.classes.summary }}">
+            {{ include('_components/text/headline.twig', {
+              data: {
+                text: item.textCustomTitle ??? item.title ??? null,
+                variantSize: 'h3',
+                tag: 'h3',
+              }
+            }, withContext = false) }}
+            {{ include('_components/icon/icon.twig', {
+              data: {
+                icon: 'icons/outline/add',
+                variantSize: 'md',
+              },
+              classes: {
+                custom: 'open',
+                color: 'currentColor'
+              }
+            }, withContext = false) }}
+            {{ include('_components/icon/icon.twig', {
+              data: {
+                icon: 'icons/outline/remove',
+                variantSize: 'md',
+              },
+              classes: {
+                custom: 'close',
+                color: 'currentColor'
+              }
+            }, withContext = false) }}
+          </summary>
+          <div class="{{ props.classes.contentHolder }}">
+            {# >>> Render Conent Builder #}
+            {{ include('_builders/_builderContent.twig', {
+              data: {
+                builderContent: item.builderContent.eagerly() ??? null,
+              }
+            }, withContext = false) }}
+          </div>
+        </details>
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>

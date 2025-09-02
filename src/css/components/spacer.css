@@ -1,0 +1,13 @@
+.c-spacer__wrapper {
+  @apply flex flex-row w-full items-center justify-end space-x-4 relative;
+  font-size: 0.75rem;
+  line-height: 1;
+
+  & > div {
+    @apply w-full;
+  }
+
+  & > label > span {
+    @apply whitespace-nowrap uppercase text-current;
+  }
+}

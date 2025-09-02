@@ -1,0 +1,31 @@
+@layer base {
+  .js .is-complete #appWrapper,
+  .js .is-livePreview #appWrapper  {
+    @apply !opacity-100 transition-all ease-in-out duration-1000 delay-500;
+  }
+
+  .js-preloader {
+    @apply !opacity-100
+    fixed z-[999999] left-0 top-0 w-screen max-w-full h-screen
+    flex flex-col justify-center items-center transform;
+
+    @media screen and (max-width:1023px) {
+      /* stylelint-disable */
+      /* autoprefixer: off */
+      height: -webkit-fill-available;
+      /* stylelint-enable */
+    }
+
+    &.js-preloader--loading {
+      @apply !opacity-100
+    }
+
+    &.js-preloader--complete {
+      @apply -translate-y-full !opacity-100 transition-all duration-200 delay-500 ease-in hidden;
+    }
+
+    .js-svgPreloader {
+      @apply text-black w-32 h-32;
+    }
+  }
+}

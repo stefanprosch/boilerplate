@@ -1,0 +1,6 @@
+[
+  {"value": "bottom", "label": "Below Image", "default": "yes"},
+  {"value": "overlay-center", "label": "On Image: Centered"},
+  {"value": "overlay-top", "label": "On Image: Top"},
+  {"value": "overlay-bottom", "label": "On Image: Bottom"}
+]

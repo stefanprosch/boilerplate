@@ -1,0 +1,16 @@
+columnSuffix: mzlozibq
+handle: textCaption
+instructions: null
+name: 'Text: Caption'
+searchable: true
+settings:
+  byteLimit: null
+  charLimit: null
+  code: false
+  initialRows: 4
+  multiline: true
+  placeholder: null
+  uiMode: normal
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\PlainText

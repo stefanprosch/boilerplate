@@ -1,0 +1,19 @@
+columnSuffix: null
+handle: contentEntryLimit
+instructions: null
+name: 'Builder: Content - Entry Limit'
+searchable: false
+settings:
+  decimals: 0
+  defaultValue: null
+  max: null
+  min: 0
+  prefix: Display
+  previewCurrency: null
+  previewFormat: decimal
+  size: null
+  step: null
+  suffix: entries.
+translationKeyFormat: null
+translationMethod: none
+type: craft\fields\Number

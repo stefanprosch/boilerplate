@@ -1,0 +1,16 @@
+columnSuffix: null
+handle: spaceBetweenBlocks
+instructions: null
+name: 'Builder: Content - Section - Space Between Blocks'
+searchable: false
+settings:
+  cachedOptions: true
+  customOptions: false
+  element: null
+  genError: null
+  json: ''
+  template: _super-dynamic-fields/spacing-between-y.json
+  templateData: null
+translationKeyFormat: null
+translationMethod: none
+type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField

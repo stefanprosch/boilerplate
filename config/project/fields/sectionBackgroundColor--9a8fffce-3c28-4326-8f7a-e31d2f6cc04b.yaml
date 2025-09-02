@@ -1,0 +1,16 @@
+columnSuffix: null
+handle: sectionBackgroundColor
+instructions: null
+name: 'Builder: Content - Section - Section Background Color'
+searchable: false
+settings:
+  cachedOptions: true
+  customOptions: false
+  element: null
+  genError: null
+  json: ''
+  template: _super-dynamic-fields/background-color-section.json
+  templateData: null
+translationKeyFormat: null
+translationMethod: none
+type: amici\SuperDynamicFields\fields\SueprDynamicDropdownField
